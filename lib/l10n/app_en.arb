@@ -1,0 +1,23 @@
+{
+  "@@locale": "en",
+  "appName": "FitTrack",
+  "welcome": "Welcome to FitTrack",
+  "login": "Login",
+  "register": "Register",
+  "language": "Language",
+  "english": "English",
+  "vietnamese": "Vietnamese",
+  "currentLanguage": "Current language: English",
+  "switchLanguage": "Switch to Vietnamese",
+  "themeMode": "Theme Mode",
+  "lightTheme": "Light Theme",
+  "darkTheme": "Dark Theme",
+  "save": "Save",
+  "cancel": "Cancel",
+  "emptyStateTitle": "No Data Found",
+  "emptyStateMessage": "There is nothing here yet.",
+  "emailInvalid": "Invalid email format",
+  "passwordTooShort": "Password must be at least 6 characters",
+  "positiveNumberRequired": "Please enter a positive number",
+  "fieldRequired": "This field is required"
+}

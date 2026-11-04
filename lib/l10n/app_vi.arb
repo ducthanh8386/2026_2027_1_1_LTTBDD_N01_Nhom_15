@@ -1,0 +1,23 @@
+{
+  "@@locale": "vi",
+  "appName": "FitTrack",
+  "welcome": "Chào mừng đến với FitTrack",
+  "login": "Đăng nhập",
+  "register": "Đăng ký",
+  "language": "Ngôn ngữ",
+  "english": "Tiếng Anh",
+  "vietnamese": "Tiếng Việt",
+  "currentLanguage": "Ngôn ngữ hiện tại: Tiếng Việt",
+  "switchLanguage": "Chuyển sang Tiếng Anh",
+  "themeMode": "Chế độ giao diện",
+  "lightTheme": "Giao diện sáng",
+  "darkTheme": "Giao diện tối",
+  "save": "Lưu",
+  "cancel": "Hủy",
+  "emptyStateTitle": "Không có dữ liệu",
+  "emptyStateMessage": "Chưa có dữ liệu nào ở đây.",
+  "emailInvalid": "Định dạng email không hợp lệ",
+  "passwordTooShort": "Mật khẩu phải có ít nhất 6 ký tự",
+  "positiveNumberRequired": "Vui lòng nhập một số dương",
+  "fieldRequired": "Trường này là bắt buộc"
+}
