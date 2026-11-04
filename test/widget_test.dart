@@ -7,7 +7,9 @@ import 'package:fit_track/data/local/prefs_store.dart';
 import 'package:fit_track/providers/settings_provider.dart';
 
 void main() {
-  testWidgets('FitTrack smoke test and language toggle', (WidgetTester tester) async {
+  testWidgets('FitTrack smoke test and language toggle', (
+    WidgetTester tester,
+  ) async {
     SharedPreferences.setMockInitialValues({});
     final prefsStore = await PrefsStore.create();
 

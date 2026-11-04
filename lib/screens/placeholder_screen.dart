@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../l10n/app_localizations.dart';
+
 import 'package:provider/provider.dart';
 
 import '../providers/settings_provider.dart';
@@ -47,9 +49,8 @@ class PlaceholderScreen extends StatelessWidget {
                       const SizedBox(height: 12),
                       Text(
                         l10n.welcome,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                        style: Theme.of(context).textTheme.titleLarge
+                            ?.copyWith(fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 8),

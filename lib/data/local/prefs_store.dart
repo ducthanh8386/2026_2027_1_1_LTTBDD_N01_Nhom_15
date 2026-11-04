@@ -50,3 +50,4 @@ class PrefsStore {
     return _prefs.remove(AppConstants.prefKeyUserId);
   }
 }
+

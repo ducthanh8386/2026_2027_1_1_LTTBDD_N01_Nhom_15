@@ -21,3 +21,4 @@ class AppConstants {
   static const String prefKeyThemeMode = 'pref_theme_mode';
   static const String prefKeyUserId = 'pref_user_id';
 }
+
