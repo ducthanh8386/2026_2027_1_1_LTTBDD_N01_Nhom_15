@@ -1,1 +1,4 @@
-// Stub service for auth_service (to be implemented in future phase)
+/// Stub AuthService (to be implemented in Phase 3).
+class AuthService {
+  const AuthService();
+}

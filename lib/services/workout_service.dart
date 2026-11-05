@@ -1,1 +1,4 @@
-// Stub service for workout_service (to be implemented in future phase)
+/// Stub WorkoutService (to be implemented in Phase 5).
+class WorkoutService {
+  const WorkoutService();
+}

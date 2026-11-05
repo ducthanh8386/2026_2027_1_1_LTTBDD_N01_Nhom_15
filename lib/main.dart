@@ -3,7 +3,13 @@ import 'package:provider/provider.dart';
 
 import 'app.dart';
 import 'data/local/prefs_store.dart';
+import 'providers/auth_provider.dart';
+import 'providers/exercise_provider.dart';
+import 'providers/nutrition_provider.dart';
+import 'providers/plan_provider.dart';
+import 'providers/progress_provider.dart';
 import 'providers/settings_provider.dart';
+import 'providers/workout_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +21,24 @@ void main() async {
       providers: [
         ChangeNotifierProvider<SettingsProvider>(
           create: (_) => SettingsProvider(prefsStore),
+        ),
+        ChangeNotifierProvider<AuthProvider>(
+          create: (_) => AuthProvider(),
+        ),
+        ChangeNotifierProvider<ExerciseProvider>(
+          create: (_) => ExerciseProvider(),
+        ),
+        ChangeNotifierProvider<ProgressProvider>(
+          create: (_) => ProgressProvider(),
+        ),
+        ChangeNotifierProvider<PlanProvider>(
+          create: (_) => PlanProvider(),
+        ),
+        ChangeNotifierProvider<WorkoutProvider>(
+          create: (_) => WorkoutProvider(),
+        ),
+        ChangeNotifierProvider<NutritionProvider>(
+          create: (_) => NutritionProvider(),
         ),
       ],
       child: const FitTrackApp(),
