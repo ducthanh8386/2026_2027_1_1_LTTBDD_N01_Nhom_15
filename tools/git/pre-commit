@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# 1) Chặn commit sai danh tính. 2) Máy B: chặn sửa file ngoài danh sách sở hữu.
+ROLE="$(git config --local fittrack.role || true)"
+EXPECTED="$(git config --local fittrack.expectedEmail || true)"
+[[ -z "$ROLE" ]] && exit 0   # chưa cài hook → bỏ qua
+CUR="$(git config user.email || true)"
+if [[ "$CUR" != "$EXPECTED" ]]; then
+  echo "✖ user.email ($CUR) khác email đã đăng ký cho máy này ($EXPECTED). Không commit."; exit 1
+fi
+[[ "$ROLE" != "B" ]] && exit 0
+ROOT="$(git rev-parse --show-toplevel)"
+OWN="$ROOT/docs/contracts/ownership.txt"
+[[ -f "$OWN" ]] || { echo "✖ Không thấy $OWN (hãy merge origin/main)"; exit 1; }
+mapfile -t PATTERNS < <(grep -vE '^\s*(#|\[|$)' "$OWN")
+BAD=0
+while IFS= read -r f; do
+  OK=0
+  for p in "${PATTERNS[@]}"; do
+    # shellcheck disable=SC2053
+    if [[ "$f" == $p ]]; then OK=1; break; fi
+  done
+  if [[ $OK -eq 0 ]]; then echo "✖ File không thuộc quyền B: $f"; BAD=1; fi
+done < <(git diff --cached --name-only --diff-filter=ACMRD)
+if [[ $BAD -eq 1 ]]; then
+  echo "→ Bỏ file đó khỏi commit (git restore --staged <file>) hoặc mở Issue 'contract-change' để A xử lý."; exit 1
+fi
+exit 0

@@ -1,5 +1,21 @@
 import 'package:flutter/material.dart';
+
+import '../models/workout_session.dart';
+import '../screens/auth/login_screen.dart';
+import '../screens/auth/register_screen.dart';
+import '../screens/home/main_shell.dart';
 import '../screens/placeholder_screen.dart';
+import '../screens/plan/exercise_detail_screen.dart';
+import '../screens/plan/exercise_library_screen.dart';
+import '../screens/plan/plan_edit_screen.dart';
+import '../screens/plan/plan_list_screen.dart';
+import '../screens/progress/progress_screen.dart';
+import '../screens/settings/profile_screen.dart';
+import '../screens/settings/settings_screen.dart';
+import '../screens/settings/team_info_screen.dart';
+import '../screens/workout/history_screen.dart';
+import '../screens/workout/workout_session_screen.dart';
+import '../screens/workout/workout_summary_screen.dart';
 
 class AppRoutes {
   static const String initial = '/';
@@ -15,8 +31,8 @@ class AppRoutes {
   // Workout & Plan routes
   static const String planList = '/plan_list';
   static const String planEdit = '/plan_edit';
-  static const String exerciseLibrary = '/exercise_library';
-  static const String exerciseDetail = '/exercise_detail';
+  static const String exerciseLibrary = '/exercises';
+  static const String exerciseDetail = '/exercise-detail';
   static const String workoutSession = '/workout_session';
   static const String workoutSummary = '/workout_summary';
   static const String history = '/history';
@@ -33,22 +49,105 @@ class AppRoutes {
   // Settings routes
   static const String settings = '/settings';
   static const String profile = '/profile';
-  static const String teamInfo = '/team_info';
+  static const String teamInfo = '/team-info';
 
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    switch (settings.name) {
+  static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
+    switch (routeSettings.name) {
+      case login:
+        return MaterialPageRoute(
+          builder: (_) => const LoginScreen(),
+          settings: routeSettings,
+        );
+
+      case register:
+        return MaterialPageRoute(
+          builder: (_) => const RegisterScreen(),
+          settings: routeSettings,
+        );
+
+      case home:
+        return MaterialPageRoute(
+          builder: (_) => const MainShell(),
+          settings: routeSettings,
+        );
+
+      case planList:
+        return MaterialPageRoute(
+          builder: (_) => const PlanListScreen(),
+          settings: routeSettings,
+        );
+
+      case planEdit:
+        final int? planId = routeSettings.arguments as int?;
+        return MaterialPageRoute(
+          builder: (_) => PlanEditScreen(planId: planId),
+          settings: routeSettings,
+        );
+
+      case exerciseLibrary:
+        final bool selectMode = (routeSettings.arguments as bool?) ?? false;
+        return MaterialPageRoute(
+          builder: (_) => ExerciseLibraryScreen(selectMode: selectMode),
+          settings: routeSettings,
+        );
+
+      case exerciseDetail:
+        final int exerciseId = (routeSettings.arguments as int?) ?? 1;
+        return MaterialPageRoute(
+          builder: (_) => ExerciseDetailScreen(exerciseId: exerciseId),
+          settings: routeSettings,
+        );
+
+      case workoutSession:
+        return MaterialPageRoute(
+          builder: (_) => const WorkoutSessionScreen(),
+          settings: routeSettings,
+        );
+
+      case workoutSummary:
+        final session = routeSettings.arguments as WorkoutSession;
+        return MaterialPageRoute(
+          builder: (_) => WorkoutSummaryScreen(session: session),
+          settings: routeSettings,
+        );
+
+      case progress:
+        return MaterialPageRoute(
+          builder: (_) => const ProgressScreen(),
+          settings: routeSettings,
+        );
+
+      case history:
+        return MaterialPageRoute(
+          builder: (_) => const HistoryScreen(),
+          settings: routeSettings,
+        );
+
+      case settings:
+        return MaterialPageRoute(
+          builder: (_) => const SettingsScreen(),
+          settings: routeSettings,
+        );
+
+      case profile:
+        return MaterialPageRoute(
+          builder: (_) => const ProfileScreen(),
+          settings: routeSettings,
+        );
+
+      case teamInfo:
+        return MaterialPageRoute(
+          builder: (_) => const TeamInfoScreen(),
+          settings: routeSettings,
+        );
+
       case initial:
       case placeholder:
-        return MaterialPageRoute(
-          builder: (_) => const PlaceholderScreen(),
-          settings: settings,
-        );
       default:
         return MaterialPageRoute(
           builder: (_) => const PlaceholderScreen(),
-          settings: settings,
+          settings: routeSettings,
         );
     }
   }
 }
-
