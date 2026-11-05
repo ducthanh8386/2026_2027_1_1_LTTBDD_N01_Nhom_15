@@ -1,0 +1,753 @@
+[
+  {
+    "source_id": "0025",
+    "name_en": "Barbell Bench Press",
+    "name_vi": "Nằm đẩy ngực tạ đòn",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "barbell",
+    "secondary_muscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "instructions_en": "Lie back on a flat bench.\nGrasp the barbell with hands slightly wider than shoulder-width apart.\nLower the bar slowly to your mid-chest.\nPress the bar up until your arms are fully extended.",
+    "instructions_vi": "Nằm ngửa trên ghế phẳng.\nNắm thanh tạ đòn rộng hơn vai một chút.\nTừ từ hạ thanh đòn xuống giữa ngực.\nĐẩy tạ dứt khoát lên vị trí ban đầu khi hai tay duỗi thẳng.",
+    "image_asset": "assets/exercises/images/0025.jpg",
+    "gif_asset": "assets/exercises/gifs/0025.gif"
+  },
+  {
+    "source_id": "0026",
+    "name_en": "Incline Barbell Bench Press",
+    "name_vi": "Nằm ghế dốc đẩy ngực trên tạ đòn",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "barbell",
+    "secondary_muscles": [
+      "shoulders",
+      "triceps"
+    ],
+    "instructions_en": "Lie on an incline bench set to 30-45 degrees.\nGrip the barbell slightly wider than shoulder width.\nLower the bar under control to the upper chest.\nPush the barbell back up explosively.",
+    "instructions_vi": "Nằm trên ghế dốc lên khoảng 30-45 độ.\nNắm thanh tạ đòn rộng hơn vai.\nHạ thanh tạ có kiểm soát xuống phần ngực trên.\nĐẩy thanh đòn trở lại vị trí cao nhất.",
+    "image_asset": "assets/exercises/images/0026.jpg",
+    "gif_asset": "assets/exercises/gifs/0026.gif"
+  },
+  {
+    "source_id": "0027",
+    "name_en": "Dumbbell Bench Press",
+    "name_vi": "Nằm đẩy ngực tạ đơn",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "instructions_en": "Lie on a flat bench with a dumbbell in each hand.\nHold the dumbbells at chest level with palms facing forward.\nPress the weights upward until arms are straight.\nLower the dumbbells slowly back to chest level.",
+    "instructions_vi": "Nằm trên ghế phẳng, mỗi tay cầm một quả tạ đơn.\nGiữ tạ ngang ngực, lòng bàn tay hướng về phía chân.\nĐẩy tạ lên cao cho đến khi hai tay gần thẳng.\nTừ từ hạ tạ trở lại mức ngực.",
+    "image_asset": "assets/exercises/images/0027.jpg",
+    "gif_asset": "assets/exercises/gifs/0027.gif"
+  },
+  {
+    "source_id": "0028",
+    "name_en": "Incline Dumbbell Press",
+    "name_vi": "Nằm ghế dốc đẩy ngực trên tạ đơn",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "shoulders",
+      "triceps"
+    ],
+    "instructions_en": "Sit on an incline bench angled at 30-45 degrees.\nHold dumbbells at shoulder level with elbows bent.\nPress dumbbells up overhead without locking elbows.\nLower weights slowly to starting position.",
+    "instructions_vi": "Ngồi vào ghế dốc lên 30-45 độ.\nCầm tạ đơn ngang tầm vai, cùi chỏ gập.\nĐẩy tạ lên cao hướng vào nhau nhưng không khóa khớp cùi chỏ.\nHạ tạ chậm rãi về vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0028.jpg",
+    "gif_asset": "assets/exercises/gifs/0028.gif"
+  },
+  {
+    "source_id": "0029",
+    "name_en": "Dumbbell Fly",
+    "name_vi": "Nằm banh ngực tạ đơn",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "instructions_en": "Lie on a flat bench holding dumbbells above your chest with palms facing each other.\nWith elbows slightly bent, open your arms wide in an arc.\nFeel the stretch in your chest, then squeeze chest to bring dumbbells back up.",
+    "instructions_vi": "Nằm trên ghế phẳng, hai tay cầm tạ đơn đưa lên cao, lòng bàn tay đối diện nhau.\nCùi chỏ hơi cong nhẹ, mở rộng hai cánh tay theo hình cánh cung sang hai bên.\nCảm nhận cơ ngực căng ra rồi ép ngực đưa tạ về lại vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0029.jpg",
+    "gif_asset": "assets/exercises/gifs/0029.gif"
+  },
+  {
+    "source_id": "0030",
+    "name_en": "Push-up",
+    "name_vi": "Hít đất / Chống đẩy",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "triceps",
+      "core",
+      "shoulders"
+    ],
+    "instructions_en": "Place hands shoulder-width apart on the floor.\nKeep your body in a straight plank line from head to heels.\nLower chest until it almost touches the ground.\nPush back up to the starting position.",
+    "instructions_vi": "Đặt hai tay rộng bằng vai trên sàn nhà.\nGiữ cơ thể thành một đường thẳng từ đầu đến gót chân.\nHạ ngực xuống sát mặt đất.\nĐẩy mạnh cơ thể trở lại vị trí thẳng tay.",
+    "image_asset": "assets/exercises/images/0030.jpg",
+    "gif_asset": "assets/exercises/gifs/0030.gif"
+  },
+  {
+    "source_id": "0031",
+    "name_en": "Cable Crossover",
+    "name_vi": "Ép ngực với dây cáp",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "cable",
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "instructions_en": "Stand between two high pulley cables.\nStep forward slightly and lean torso forward.\nPull handles downward and inward in a hugging motion.\nSlowly return handles back to starting position.",
+    "instructions_vi": "Đứng giữa hai ròng rọc cáp đặt ở vị trí cao.\nBước một chân về phía trước và hơi nghiêng thân người.\nKéo hai tay cầm xuống phía trước ngực như động tác ôm.\nTừ từ thả tay về vị trí ban đầu có kiểm soát.",
+    "image_asset": "assets/exercises/images/0031.jpg",
+    "gif_asset": "assets/exercises/gifs/0031.gif"
+  },
+  {
+    "source_id": "0032",
+    "name_en": "Chest Dips",
+    "name_vi": "Chống xà kép tập ngực dưới",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "instructions_en": "Grip parallel bars and lift body up.\nLean torso forward at approximately 30 degrees.\nLower body by bending elbows until chest feels stretched.\nPush through palms to return to top.",
+    "instructions_vi": "Nắm lấy thanh xà kép và đẩy người lên.\nNghiêng thân trên về phía trước khoảng 30 độ.\nGập cùi chỏ hạ người xuống cho đến khi ngực căng.\nDùng lực ngực và tay sau đẩy người lên lại.",
+    "image_asset": "assets/exercises/images/0032.jpg",
+    "gif_asset": "assets/exercises/gifs/0032.gif"
+  },
+  {
+    "source_id": "0033",
+    "name_en": "Machine Chest Press",
+    "name_vi": "Máy đẩy ngực",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "machine",
+    "secondary_muscles": [
+      "triceps",
+      "shoulders"
+    ],
+    "instructions_en": "Sit upright with back firmly against backrest.\nAdjust seat so handles are at chest level.\nPush handles forward until arms are extended.\nSlowly bring handles back toward chest.",
+    "instructions_vi": "Ngồi thẳng lưng, tựa sát vào đệm ghế.\nChỉnh ghế sao cho tay nắm ngang ngực.\nĐẩy tay cầm về phía trước cho đến khi tay duỗi thẳng.\nTừ từ thu tay cầm về vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0033.jpg",
+    "gif_asset": "assets/exercises/gifs/0033.gif"
+  },
+  {
+    "source_id": "0034",
+    "name_en": "Pec Deck Fly",
+    "name_vi": "Máy ép ngực",
+    "body_part": "chest",
+    "target": "pectorals",
+    "equipment": "machine",
+    "secondary_muscles": [
+      "shoulders"
+    ],
+    "instructions_en": "Sit on machine with back against pad.\nGrip handles with elbows slightly bent.\nBring arms together in front of your chest.\nPause and squeeze chest, then reverse slowly.",
+    "instructions_vi": "Ngồi vào máy, lưng tựa phẳng vào đệm.\nNắm tay cầm, cùi chỏ hơi cong nhẹ.\nKhép hai tay vào nhau trước ngực và siết chặt cơ ngực.\nTừ từ mở tay ra lại vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0034.jpg",
+    "gif_asset": "assets/exercises/gifs/0034.gif"
+  },
+  {
+    "source_id": "0040",
+    "name_en": "Barbell Deadlift",
+    "name_vi": "Kéo tạ đòn từ sàn (Deadlift)",
+    "body_part": "back",
+    "target": "lower back",
+    "equipment": "barbell",
+    "secondary_muscles": [
+      "glutes",
+      "hamstrings",
+      "lats",
+      "traps",
+      "core"
+    ],
+    "instructions_en": "Stand with feet hip-width apart, bar over mid-foot.\nHinge at hips and grip bar just outside knees.\nKeep back flat, chest up, pull bar by driving hips forward to stand tall.\nLower bar under control keeping it close to shins.",
+    "instructions_vi": "Đứng hai chân rộng bằng hông, thanh đòn nằm phía trên giữa mu bàn chân.\nGập hông và nắm thanh đòn ngay sát phía ngoài đầu gối.\nGiữ lưng thẳng, ưỡn ngực, đạp chân và đẩy hông về phía trước để đứng thẳng dậy.\nHạ thanh đòn trượt sát cẳng chân về lại mặt sàn.",
+    "image_asset": "assets/exercises/images/0040.jpg",
+    "gif_asset": "assets/exercises/gifs/0040.gif"
+  },
+  {
+    "source_id": "0041",
+    "name_en": "Pull-up",
+    "name_vi": "Hít xà đơn sấp tay (Pull-up)",
+    "body_part": "back",
+    "target": "lats",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "biceps",
+      "upper back",
+      "core"
+    ],
+    "instructions_en": "Grasp pull-up bar with an overhand grip wider than shoulders.\nHang at full arm extension.\nPull your chest up toward the bar by driving elbows down.\nLower yourself slowly until arms are fully extended.",
+    "instructions_vi": "Nắm thanh xà đơn với lòng bàn tay hướng về phía trước, rộng hơn vai.\nTreo người ở tư thế tay duỗi thẳng hoàn toàn.\nKéo người lên bằng cách ghì cùi chỏ xuống cho đến khi cằm vượt qua xà.\nTừ từ hạ thân người xuống vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0041.jpg",
+    "gif_asset": "assets/exercises/gifs/0041.gif"
+  },
+  {
+    "source_id": "0042",
+    "name_en": "Lat Pulldown",
+    "name_vi": "Kéo xô cáp ngồi (Lat Pulldown)",
+    "body_part": "back",
+    "target": "lats",
+    "equipment": "cable",
+    "secondary_muscles": [
+      "biceps",
+      "upper back"
+    ],
+    "instructions_en": "Sit at pulldown machine and secure thighs under pads.\nGrip bar wider than shoulder width with palms facing forward.\nPull bar down to upper chest while arching back slightly.\nSlowly return bar back to full arm extension.",
+    "instructions_vi": "Ngồi vào máy kéo xô, cài đệm gối giữ chặt đùi.\nNắm thanh kéo rộng hơn vai, lòng bàn tay hướng ra trước.\nKéo thanh xuống sát phần ngực trên, hơi ưỡn ngực.\nTừ từ nhả thanh đòn lên cao về vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0042.jpg",
+    "gif_asset": "assets/exercises/gifs/0042.gif"
+  },
+  {
+    "source_id": "0043",
+    "name_en": "Barbell Bent-Over Row",
+    "name_vi": "Gập người kéo tạ đòn (Barbell Row)",
+    "body_part": "back",
+    "target": "upper back",
+    "equipment": "barbell",
+    "secondary_muscles": [
+      "lats",
+      "biceps",
+      "lower back"
+    ],
+    "instructions_en": "Hinge forward at hips at a 45-degree angle with flat back.\nGrip barbell with hands shoulder-width apart.\nPull bar towards your lower ribcage / belly button.\nLower bar slowly under control.",
+    "instructions_vi": "Gập người ở phần hông khoảng 45 độ, giữ lưng thẳng tuyệt đối.\nNắm thanh tạ đòn rộng bằng vai.\nKéo thanh tạ chạm vào phần bụng dưới gần rốn.\nHạ tạ chậm rãi có kiểm soát.",
+    "image_asset": "assets/exercises/images/0043.jpg",
+    "gif_asset": "assets/exercises/gifs/0043.gif"
+  },
+  {
+    "source_id": "0044",
+    "name_en": "Single-Arm Dumbbell Row",
+    "name_vi": "Một tay chèo tạ đơn (One-Arm Dumbbell Row)",
+    "body_part": "back",
+    "target": "lats",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "biceps",
+      "upper back"
+    ],
+    "instructions_en": "Place one knee and hand on flat bench for support.\nHold dumbbell in opposite hand with arm hanging straight.\nPull dumbbell up to your hip keeping elbow tucked close to body.\nLower dumbbell back down smoothly.",
+    "instructions_vi": "Đặt một đầu gối và một bàn tay lên ghế phẳng làm điểm tựa.\nTay kia cầm tạ đơn buông thẳng xuống.\nKéo tạ lên về phía hông, giữ cùi chỏ khép sát thân người.\nHạ tạ xuống từ từ về vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0044.jpg",
+    "gif_asset": "assets/exercises/gifs/0044.gif"
+  },
+  {
+    "source_id": "0045",
+    "name_en": "Seated Cable Row",
+    "name_vi": "Kéo cáp ngồi chèo thuyền (Seated Cable Row)",
+    "body_part": "back",
+    "target": "upper back",
+    "equipment": "cable",
+    "secondary_muscles": [
+      "lats",
+      "biceps",
+      "forearms"
+    ],
+    "instructions_en": "Sit on bench with knees slightly bent and feet on footrests.\nGrasp V-handle with both hands and sit up tall.\nPull handle into abdomen while pulling shoulder blades back.\nExtend arms forward under control without rounding back.",
+    "instructions_vi": "Ngồi vào ghế, đầu gối hơi chùng và đặt chân lên bệ đỡ.\nCầm tay cầm chữ V, ngồi thẳng lưng.\nKéo tay cầm vào sát bụng và ép hai xương bả vai lại với nhau.\nTừ từ duỗi thẳng tay về phía trước mà không cong lưng.",
+    "image_asset": "assets/exercises/images/0045.jpg",
+    "gif_asset": "assets/exercises/gifs/0045.gif"
+  },
+  {
+    "source_id": "0046",
+    "name_en": "Face Pull",
+    "name_vi": "Kéo cáp ngang mặt (Face Pull)",
+    "body_part": "back",
+    "target": "rear deltoids",
+    "equipment": "cable",
+    "secondary_muscles": [
+      "traps",
+      "rhomboids"
+    ],
+    "instructions_en": "Attach rope to cable pulley set at eye level.\nHold rope with overhand grip and take a step back.\nPull rope toward your face, separating ends of rope beside ears.\nSlowly return to start position.",
+    "instructions_vi": "Gắn dây thừng vào đầu cáp ngang tầm mắt.\nCầm hai đầu dây thừng và lùi lại một bước.\nKéo dây về phía mặt, tách rộng hai đầu dây sang hai bên tai.\nTừ từ nhả dây về vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0046.jpg",
+    "gif_asset": "assets/exercises/gifs/0046.gif"
+  },
+  {
+    "source_id": "0047",
+    "name_en": "Chin-up",
+    "name_vi": "Hít xà đơn ngửa tay (Chin-up)",
+    "body_part": "back",
+    "target": "lats",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "biceps",
+      "forearms"
+    ],
+    "instructions_en": "Grasp bar with underhand (palms facing you) shoulder-width grip.\nHang at arm's length.\nPull chest up until chin clears the bar.\nLower down slowly with control.",
+    "instructions_vi": "Nắm xà đơn với lòng bàn tay hướng vào trong người, rộng bằng vai.\nTreo người tay duỗi thẳng.\nKéo người lên cho đến khi cằm qua thanh xà.\nHạ người xuống từ từ.",
+    "image_asset": "assets/exercises/images/0047.jpg",
+    "gif_asset": "assets/exercises/gifs/0047.gif"
+  },
+  {
+    "source_id": "0048",
+    "name_en": "Hyperextension",
+    "name_vi": "Gập lưng trên ghế dốc (Back Extension)",
+    "body_part": "back",
+    "target": "lower back",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "instructions_en": "Position thighs on pad with ankles secured.\nCross arms over chest.\nBend forward at waist until torso is perpendicular to legs.\nRaise torso back up to form a straight line with body.",
+    "instructions_vi": "Nằm úp đùi vào đệm ghế dốc, gót chân cố định.\nKhoanh hai tay trước ngực.\nGập người xuống ở thắt lưng.\nDùng cơ lưng dưới nâng thân người lên thành đường thẳng.",
+    "image_asset": "assets/exercises/images/0048.jpg",
+    "gif_asset": "assets/exercises/gifs/0048.gif"
+  },
+  {
+    "source_id": "0050",
+    "name_en": "Barbell Back Squat",
+    "name_vi": "Gánh tạ đòn ngồi xổm (Barbell Squat)",
+    "body_part": "legs",
+    "target": "quads",
+    "equipment": "barbell",
+    "secondary_muscles": [
+      "glutes",
+      "hamstrings",
+      "calves",
+      "core"
+    ],
+    "instructions_en": "Rest bar across upper back (traps).\nStand with feet shoulder-width apart, toes slightly out.\nHip-hinge and bend knees to lower until thighs are parallel to ground.\nDrive through mid-foot to stand back up.",
+    "instructions_vi": "Đặt thanh tạ đòn lên phần cơ cầu vai trên.\nĐứng hai chân rộng bằng vai, mũi chân hơi chếch ra ngoài.\nĐẩy hông ra sau và hạ gối xuống cho đến khi đùi song song với sàn.\nĐạp mạnh bàn chân xuống sàn để đứng thẳng người lên.",
+    "image_asset": "assets/exercises/images/0050.jpg",
+    "gif_asset": "assets/exercises/gifs/0050.gif"
+  },
+  {
+    "source_id": "0051",
+    "name_en": "Leg Press",
+    "name_vi": "Đạp đùi trên máy dốc (Leg Press)",
+    "body_part": "legs",
+    "target": "quads",
+    "equipment": "machine",
+    "secondary_muscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "instructions_en": "Sit on leg press machine and place feet hip-width on sled.\nRelease safety bars and bend knees to 90 degrees.\nPress platform away by extending knees without locking joints.\nLower sled back down slowly.",
+    "instructions_vi": "Ngồi vào máy đạp đùi, đặt hai bàn chân rộng bằng hông trên bàn đạp.\nMở khóa an toàn và gập gối hạ bàn đạp xuống góc 90 độ.\nĐạp bàn đạp ra xa bằng lực đùi, không khóa khớp gối.\nHạ bàn đạp lại từ từ.",
+    "image_asset": "assets/exercises/images/0051.jpg",
+    "gif_asset": "assets/exercises/gifs/0051.gif"
+  },
+  {
+    "source_id": "0052",
+    "name_en": "Romanian Deadlift",
+    "name_vi": "Kéo đùi sau tạ đòn (Romanian Deadlift)",
+    "body_part": "legs",
+    "target": "hamstrings",
+    "equipment": "barbell",
+    "secondary_muscles": [
+      "glutes",
+      "lower back"
+    ],
+    "instructions_en": "Hold barbell in front of thighs with slight knee bend.\nHinge back at hips while keeping bar close to legs.\nLower bar to mid-shin until hamstrings feel stretched.\nSqueeze glutes to return to standing position.",
+    "instructions_vi": "Cầm tạ đòn trước đùi, đầu gối hơi chùng nhẹ và cố định góc gối.\nĐẩy hông ra sau, lướt thanh tạ sát đùi xuống dưới.\nHạ tạ đến ngang cẳng chân cho đến khi đùi sau căng hết cỡ.\nSiết mông đẩy hông về trước để đứng thẳng dậy.",
+    "image_asset": "assets/exercises/images/0052.jpg",
+    "gif_asset": "assets/exercises/gifs/0052.gif"
+  },
+  {
+    "source_id": "0053",
+    "name_en": "Leg Extension",
+    "name_vi": "Đá đùi trước trên máy (Leg Extension)",
+    "body_part": "legs",
+    "target": "quads",
+    "equipment": "machine",
+    "secondary_muscles": [],
+    "instructions_en": "Sit on machine with pad against lower shins.\nExtend legs fully upward squeezing quadriceps.\nPause briefly at the top.\nLower legs back down with control.",
+    "instructions_vi": "Ngồi vào máy, đệm tỳ vào phần trước cẳng chân.\nĐá hai chân lên cao cho đến khi duỗi thẳng và siết đùi trước.\nGiữ 1 giây ở đỉnh động tác.\nHạ chân xuống từ từ có kiểm soát.",
+    "image_asset": "assets/exercises/images/0053.jpg",
+    "gif_asset": "assets/exercises/gifs/0053.gif"
+  },
+  {
+    "source_id": "0054",
+    "name_en": "Lying Leg Curl",
+    "name_vi": "Nằm móc đùi sau trên máy (Lying Leg Curl)",
+    "body_part": "legs",
+    "target": "hamstrings",
+    "equipment": "machine",
+    "secondary_muscles": [
+      "calves"
+    ],
+    "instructions_en": "Lie face down on machine with pad behind heels.\nCurl legs upward bringing heels toward glutes.\nSqueeze hamstrings at peak contraction.\nLower weight slowly back down.",
+    "instructions_vi": "Nằm sấp trên máy tập, đệm tỳ vào sau gót chân.\nGập gối móc cẳng chân lên phía mông.\nSiết chặt cơ đùi sau ở điểm cao nhất.\nTừ từ duỗi chân hạ tạ xuống.",
+    "image_asset": "assets/exercises/images/0054.jpg",
+    "gif_asset": "assets/exercises/gifs/0054.gif"
+  },
+  {
+    "source_id": "0055",
+    "name_en": "Bulgarian Split Squat",
+    "name_vi": "Ngồi xổm một chân gác ghế (Bulgarian Split Squat)",
+    "body_part": "legs",
+    "target": "quads",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "instructions_en": "Stand facing away from a bench, resting one foot on it behind you.\nHold dumbbells at your sides.\nLower hips until front thigh is parallel to ground.\nPush up through front heel back to start.",
+    "instructions_vi": "Đứng quay lưng vào ghế, gác mu bàn chân sau lên ghế.\nHai tay cầm tạ đơn buông dọc thân người.\nHạ người xuống cho đến khi đùi trước song song với sàn.\nĐạp qua gót chân trước để đẩy người đứng dậy.",
+    "image_asset": "assets/exercises/images/0055.jpg",
+    "gif_asset": "assets/exercises/gifs/0055.gif"
+  },
+  {
+    "source_id": "0056",
+    "name_en": "Walking Lunge",
+    "name_vi": "Bước chân chùng gối (Walking Lunge)",
+    "body_part": "legs",
+    "target": "quads",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "glutes",
+      "calves"
+    ],
+    "instructions_en": "Step forward with one leg and lower hips until both knees are bent at 90 degrees.\nDrive forward off front foot to step into next lunge with trailing leg.\nKeep torso upright throughout movement.",
+    "instructions_vi": "Bước dài một chân về phía trước và hạ hông xuống đến khi hai gối tạo góc 90 độ.\nĐạp mạnh chân trước và bước tiếp chân sau lên phía trước lặp lại động tác.\nGiữ thân người thẳng đứng trong suốt quá trình đi.",
+    "image_asset": "assets/exercises/images/0056.jpg",
+    "gif_asset": "assets/exercises/gifs/0056.gif"
+  },
+  {
+    "source_id": "0057",
+    "name_en": "Standing Calf Raise",
+    "name_vi": "Nhón bắp chân đứng (Standing Calf Raise)",
+    "body_part": "legs",
+    "target": "calves",
+    "equipment": "machine",
+    "secondary_muscles": [],
+    "instructions_en": "Stand on balls of feet on calf block with shoulders under pads.\nRaise heels as high as possible by flexing calves.\nPause at top, then lower heels down until calves stretch deeply.",
+    "instructions_vi": "Đứng mũi chân trên bục, vai đỡ đệm máy.\nNhón gót chân lên cao hết mức bằng cách gồng cơ bắp chuối.\nGiữ 1 nhịp ở đỉnh rồi hạ gót chân xuống sâu để kéo giãn bắp chân.",
+    "image_asset": "assets/exercises/images/0057.jpg",
+    "gif_asset": "assets/exercises/gifs/0057.gif"
+  },
+  {
+    "source_id": "0058",
+    "name_en": "Goblet Squat",
+    "name_vi": "Ngồi xổm ôm tạ trước ngực (Goblet Squat)",
+    "body_part": "legs",
+    "target": "quads",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "glutes",
+      "core"
+    ],
+    "instructions_en": "Hold a dumbbell vertically against chest with both hands.\nSquat down between knees until thighs are parallel to ground.\nPush back up through midfoot.",
+    "instructions_vi": "Hai tay ôm một quả tạ đơn dựng đứng sát trước ngực.\nNgồi xổm xuống giữa hai đầu gối cho đến khi đùi song song với sàn.\nĐạp chân đứng dậy về vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0058.jpg",
+    "gif_asset": "assets/exercises/gifs/0058.gif"
+  },
+  {
+    "source_id": "0060",
+    "name_en": "Overhead Barbell Press",
+    "name_vi": "Đẩy vai đứng tạ đòn (Overhead Press)",
+    "body_part": "shoulders",
+    "target": "delts",
+    "equipment": "barbell",
+    "secondary_muscles": [
+      "triceps",
+      "upper chest",
+      "core"
+    ],
+    "instructions_en": "Hold barbell across front deltoids with feet shoulder-width.\nPress bar overhead until arms are fully locked out.\nKeep core braced and spine neutral.\nLower bar back to clavicle level under control.",
+    "instructions_vi": "Giữ thanh tạ đòn đặt trước cơ vai trước, chân rộng bằng vai.\nĐẩy tạ qua đầu thẳng đứng cho đến khi hai tay khóa thẳng.\nSiết chặt cơ bụng và giữ thẳng cột sống.\nHạ tạ có kiểm soát trở lại ngang xương quai xanh.",
+    "image_asset": "assets/exercises/images/0060.jpg",
+    "gif_asset": "assets/exercises/gifs/0060.gif"
+  },
+  {
+    "source_id": "0061",
+    "name_en": "Seated Dumbbell Shoulder Press",
+    "name_vi": "Ngồi ghế đẩy vai tạ đơn (Dumbbell Shoulder Press)",
+    "body_part": "shoulders",
+    "target": "delts",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "instructions_en": "Sit on bench with back support, holding dumbbells at ear level.\nPress dumbbells overhead until arms are extended.\nLower weights slowly to ear height.",
+    "instructions_vi": "Ngồi trên ghế có tựa lưng, giữ tạ đơn ngang tầm tai.\nĐẩy hai tạ lên trên đỉnh đầu cho đến khi tay duỗi thẳng.\nTừ từ hạ tạ về ngang tầm tai.",
+    "image_asset": "assets/exercises/images/0061.jpg",
+    "gif_asset": "assets/exercises/gifs/0061.gif"
+  },
+  {
+    "source_id": "0062",
+    "name_en": "Dumbbell Lateral Raise",
+    "name_vi": "Dang tạ đơn sang hai bên (Lateral Raise)",
+    "body_part": "shoulders",
+    "target": "side delts",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "traps"
+    ],
+    "instructions_en": "Stand holding dumbbells at your sides.\nRaise arms out to sides with slight bend in elbows until parallel to ground.\nPause, then lower dumbbells slowly.",
+    "instructions_vi": "Đứng thẳng người, hai tay cầm tạ đơn buông hai bên hông.\nDang hai tay sang hai bên, cùi chỏ hơi cong nhẹ cho đến khi cánh tay song song với sàn.\nGiữ 1 giây rồi từ từ hạ tạ xuống.",
+    "image_asset": "assets/exercises/images/0062.jpg",
+    "gif_asset": "assets/exercises/gifs/0062.gif"
+  },
+  {
+    "source_id": "0063",
+    "name_en": "Cable Lateral Raise",
+    "name_vi": "Kéo cáp dang vai ngang",
+    "body_part": "shoulders",
+    "target": "side delts",
+    "equipment": "cable",
+    "secondary_muscles": [
+      "traps"
+    ],
+    "instructions_en": "Stand beside low cable pulley.\nRaise cable handle across body and out to the side up to shoulder level.\nLower slowly resisting the cable tension.",
+    "instructions_vi": "Đứng nghiêng cạnh ròng rọc cáp thấp.\nKéo tay cầm cáp ngang qua thân người lên tầm vai.\nTừ từ hạ tay về vị trí ban đầu ngược lại lực kéo của cáp.",
+    "image_asset": "assets/exercises/images/0063.jpg",
+    "gif_asset": "assets/exercises/gifs/0063.gif"
+  },
+  {
+    "source_id": "0064",
+    "name_en": "Reverse Pec Deck Fly",
+    "name_vi": "Máy ép vai sau (Reverse Fly)",
+    "body_part": "shoulders",
+    "target": "rear delts",
+    "equipment": "machine",
+    "secondary_muscles": [
+      "rhomboids",
+      "traps"
+    ],
+    "instructions_en": "Sit facing the machine pad with chest supported.\nGrasp handles and pull arms back in an arc.\nSqueeze rear deltoids at contraction.\nReturn handles forward smoothly.",
+    "instructions_vi": "Ngồi quay mặt vào đệm máy, ngực áp sát vào đệm.\nNắm tay cầm và mở hai cánh tay ra phía sau theo hình vòng cung.\nSiết chặt cơ vai sau ở điểm căng nhất.\nTừ từ đưa tay về phía trước.",
+    "image_asset": "assets/exercises/images/0064.jpg",
+    "gif_asset": "assets/exercises/gifs/0064.gif"
+  },
+  {
+    "source_id": "0065",
+    "name_en": "Arnold Press",
+    "name_vi": "Đẩy vai xoay tạ đơn kiểu Arnold",
+    "body_part": "shoulders",
+    "target": "delts",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "triceps"
+    ],
+    "instructions_en": "Start with dumbbells in front of shoulders with palms facing you.\nAs you press weights overhead, rotate wrists so palms face forward at top.\nReverse motion on the way down.",
+    "instructions_vi": "Bắt đầu với tạ đơn trước ngực, lòng bàn tay hướng vào trong người.\nKhi đẩy tạ lên cao, xoay cổ tay sao cho lên đỉnh lòng bàn tay hướng ra trước.\nXoay ngược lại khi hạ tạ xuống.",
+    "image_asset": "assets/exercises/images/0065.jpg",
+    "gif_asset": "assets/exercises/gifs/0065.gif"
+  },
+  {
+    "source_id": "0070",
+    "name_en": "Barbell Bicep Curl",
+    "name_vi": "Cuốn tay trước tạ đòn (Barbell Curl)",
+    "body_part": "upper arms",
+    "target": "biceps",
+    "equipment": "barbell",
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "instructions_en": "Stand holding barbell with underhand grip shoulder-width.\nCurl bar upward toward chest while keeping elbows pinned to sides.\nSqueeze biceps at the top.\nLower bar slowly back to full extension.",
+    "instructions_vi": "Đứng thẳng người, cầm thanh tạ đòn lòng bàn tay ngửa, rộng bằng vai.\nCuốn tạ lên phía ngực trong khi giữ cùi chỏ ép sát hai bên sườn.\nSiết cơ bắp tay trước ở đỉnh.\nTừ từ hạ tạ về vị trí tay thẳng.",
+    "image_asset": "assets/exercises/images/0070.jpg",
+    "gif_asset": "assets/exercises/gifs/0070.gif"
+  },
+  {
+    "source_id": "0071",
+    "name_en": "Dumbbell Hammer Curl",
+    "name_vi": "Cuốn tạ đơn búa (Hammer Curl)",
+    "body_part": "upper arms",
+    "target": "biceps",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "brachialis",
+      "forearms"
+    ],
+    "instructions_en": "Hold dumbbells with palms facing each other (neutral grip).\nCurl weights up while maintaining neutral grip.\nLower weights slowly to starting position.",
+    "instructions_vi": "Cầm tạ đơn với hai lòng bàn tay hướng vào nhau như cầm búa.\nCuốn tạ lên trên nhưng giữ nguyên góc cổ tay.\nHạ tạ xuống từ từ có kiểm soát.",
+    "image_asset": "assets/exercises/images/0071.jpg",
+    "gif_asset": "assets/exercises/gifs/0071.gif"
+  },
+  {
+    "source_id": "0072",
+    "name_en": "Incline Dumbbell Curl",
+    "name_vi": "Nằm ghế dốc cuốn tạ đơn",
+    "body_part": "upper arms",
+    "target": "biceps",
+    "equipment": "dumbbell",
+    "secondary_muscles": [
+      "forearms"
+    ],
+    "instructions_en": "Sit on incline bench with arms hanging down fully stretched.\nCurl dumbbells up toward shoulders.\nLower slowly feeling maximum bicep stretch.",
+    "instructions_vi": "Ngồi trên ghế dốc sau, hai tay thả lỏng buông thẳng xuống để kéo giãn bắp tay.\nCuốn tạ đơn lên phía vai.\nHạ tạ chậm rãi để bắp tay được căng tối đa.",
+    "image_asset": "assets/exercises/images/0072.jpg",
+    "gif_asset": "assets/exercises/gifs/0072.gif"
+  },
+  {
+    "source_id": "0073",
+    "name_en": "Triceps Rope Pushdown",
+    "name_vi": "Kéo cáp dây thừng tập tay sau (Rope Pushdown)",
+    "body_part": "upper arms",
+    "target": "triceps",
+    "equipment": "cable",
+    "secondary_muscles": [],
+    "instructions_en": "Attach rope to high pulley and grip ends.\nKeep elbows pinned at sides and push rope down.\nSpread rope ends apart at bottom for triceps contraction.\nReturn slowly to 90 degrees bend.",
+    "instructions_vi": "Gắn dây thừng vào đầu cáp trên cao và nắm hai đầu dây.\nGiữ chặt cùi chỏ áp sát sườn và đẩy dây xuống dưới.\nTách hai đầu dây thừng sang hai bên ở điểm thấp nhất để siết tay sau.\nTừ từ đưa tay lên lại góc 90 độ.",
+    "image_asset": "assets/exercises/images/0073.jpg",
+    "gif_asset": "assets/exercises/gifs/0073.gif"
+  },
+  {
+    "source_id": "0074",
+    "name_en": "Skull Crusher (Lying Triceps Extension)",
+    "name_vi": "Nằm ghế hạ tạ sau đầu tập tay sau (Skull Crusher)",
+    "body_part": "upper arms",
+    "target": "triceps",
+    "equipment": "barbell",
+    "secondary_muscles": [],
+    "instructions_en": "Lie on bench holding EZ-bar or barbell above chest.\nBend elbows to lower bar toward forehead or just behind head.\nExtend elbows to push bar back to starting position.",
+    "instructions_vi": "Nằm trên ghế phẳng, hai tay cầm tạ đòn đưa lên trên ngực.\nGập cùi chỏ hạ thanh tạ về phía trán hoặc ngay sau đỉnh đầu.\nDùng lực bắp tay sau duỗi cùi chỏ đẩy tạ về vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0074.jpg",
+    "gif_asset": "assets/exercises/gifs/0074.gif"
+  },
+  {
+    "source_id": "0075",
+    "name_en": "Overhead Dumbbell Triceps Extension",
+    "name_vi": "Ngồi đẩy tạ đơn sau đầu tập tay sau",
+    "body_part": "upper arms",
+    "target": "triceps",
+    "equipment": "dumbbell",
+    "secondary_muscles": [],
+    "instructions_en": "Hold a dumbbell with both hands overhead.\nLower weight behind head by bending elbows.\nExtend arms upward back to starting position.",
+    "instructions_vi": "Dùng cả hai tay giữ một quả tạ đơn trên đỉnh đầu.\nHạ quả tạ ra sau đầu bằng cách gập cùi chỏ.\nDuỗi thẳng tay lên cao về lại vị trí bắt đầu.",
+    "image_asset": "assets/exercises/images/0075.jpg",
+    "gif_asset": "assets/exercises/gifs/0075.gif"
+  },
+  {
+    "source_id": "0080",
+    "name_en": "Plank",
+    "name_vi": "Tư thế Plank chống cùi chỏ",
+    "body_part": "waist",
+    "target": "abs",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "core",
+      "shoulders",
+      "glutes"
+    ],
+    "instructions_en": "Rest on forearms and toes with body in straight line.\nBrace abdominals and hold position without letting hips sag.\nBreathe steadily.",
+    "instructions_vi": "Chống hai cùi chỏ và mũi chân trên sàn, giữ thân người thành đường thẳng.\nSiết chặt cơ bụng và giữ nguyên tư thế, không để võng hông.\nHít thở đều đặn.",
+    "image_asset": "assets/exercises/images/0080.jpg",
+    "gif_asset": "assets/exercises/gifs/0080.gif"
+  },
+  {
+    "source_id": "0081",
+    "name_en": "Hanging Leg Raise",
+    "name_vi": "Treo người co gối / nâng chân tập bụng",
+    "body_part": "waist",
+    "target": "lower abs",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "hip flexors",
+      "grip"
+    ],
+    "instructions_en": "Hang from pull-up bar with straight arms.\nRaise legs or knees up to hip height by contracting abs.\nLower legs back down slowly without swinging.",
+    "instructions_vi": "Treo người trên thanh xà đơn hai tay thẳng.\nDùng cơ bụng nâng cao hai chân hoặc gập gối lên ngang hông.\nTừ từ hạ chân xuống mà không đung đưa người.",
+    "image_asset": "assets/exercises/images/0081.jpg",
+    "gif_asset": "assets/exercises/gifs/0081.gif"
+  },
+  {
+    "source_id": "0082",
+    "name_en": "Cable Crunch",
+    "name_vi": "Quỳ gập bụng với cáp (Cable Crunch)",
+    "body_part": "waist",
+    "target": "abs",
+    "equipment": "cable",
+    "secondary_muscles": [],
+    "instructions_en": "Kneel below high pulley holding rope beside ears.\nCrunch downward by flexing spine and bringing elbows toward knees.\nReturn slowly to starting position.",
+    "instructions_vi": "Quỳ gối dưới ròng rọc cáp cao, hai tay cầm hai đầu dây thừng ngang tai.\nCuộn người gập bụng xuống đưa cùi chỏ về phía đùi.\nTừ từ vươn người lên vị trí ban đầu.",
+    "image_asset": "assets/exercises/images/0082.jpg",
+    "gif_asset": "assets/exercises/gifs/0082.gif"
+  },
+  {
+    "source_id": "0083",
+    "name_en": "Russian Twist",
+    "name_vi": "Vặn hông tập cơ liên sườn (Russian Twist)",
+    "body_part": "waist",
+    "target": "obliques",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "abs"
+    ],
+    "instructions_en": "Sit on floor with knees bent and feet elevated.\nLean torso back slightly to engage core.\nRotate torso from side to side touching hands to floor.",
+    "instructions_vi": "Ngồi trên sàn gập đầu gối và nhấc bàn chân lên khỏi sàn.\nNgả thân trên hơi ra sau để kích hoạt cơ bụng.\nXoay thân trên sang trái rồi sang phải nhịp nhàng.",
+    "image_asset": "assets/exercises/images/0083.jpg",
+    "gif_asset": "assets/exercises/gifs/0083.gif"
+  },
+  {
+    "source_id": "0090",
+    "name_en": "Treadmill Running",
+    "name_vi": "Chạy bộ trên máy chạy (Treadmill Running)",
+    "body_part": "cardio",
+    "target": "cardiovascular system",
+    "equipment": "machine",
+    "secondary_muscles": [
+      "legs",
+      "calves"
+    ],
+    "instructions_en": "Run at steady pace on treadmill maintaining upright posture.\nLand softly on midfoot and pump arms naturally.",
+    "instructions_vi": "Chạy bộ đều trên máy chạy với tư thế thẳng lưng.\nTiếp đất êm bằng phần giữa bàn chân và đánh tay tự nhiên.",
+    "image_asset": "assets/exercises/images/0090.jpg",
+    "gif_asset": "assets/exercises/gifs/0090.gif"
+  },
+  {
+    "source_id": "0091",
+    "name_en": "Stationary Bike",
+    "name_vi": "Đạp xe tại chỗ (Stationary Bike)",
+    "body_part": "cardio",
+    "target": "cardiovascular system",
+    "equipment": "machine",
+    "secondary_muscles": [
+      "quads",
+      "calves"
+    ],
+    "instructions_en": "Adjust seat height so knee is slightly bent at bottom of pedal stroke.\nPedal at target cadence maintaining smooth rhythm.",
+    "instructions_vi": "Chỉnh chiều cao yên xe sao cho đầu gối hơi chùng nhẹ khi bàn đạp ở vị trí thấp nhất.\nĐạp xe nhịp nhàng với tốc độ và kháng lực phù hợp.",
+    "image_asset": "assets/exercises/images/0091.jpg",
+    "gif_asset": "assets/exercises/gifs/0091.gif"
+  },
+  {
+    "source_id": "0092",
+    "name_en": "Jump Rope",
+    "name_vi": "Nhảy dây (Jump Rope)",
+    "body_part": "cardio",
+    "target": "cardiovascular system",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "calves",
+      "shoulders"
+    ],
+    "instructions_en": "Hold rope handles at hip level.\nTurn rope with wrists and jump lightly off balls of feet.",
+    "instructions_vi": "Cầm tay nắm dây nhảy ngang hông.\nDùng cổ tay quay dây và bật nhẹ bằng nửa trước bàn chân.",
+    "image_asset": "assets/exercises/images/0092.jpg",
+    "gif_asset": "assets/exercises/gifs/0092.gif"
+  },
+  {
+    "source_id": "0093",
+    "name_en": "Burpees",
+    "name_vi": "Bài tập Burpee toàn thân",
+    "body_part": "cardio",
+    "target": "cardiovascular system",
+    "equipment": "body weight",
+    "secondary_muscles": [
+      "chest",
+      "quads",
+      "core"
+    ],
+    "instructions_en": "From standing, drop into squat and place hands on floor.\nKick feet back into push-up position, perform push-up.\nJump feet back to hands and explosively jump up with arms overhead.",
+    "instructions_vi": "Từ tư thế đứng, ngồi xổm xuống và đặt hai tay lên sàn.\nBật chân ra sau về tư thế chống đẩy, thực hiện một nhịp chống đẩy.\nBật chân trở lại cạnh tay rồi nhảy vọt lên cao giơ hai tay qua đầu.",
+    "image_asset": "assets/exercises/images/0093.jpg",
+    "gif_asset": "assets/exercises/gifs/0093.gif"
+  }
+]
