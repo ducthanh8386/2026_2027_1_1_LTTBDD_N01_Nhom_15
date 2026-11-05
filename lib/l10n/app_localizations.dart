@@ -481,6 +481,198 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No exercises in this day yet. Tap \'Add Exercise\' to add some.'**
   String get noExercisesInDay;
+
+  /// No description provided for @workoutHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout History'**
+  String get workoutHistory;
+
+  /// No description provided for @startWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Workout'**
+  String get startWorkout;
+
+  /// No description provided for @workoutSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout Session'**
+  String get workoutSession;
+
+  /// No description provided for @workoutCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout Completed!'**
+  String get workoutCompleted;
+
+  /// No description provided for @workoutSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout Summary'**
+  String get workoutSummary;
+
+  /// No description provided for @restTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest Time'**
+  String get restTimer;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @exitWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit Workout?'**
+  String get exitWorkout;
+
+  /// No description provided for @exitWorkoutConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to save logged sets or discard this workout?'**
+  String get exitWorkoutConfirm;
+
+  /// No description provided for @continueWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueWorkout;
+
+  /// No description provided for @discardWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get discardWorkout;
+
+  /// No description provided for @saveAndFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Save & Finish'**
+  String get saveAndFinish;
+
+  /// No description provided for @finishWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish Workout'**
+  String get finishWorkout;
+
+  /// No description provided for @finishWorkoutConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to finish this workout?'**
+  String get finishWorkoutConfirm;
+
+  /// No description provided for @invalidWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight must be 0 or greater'**
+  String get invalidWeight;
+
+  /// No description provided for @exerciseOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise'**
+  String get exerciseOrder;
+
+  /// No description provided for @target.
+  ///
+  /// In en, this message translates to:
+  /// **'Target'**
+  String get target;
+
+  /// No description provided for @completedSets.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed Sets'**
+  String get completedSets;
+
+  /// No description provided for @addSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Set'**
+  String get addSet;
+
+  /// No description provided for @deleteSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Set'**
+  String get deleteSet;
+
+  /// No description provided for @previousExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previousExercise;
+
+  /// No description provided for @nextExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get nextExercise;
+
+  /// No description provided for @totalDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
+  String get totalDuration;
+
+  /// No description provided for @totalVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Volume'**
+  String get totalVolume;
+
+  /// No description provided for @totalSets.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Sets'**
+  String get totalSets;
+
+  /// No description provided for @totalExercises.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercises'**
+  String get totalExercises;
+
+  /// No description provided for @sessionDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Session Details'**
+  String get sessionDetails;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @freeWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Free Workout'**
+  String get freeWorkout;
+
+  /// No description provided for @selectDayToStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a day to start workout'**
+  String get selectDayToStart;
+
+  /// No description provided for @weightKg.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (kg)'**
+  String get weightKg;
+
+  /// No description provided for @backToHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Home'**
+  String get backToHome;
 }
 
 class _AppLocalizationsDelegate

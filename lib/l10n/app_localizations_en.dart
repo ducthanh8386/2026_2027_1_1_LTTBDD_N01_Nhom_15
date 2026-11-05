@@ -202,4 +202,102 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get noExercisesInDay =>
       'No exercises in this day yet. Tap \'Add Exercise\' to add some.';
+
+  @override
+  String get workoutHistory => 'Workout History';
+
+  @override
+  String get startWorkout => 'Start Workout';
+
+  @override
+  String get workoutSession => 'Workout Session';
+
+  @override
+  String get workoutCompleted => 'Workout Completed!';
+
+  @override
+  String get workoutSummary => 'Workout Summary';
+
+  @override
+  String get restTimer => 'Rest Time';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get exitWorkout => 'Exit Workout?';
+
+  @override
+  String get exitWorkoutConfirm =>
+      'Do you want to save logged sets or discard this workout?';
+
+  @override
+  String get continueWorkout => 'Continue';
+
+  @override
+  String get discardWorkout => 'Discard';
+
+  @override
+  String get saveAndFinish => 'Save & Finish';
+
+  @override
+  String get finishWorkout => 'Finish Workout';
+
+  @override
+  String get finishWorkoutConfirm =>
+      'Are you sure you want to finish this workout?';
+
+  @override
+  String get invalidWeight => 'Weight must be 0 or greater';
+
+  @override
+  String get exerciseOrder => 'Exercise';
+
+  @override
+  String get target => 'Target';
+
+  @override
+  String get completedSets => 'Completed Sets';
+
+  @override
+  String get addSet => 'Add Set';
+
+  @override
+  String get deleteSet => 'Delete Set';
+
+  @override
+  String get previousExercise => 'Previous';
+
+  @override
+  String get nextExercise => 'Next';
+
+  @override
+  String get totalDuration => 'Duration';
+
+  @override
+  String get totalVolume => 'Total Volume';
+
+  @override
+  String get totalSets => 'Total Sets';
+
+  @override
+  String get totalExercises => 'Exercises';
+
+  @override
+  String get sessionDetails => 'Session Details';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get freeWorkout => 'Free Workout';
+
+  @override
+  String get selectDayToStart => 'Select a day to start workout';
+
+  @override
+  String get weightKg => 'Weight (kg)';
+
+  @override
+  String get backToHome => 'Back to Home';
 }

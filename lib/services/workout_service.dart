@@ -3,7 +3,10 @@ import 'package:flutter/services.dart';
 
 import '../data/repositories/exercise_repository.dart';
 import '../data/repositories/plan_repository.dart';
+import '../data/repositories/session_repository.dart';
+import '../models/set_log.dart';
 import '../models/workout_plan.dart';
+import '../models/workout_session.dart';
 
 class ValidationException implements Exception {
   final String message;
@@ -13,16 +16,21 @@ class ValidationException implements Exception {
   String toString() => message;
 }
 
-/// WorkoutService handles workout plan management, validation, and sample data seeding.
+/// WorkoutService handles workout plan management, workout sessions, validation, and sample data seeding.
 class WorkoutService {
   final PlanRepository _planRepository;
   final ExerciseRepository _exerciseRepository;
+  final SessionRepository _sessionRepository;
 
   WorkoutService({
     PlanRepository? planRepository,
     ExerciseRepository? exerciseRepository,
+    SessionRepository? sessionRepository,
   })  : _planRepository = planRepository ?? PlanRepository(),
-        _exerciseRepository = exerciseRepository ?? ExerciseRepository();
+        _exerciseRepository = exerciseRepository ?? ExerciseRepository(),
+        _sessionRepository = sessionRepository ?? SessionRepository();
+
+  // ==================== WORKOUT PLAN METHODS ====================
 
   /// Validates a plan before creation or update.
   /// Throws [ValidationException] if validation fails.
@@ -123,7 +131,6 @@ class WorkoutService {
     try {
       jsonString = await rootBundle.loadString('assets/data/sample_plans.json');
     } catch (_) {
-      // Fallback sample plan JSON if asset is not loaded in current environment
       jsonString = '''
       [
         {
@@ -216,5 +223,131 @@ class WorkoutService {
     }
 
     return createdPlanIds;
+  }
+
+  // ==================== WORKOUT SESSION METHODS (S06) ====================
+
+  /// Validates a workout set log before saving.
+  void validateSet({
+    required int reps,
+    required double weightKg,
+  }) {
+    if (reps <= 0) {
+      throw const ValidationException('Số lần lặp (reps) phải lớn hơn 0');
+    }
+    if (weightKg < 0) {
+      throw const ValidationException('Khối lượng tạ (weight) không được nhỏ hơn 0');
+    }
+  }
+
+  /// Starts a new workout session for a user.
+  /// [planDayId] is optional (null for free workouts).
+  Future<int> startSession({
+    required int userId,
+    int? planDayId,
+    DateTime? startedAt,
+  }) async {
+    final session = WorkoutSession(
+      userId: userId,
+      planDayId: planDayId,
+      startedAt: (startedAt ?? DateTime.now()).toIso8601String(),
+      totalVolume: 0.0,
+    );
+    return await _sessionRepository.insertSession(session);
+  }
+
+  /// Adds a performed set into a session.
+  /// Throws [ValidationException] if reps <= 0 or weightKg < 0.
+  Future<int> addSet({
+    required int sessionId,
+    required int exerciseId,
+    required int setIndex,
+    required int reps,
+    required double weightKg,
+  }) async {
+    validateSet(reps: reps, weightKg: weightKg);
+
+    final setLog = SetLog(
+      sessionId: sessionId,
+      exerciseId: exerciseId,
+      setIndex: setIndex,
+      reps: reps,
+      weightKg: weightKg,
+    );
+    return await _sessionRepository.insertSet(setLog);
+  }
+
+  /// Updates an existing set log.
+  /// Throws [ValidationException] if reps <= 0 or weightKg < 0.
+  Future<int> updateSet({
+    required int setId,
+    required int sessionId,
+    required int exerciseId,
+    required int setIndex,
+    required int reps,
+    required double weightKg,
+  }) async {
+    validateSet(reps: reps, weightKg: weightKg);
+
+    final setLog = SetLog(
+      id: setId,
+      sessionId: sessionId,
+      exerciseId: exerciseId,
+      setIndex: setIndex,
+      reps: reps,
+      weightKg: weightKg,
+    );
+    return await _sessionRepository.updateSet(setLog);
+  }
+
+  /// Deletes a set by id.
+  Future<int> deleteSet(int setId) async {
+    return await _sessionRepository.deleteSet(setId);
+  }
+
+  /// Finishes a session: calculates total volume = Σ (reps * weightKg)
+  /// and updates ended_at timestamp.
+  Future<WorkoutSession?> finishSession(
+    int sessionId, {
+    DateTime? endedAt,
+  }) async {
+    final currentSession = await _sessionRepository.getFull(sessionId);
+    if (currentSession == null) return null;
+
+    final finishTime = endedAt ?? DateTime.now();
+
+    // Calculate total volume: Σ (reps * weightKg)
+    var totalVolume = 0.0;
+    for (final s in currentSession.sets) {
+      totalVolume += (s.reps * s.weightKg);
+    }
+
+    await _sessionRepository.finishSession(
+      sessionId: sessionId,
+      endedAt: finishTime,
+      totalVolume: totalVolume,
+    );
+
+    return await _sessionRepository.getFull(sessionId);
+  }
+
+  /// Cancels an in-progress session by deleting it (set_logs CASCADE deleted).
+  Future<int> cancelSession(int sessionId) async {
+    return await _sessionRepository.deleteSession(sessionId);
+  }
+
+  /// Deletes a workout session by id (set_logs CASCADE deleted).
+  Future<int> deleteSession(int sessionId) async {
+    return await _sessionRepository.deleteSession(sessionId);
+  }
+
+  /// Loads full session history for a user (newest first).
+  Future<List<WorkoutSession>> getSessionHistory(int userId) async {
+    return await _sessionRepository.findHistoryByUser(userId);
+  }
+
+  /// Loads a single workout session with full details.
+  Future<WorkoutSession?> getSession(int sessionId) async {
+    return await _sessionRepository.getFull(sessionId);
   }
 }

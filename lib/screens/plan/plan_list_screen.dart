@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/routes.dart';
 import '../../l10n/app_localizations.dart';
 import '../../models/workout_plan.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/plan_provider.dart';
+import '../../providers/workout_provider.dart';
 import 'plan_edit_screen.dart';
 
 class PlanListScreen extends StatefulWidget {
@@ -70,6 +72,114 @@ class _PlanListScreenState extends State<PlanListScreen> {
         }
       }
     }
+  }
+
+  Future<void> _showPlanDaySelectBottomSheet(
+    BuildContext context,
+    WorkoutPlan plan,
+  ) async {
+    final l10n = AppLocalizations.of(context)!;
+    final planProvider = context.read<PlanProvider>();
+    final fullPlan = await planProvider.loadPlanDetails(plan.id!);
+
+    if (!context.mounted || fullPlan == null) return;
+
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (sheetCtx) {
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        plan.name,
+                        style:
+                            Theme.of(sheetCtx).textTheme.titleLarge?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.edit_outlined),
+                      tooltip: l10n.editPlan,
+                      onPressed: () {
+                        Navigator.pop(sheetCtx);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => PlanEditScreen(planId: plan.id),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  l10n.selectDayToStart,
+                  style: Theme.of(sheetCtx).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(sheetCtx).colorScheme.outline,
+                      ),
+                ),
+                const SizedBox(height: 16),
+                ...fullPlan.days.map((dayFull) {
+                  return Card(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    child: ListTile(
+                      leading: const CircleAvatar(
+                        child: Icon(Icons.fitness_center),
+                      ),
+                      title: Text(
+                        dayFull.day.name,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(
+                        '${dayFull.exercises.length} ${l10n.totalExercises.toLowerCase()}',
+                      ),
+                      trailing: ElevatedButton.icon(
+                        icon: const Icon(Icons.play_arrow_rounded),
+                        label: Text(l10n.startWorkout),
+                        onPressed: () async {
+                          Navigator.pop(sheetCtx);
+                          final auth = context.read<AuthProvider>();
+                          final userId = auth.currentUser?.id;
+                          if (userId != null) {
+                            await context
+                                .read<WorkoutProvider>()
+                                .startWorkoutSession(
+                                  userId: userId,
+                                  planDayFull: dayFull,
+                                  planFull: fullPlan,
+                                );
+                            if (context.mounted) {
+                              Navigator.pushNamed(
+                                context,
+                                AppRoutes.workoutSession,
+                              );
+                            }
+                          }
+                        },
+                      ),
+                    ),
+                  );
+                }),
+                const SizedBox(height: 12),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   void _showSamplePlansBottomSheet() {
@@ -178,11 +288,9 @@ class _PlanListScreenState extends State<PlanListScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.history),
-            tooltip: l10n.historyScreenDisabled,
+            tooltip: l10n.workoutHistory,
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(l10n.historyScreenDisabled)),
-              );
+              Navigator.pushNamed(context, AppRoutes.history);
             },
           ),
         ],
@@ -345,14 +453,7 @@ class _PlanListScreenState extends State<PlanListScreen> {
                           ),
                         ],
                       ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => PlanEditScreen(planId: plan.id),
-                          ),
-                        );
-                      },
+                      onTap: () => _showPlanDaySelectBottomSheet(context, plan),
                     ),
                   ),
                 );

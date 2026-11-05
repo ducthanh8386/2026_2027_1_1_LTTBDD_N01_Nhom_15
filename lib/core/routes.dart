@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/workout_session.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/register_screen.dart';
 import '../screens/home/main_shell.dart';
@@ -13,6 +14,8 @@ import '../screens/settings/profile_screen.dart';
 import '../screens/settings/settings_screen.dart';
 import '../screens/settings/team_info_screen.dart';
 import '../screens/workout/history_screen.dart';
+import '../screens/workout/workout_session_screen.dart';
+import '../screens/workout/workout_summary_screen.dart';
 
 class AppRoutes {
   static const String initial = '/';
@@ -92,6 +95,19 @@ class AppRoutes {
         final int exerciseId = (routeSettings.arguments as int?) ?? 1;
         return MaterialPageRoute(
           builder: (_) => ExerciseDetailScreen(exerciseId: exerciseId),
+          settings: routeSettings,
+        );
+
+      case workoutSession:
+        return MaterialPageRoute(
+          builder: (_) => const WorkoutSessionScreen(),
+          settings: routeSettings,
+        );
+
+      case workoutSummary:
+        final session = routeSettings.arguments as WorkoutSession;
+        return MaterialPageRoute(
+          builder: (_) => WorkoutSummaryScreen(session: session),
           settings: routeSettings,
         );
 

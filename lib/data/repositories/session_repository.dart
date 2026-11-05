@@ -14,16 +14,6 @@ class SetLogDetail {
   });
 }
 
-class WorkoutSessionFull {
-  final WorkoutSession session;
-  final List<SetLogDetail> sets;
-
-  const WorkoutSessionFull({
-    required this.session,
-    required this.sets,
-  });
-}
-
 class SessionRepository {
   final DatabaseHelper _dbHelper;
 
@@ -96,59 +86,68 @@ class SessionRepository {
     return maps.map((m) => WorkoutSession.fromMap(m)).toList();
   }
 
-  Future<WorkoutSessionFull?> getFull(int sessionId) async {
+  /// Retrieves full workout history for a user, including sets and planDayName.
+  /// Ordered newest first (started_at DESC).
+  Future<List<WorkoutSession>> findHistoryByUser(int userId) async {
     final db = await _dbHelper.database;
-    final sessionMaps = await db.query(
-      AppConstants.tableWorkoutSessions,
-      where: 'id = ?',
-      whereArgs: [sessionId],
-      limit: 1,
-    );
+    final sessionRows = await db.rawQuery('''
+      SELECT s.*, pd.name AS plan_day_name
+      FROM ${AppConstants.tableWorkoutSessions} s
+      LEFT JOIN ${AppConstants.tablePlanDays} pd ON s.plan_day_id = pd.id
+      WHERE s.user_id = ?
+      ORDER BY s.started_at DESC
+    ''', [userId]);
 
-    if (sessionMaps.isEmpty) return null;
-    final session = WorkoutSession.fromMap(sessionMaps.first);
+    final List<WorkoutSession> history = [];
+    for (final sRow in sessionRows) {
+      final sId = sRow['id'] as int;
+      final setRows = await db.query(
+        AppConstants.tableSetLogs,
+        where: 'session_id = ?',
+        whereArgs: [sId],
+        orderBy: 'exercise_id ASC, set_index ASC',
+      );
+      final sets = setRows.map((r) => SetLog.fromMap(r)).toList();
+      history.add(
+        WorkoutSession.fromMap(
+          sRow,
+          sets: sets,
+          planDayName: sRow['plan_day_name'] as String?,
+        ),
+      );
+    }
+    return history;
+  }
 
-    final setRows = await db.rawQuery('''
-      SELECT s.*,
-             e.source_id AS e_source_id,
-             e.name_en AS e_name_en,
-             e.name_vi AS e_name_vi,
-             e.body_part AS e_body_part,
-             e.target AS e_target,
-             e.equipment AS e_equipment,
-             e.instructions_en AS e_instructions_en,
-             e.instructions_vi AS e_instructions_vi,
-             e.image_asset AS e_image_asset,
-             e.gif_asset AS e_gif_asset
-      FROM ${AppConstants.tableSetLogs} s
-      LEFT JOIN ${AppConstants.tableExercises} e ON s.exercise_id = e.id
-      WHERE s.session_id = ?
-      ORDER BY s.exercise_id ASC, s.set_index ASC
+  /// Retrieves a single workout session by id with its sets and planDayName.
+  /// If plan was deleted, planDayName is null (due to ON DELETE SET NULL).
+  Future<WorkoutSession?> getFull(int sessionId) async {
+    final db = await _dbHelper.database;
+    final sessionRows = await db.rawQuery('''
+      SELECT s.*, pd.name AS plan_day_name
+      FROM ${AppConstants.tableWorkoutSessions} s
+      LEFT JOIN ${AppConstants.tablePlanDays} pd ON s.plan_day_id = pd.id
+      WHERE s.id = ?
+      LIMIT 1
     ''', [sessionId]);
 
-    final List<SetLogDetail> setDetails = [];
-    for (final row in setRows) {
-      final setLog = SetLog.fromMap(row);
-      Exercise? exercise;
-      if (row['e_source_id'] != null) {
-        exercise = Exercise(
-          id: row['exercise_id'] as int?,
-          sourceId: row['e_source_id'] as String? ?? '',
-          nameEn: row['e_name_en'] as String? ?? '',
-          nameVi: row['e_name_vi'] as String? ?? '',
-          bodyPart: row['e_body_part'] as String? ?? '',
-          target: row['e_target'] as String?,
-          equipment: row['e_equipment'] as String?,
-          instructionsEn: row['e_instructions_en'] as String?,
-          instructionsVi: row['e_instructions_vi'] as String?,
-          imageAsset: row['e_image_asset'] as String?,
-          gifAsset: row['e_gif_asset'] as String?,
-        );
-      }
-      setDetails.add(SetLogDetail(setLog: setLog, exercise: exercise));
-    }
+    if (sessionRows.isEmpty) return null;
+    final sessionRow = sessionRows.first;
 
-    return WorkoutSessionFull(session: session, sets: setDetails);
+    final setRows = await db.query(
+      AppConstants.tableSetLogs,
+      where: 'session_id = ?',
+      whereArgs: [sessionId],
+      orderBy: 'exercise_id ASC, set_index ASC',
+    );
+
+    final List<SetLog> sets = setRows.map((r) => SetLog.fromMap(r)).toList();
+
+    return WorkoutSession.fromMap(
+      sessionRow,
+      sets: sets,
+      planDayName: sessionRow['plan_day_name'] as String?,
+    );
   }
 
   Future<int> deleteSession(int sessionId) async {

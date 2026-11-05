@@ -202,4 +202,102 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get noExercisesInDay =>
       'Chưa có bài tập nào trong ngày này. Bấm \'Thêm bài tập\' để thêm.';
+
+  @override
+  String get workoutHistory => 'Lịch sử tập luyện';
+
+  @override
+  String get startWorkout => 'Bắt đầu tập';
+
+  @override
+  String get workoutSession => 'Buổi tập';
+
+  @override
+  String get workoutCompleted => 'Buổi tập hoàn thành!';
+
+  @override
+  String get workoutSummary => 'Tổng kết buổi tập';
+
+  @override
+  String get restTimer => 'Thời gian nghỉ';
+
+  @override
+  String get skip => 'Bỏ qua';
+
+  @override
+  String get exitWorkout => 'Thoát buổi tập?';
+
+  @override
+  String get exitWorkoutConfirm =>
+      'Bạn có muốn lưu các set đã ghi hay hủy buổi tập này?';
+
+  @override
+  String get continueWorkout => 'Tiếp tục';
+
+  @override
+  String get discardWorkout => 'Hủy bỏ';
+
+  @override
+  String get saveAndFinish => 'Lưu & Kết thúc';
+
+  @override
+  String get finishWorkout => 'Kết thúc buổi tập';
+
+  @override
+  String get finishWorkoutConfirm =>
+      'Bạn có chắc chắn muốn kết thúc buổi tập này không?';
+
+  @override
+  String get invalidWeight => 'Mức tạ phải từ 0 trở lên';
+
+  @override
+  String get exerciseOrder => 'Bài tập';
+
+  @override
+  String get target => 'Mục tiêu';
+
+  @override
+  String get completedSets => 'Các hiệp đã hoàn thành';
+
+  @override
+  String get addSet => 'Ghi nhận hiệp';
+
+  @override
+  String get deleteSet => 'Xóa hiệp';
+
+  @override
+  String get previousExercise => 'Bài trước';
+
+  @override
+  String get nextExercise => 'Bài kế';
+
+  @override
+  String get totalDuration => 'Thời gian';
+
+  @override
+  String get totalVolume => 'Tổng khối lượng';
+
+  @override
+  String get totalSets => 'Tổng số hiệp';
+
+  @override
+  String get totalExercises => 'Số bài tập';
+
+  @override
+  String get sessionDetails => 'Chi tiết các hiệp tập';
+
+  @override
+  String get done => 'Hoàn tất';
+
+  @override
+  String get freeWorkout => 'Buổi tập tự do';
+
+  @override
+  String get selectDayToStart => 'Chọn ngày để bắt đầu buổi tập';
+
+  @override
+  String get weightKg => 'Mức tạ (kg)';
+
+  @override
+  String get backToHome => 'Về trang chủ';
 }
