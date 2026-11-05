@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../models/workout_session.dart';
+import '../screens/auth/login_screen.dart';
+import '../screens/auth/register_screen.dart';
+import '../screens/home/main_shell.dart';
 import '../screens/placeholder_screen.dart';
 import '../screens/plan/exercise_detail_screen.dart';
 import '../screens/plan/exercise_library_screen.dart';
+import '../screens/plan/plan_edit_screen.dart';
+import '../screens/plan/plan_list_screen.dart';
 import '../screens/progress/progress_screen.dart';
 import '../screens/settings/profile_screen.dart';
 import '../screens/settings/settings_screen.dart';
 import '../screens/settings/team_info_screen.dart';
 import '../screens/workout/history_screen.dart';
+import '../screens/workout/workout_session_screen.dart';
+import '../screens/workout/workout_summary_screen.dart';
 
 class AppRoutes {
   static const String initial = '/';
@@ -45,10 +53,34 @@ class AppRoutes {
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case initial:
-      case placeholder:
+      case login:
         return MaterialPageRoute(
-          builder: (_) => const PlaceholderScreen(),
+          builder: (_) => const LoginScreen(),
+          settings: routeSettings,
+        );
+
+      case register:
+        return MaterialPageRoute(
+          builder: (_) => const RegisterScreen(),
+          settings: routeSettings,
+        );
+
+      case home:
+        return MaterialPageRoute(
+          builder: (_) => const MainShell(),
+          settings: routeSettings,
+        );
+
+      case planList:
+        return MaterialPageRoute(
+          builder: (_) => const PlanListScreen(),
+          settings: routeSettings,
+        );
+
+      case planEdit:
+        final int? planId = routeSettings.arguments as int?;
+        return MaterialPageRoute(
+          builder: (_) => PlanEditScreen(planId: planId),
           settings: routeSettings,
         );
 
@@ -63,6 +95,19 @@ class AppRoutes {
         final int exerciseId = (routeSettings.arguments as int?) ?? 1;
         return MaterialPageRoute(
           builder: (_) => ExerciseDetailScreen(exerciseId: exerciseId),
+          settings: routeSettings,
+        );
+
+      case workoutSession:
+        return MaterialPageRoute(
+          builder: (_) => const WorkoutSessionScreen(),
+          settings: routeSettings,
+        );
+
+      case workoutSummary:
+        final session = routeSettings.arguments as WorkoutSession;
+        return MaterialPageRoute(
+          builder: (_) => WorkoutSummaryScreen(session: session),
           settings: routeSettings,
         );
 
@@ -96,6 +141,8 @@ class AppRoutes {
           settings: routeSettings,
         );
 
+      case initial:
+      case placeholder:
       default:
         return MaterialPageRoute(
           builder: (_) => const PlaceholderScreen(),

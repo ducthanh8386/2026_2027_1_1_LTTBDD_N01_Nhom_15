@@ -47,7 +47,25 @@ app.*.map.json
 # Widget Preview related
 .widget_preview/
 
-build_prompts.md
-project_context.md
-project_memory.md
-team_split_prompts.md
+# Environment & secrets
+.env
+local.properties
+*.keystore
+
+FitTrack_Prompts/
+/FitTrack_Prompts
+/FitTrack_Prompts/
+*prompt*
+*prompts*
+*.prompt
+*.prompt.md
+/build_prompts.md
+/team_split_prompts.md
+
+# Root legacy drafts
+/project_context.md
+/project_memory.md
+AGENTS.md
+/.github
+/.docs
+

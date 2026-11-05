@@ -1,0 +1,16 @@
+# .github/CODEOWNERS  (thay @a-user, @b-user bằng tài khoản GitHub thật)
+*                                  @a-user
+/assets/exercises/                 @b-user
+/assets/data/                      @b-user
+/lib/screens/progress/             @b-user
+/lib/data/repositories/exercise_repository.dart   @b-user
+/lib/data/repositories/weight_repository.dart     @b-user
+/lib/data/repositories/stats_repository.dart      @b-user
+/lib/services/stats_service.dart   @b-user
+/lib/services/profile_calc.dart    @b-user
+/lib/providers/exercise_provider.dart             @b-user
+/lib/providers/progress_provider.dart             @b-user
+/lib/screens/settings/             @b-user
+/docs/memory/project_memory_partner.md            @b-user
+/docs/memory/project_memory.md     @a-user
+/docs/contracts/                   @a-user

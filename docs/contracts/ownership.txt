@@ -1,0 +1,41 @@
+# docs/contracts/ownership.txt
+# Danh sách file/thư mục MÁY B được tạo/sửa (glob đơn giản: * khớp cả dấu /).
+# Mọi file KHÔNG khớp mẫu nào ở mục B_OWNED hoặc SHARED_ALLOWED thuộc về A.
+# Chỉ A sửa file này.
+
+[B_OWNED]
+tools/curate_exercises.py
+tools/check_arb.py
+assets/data/exercises_seed.json
+assets/data/sample_plans.json
+assets/exercises/images/*
+assets/exercises/gifs/*
+lib/data/seed/exercise_seed.dart
+lib/data/repositories/exercise_repository.dart
+lib/data/repositories/weight_repository.dart
+lib/data/repositories/stats_repository.dart
+lib/services/stats_service.dart
+lib/services/profile_calc.dart
+lib/providers/exercise_provider.dart
+lib/providers/progress_provider.dart
+lib/screens/plan/exercise_library_screen.dart
+lib/screens/plan/exercise_detail_screen.dart
+lib/screens/progress/*
+lib/screens/settings/profile_screen.dart
+lib/screens/settings/team_info_screen.dart
+lib/screens/settings/team_data.dart
+lib/screens/settings/settings_screen.dart
+lib/screens/workout/history_screen.dart
+lib/screens/workout/history_detail_screen.dart
+lib/widgets/exercise_*.dart
+lib/widgets/progress_*.dart
+lib/debug/b_*.dart
+test/b/*
+docs/memory/project_memory_partner.md
+
+[SHARED_ALLOWED]
+# B được thêm key vào các file này theo quy tắc tiền tố/vị trí (sau "appName").
+lib/l10n/app_en.arb
+lib/l10n/app_vi.arb
+# File sinh tự động: chỉ tạo lại bằng `flutter gen-l10n`, không sửa tay.
+lib/l10n/app_localizations*.dart

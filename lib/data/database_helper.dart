@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
 
@@ -28,14 +29,19 @@ class DatabaseHelper {
   }
 
   Future<Database> _initDatabase() async {
-    final dbDir = await getDatabasesPath();
-    final dbPath = p.join(dbDir, _dbName);
+    final String dbPath;
+    if (kIsWeb) {
+      dbPath = _dbName;
+    } else {
+      final dbDir = await getDatabasesPath();
+      dbPath = p.join(dbDir, _dbName);
+    }
 
     return await openDatabase(
       dbPath,
       version: _dbVersion,
       onConfigure: _onConfigure,
-      onCreate: _onCreate,
+      onCreate: onCreate,
     );
   }
 
@@ -43,7 +49,7 @@ class DatabaseHelper {
     await db.execute('PRAGMA foreign_keys = ON;');
   }
 
-  static Future<void> _onCreate(Database db, int version) async {
+  static Future<void> onCreate(Database db, int version) async {
     await db.transaction((txn) async {
       // 1. users
       await txn.execute('''
@@ -203,3 +209,4 @@ class DatabaseHelper {
     }
   }
 }
+
