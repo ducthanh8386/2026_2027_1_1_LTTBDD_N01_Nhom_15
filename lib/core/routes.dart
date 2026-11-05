@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../screens/auth/login_screen.dart';
+import '../screens/auth/register_screen.dart';
+import '../screens/home/main_shell.dart';
 import '../screens/placeholder_screen.dart';
 import '../screens/plan/exercise_detail_screen.dart';
 import '../screens/plan/exercise_library_screen.dart';
@@ -45,10 +48,21 @@ class AppRoutes {
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
-      case initial:
-      case placeholder:
+      case login:
         return MaterialPageRoute(
-          builder: (_) => const PlaceholderScreen(),
+          builder: (_) => const LoginScreen(),
+          settings: routeSettings,
+        );
+
+      case register:
+        return MaterialPageRoute(
+          builder: (_) => const RegisterScreen(),
+          settings: routeSettings,
+        );
+
+      case home:
+        return MaterialPageRoute(
+          builder: (_) => const MainShell(),
           settings: routeSettings,
         );
 
@@ -96,6 +110,8 @@ class AppRoutes {
           settings: routeSettings,
         );
 
+      case initial:
+      case placeholder:
       default:
         return MaterialPageRoute(
           builder: (_) => const PlaceholderScreen(),

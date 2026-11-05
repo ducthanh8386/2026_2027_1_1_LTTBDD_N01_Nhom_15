@@ -68,4 +68,55 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get fieldRequired => 'Trường này là bắt buộc';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get password => 'Mật khẩu';
+
+  @override
+  String get confirmPassword => 'Xác nhận mật khẩu';
+
+  @override
+  String get fullName => 'Họ và tên';
+
+  @override
+  String get nameRequired => 'Vui lòng nhập họ tên';
+
+  @override
+  String get passwordsDoNotMatch => 'Mật khẩu xác nhận không khớp';
+
+  @override
+  String get invalidEmailOrPassword => 'Email hoặc mật khẩu không đúng';
+
+  @override
+  String get emailAlreadyInUse => 'Email đã được đăng ký';
+
+  @override
+  String get dontHaveAccount => 'Chưa có tài khoản? Đăng ký ngay';
+
+  @override
+  String get alreadyHaveAccount => 'Đã có tài khoản? Đăng nhập';
+
+  @override
+  String get registerSuccess => 'Đăng ký thành công!';
+
+  @override
+  String get navHome => 'Trang chủ';
+
+  @override
+  String get navWorkout => 'Tập luyện';
+
+  @override
+  String get navProgress => 'Tiến độ';
+
+  @override
+  String get navNutrition => 'Dinh dưỡng';
+
+  @override
+  String get navSettings => 'Cài đặt';
+
+  @override
+  String get logout => 'Đăng xuất';
 }

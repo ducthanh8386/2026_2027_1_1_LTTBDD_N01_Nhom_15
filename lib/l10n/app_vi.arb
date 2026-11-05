@@ -19,6 +19,22 @@
   "emailInvalid": "Định dạng email không hợp lệ",
   "passwordTooShort": "Mật khẩu phải có ít nhất 6 ký tự",
   "positiveNumberRequired": "Vui lòng nhập một số dương",
-  "fieldRequired": "Trường này là bắt buộc"
+  "fieldRequired": "Trường này là bắt buộc",
+  "email": "Email",
+  "password": "Mật khẩu",
+  "confirmPassword": "Xác nhận mật khẩu",
+  "fullName": "Họ và tên",
+  "nameRequired": "Vui lòng nhập họ tên",
+  "passwordsDoNotMatch": "Mật khẩu xác nhận không khớp",
+  "invalidEmailOrPassword": "Email hoặc mật khẩu không đúng",
+  "emailAlreadyInUse": "Email đã được đăng ký",
+  "dontHaveAccount": "Chưa có tài khoản? Đăng ký ngay",
+  "alreadyHaveAccount": "Đã có tài khoản? Đăng nhập",
+  "registerSuccess": "Đăng ký thành công!",
+  "navHome": "Trang chủ",
+  "navWorkout": "Tập luyện",
+  "navProgress": "Tiến độ",
+  "navNutrition": "Dinh dưỡng",
+  "navSettings": "Cài đặt",
+  "logout": "Đăng xuất"
 }
-

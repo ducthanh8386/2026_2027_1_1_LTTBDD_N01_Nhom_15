@@ -36,3 +36,6 @@ class AppValidators {
     return null;
   }
 }
+
+/// Backward compatibility alias
+typedef Validators = AppValidators;

@@ -68,3 +68,5 @@ FitTrack_Prompts/
 # Root legacy drafts
 /project_context.md
 /project_memory.md
+AGENTS.md
+/.github

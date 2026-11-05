@@ -19,6 +19,22 @@
   "emailInvalid": "Invalid email format",
   "passwordTooShort": "Password must be at least 6 characters",
   "positiveNumberRequired": "Please enter a positive number",
-  "fieldRequired": "This field is required"
+  "fieldRequired": "This field is required",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "fullName": "Full Name",
+  "nameRequired": "Please enter your name",
+  "passwordsDoNotMatch": "Passwords do not match",
+  "invalidEmailOrPassword": "Invalid email or password",
+  "emailAlreadyInUse": "Email is already registered",
+  "dontHaveAccount": "Don't have an account? Register",
+  "alreadyHaveAccount": "Already have an account? Login",
+  "registerSuccess": "Registration successful!",
+  "navHome": "Home",
+  "navWorkout": "Workout",
+  "navProgress": "Progress",
+  "navNutrition": "Nutrition",
+  "navSettings": "Settings",
+  "logout": "Logout"
 }
-

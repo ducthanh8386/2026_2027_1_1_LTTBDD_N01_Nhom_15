@@ -87,4 +87,34 @@ class UserRepository {
       rethrow;
     }
   }
+
+  /// Deletes all workout plans, sessions, weights, and food logs for [userId],
+  /// while preserving the user account itself (for deleteMyData in A04).
+  Future<void> deleteUserData(int userId) async {
+    final db = await _dbHelper.database;
+    await db.transaction((txn) async {
+      await txn.delete(
+        AppConstants.tableFoodLogEntries,
+        where: 'user_id = ?',
+        whereArgs: [userId],
+      );
+      await txn.delete(
+        AppConstants.tableWeightEntries,
+        where: 'user_id = ?',
+        whereArgs: [userId],
+      );
+      // Deleting workout_sessions cascades to set_logs
+      await txn.delete(
+        AppConstants.tableWorkoutSessions,
+        where: 'user_id = ?',
+        whereArgs: [userId],
+      );
+      // Deleting workout_plans cascades to plan_days and plan_exercises
+      await txn.delete(
+        AppConstants.tableWorkoutPlans,
+        where: 'user_id = ?',
+        whereArgs: [userId],
+      );
+    });
+  }
 }
