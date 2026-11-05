@@ -11,9 +11,11 @@ import 'package:fit_track/data/local/prefs_store.dart';
 import 'package:fit_track/data/repositories/user_repository.dart';
 import 'package:fit_track/models/user.dart';
 import 'package:fit_track/providers/auth_provider.dart';
+import 'package:fit_track/providers/plan_provider.dart';
 import 'package:fit_track/providers/settings_provider.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   sqfliteFfiInit();
   databaseFactory = databaseFactoryFfi;
 
@@ -27,23 +29,11 @@ void main() {
       inMemoryDatabasePath,
       options: OpenDatabaseOptions(
         version: 1,
+        onConfigure: (db) async {
+          await db.execute('PRAGMA foreign_keys = ON;');
+        },
         onCreate: (db, version) async {
-          await db.execute('''
-            CREATE TABLE ${AppConstants.tableUsers} (
-              id INTEGER PRIMARY KEY AUTOINCREMENT,
-              name TEXT NOT NULL,
-              email TEXT UNIQUE NOT NULL,
-              password_hash TEXT NOT NULL,
-              salt TEXT NOT NULL,
-              height_cm REAL,
-              weight_kg REAL,
-              age INTEGER,
-              gender TEXT,
-              goal TEXT,
-              kcal_target INTEGER,
-              created_at TEXT NOT NULL
-            );
-          ''');
+          await DatabaseHelper.onCreate(db, version);
         },
       ),
     );
@@ -59,13 +49,18 @@ void main() {
   testWidgets('FitTrack smoke test - AuthGate displays LoginScreen when not authenticated', (
     WidgetTester tester,
   ) async {
-    SharedPreferences.setMockInitialValues({});
-    final prefsStore = await PrefsStore.create();
-    final authProvider = AuthProvider(
-      userRepo: userRepo,
-      prefsStore: prefsStore,
-    );
-    await authProvider.restoreSession();
+    late final PrefsStore prefsStore;
+    late final AuthProvider authProvider;
+
+    await tester.runAsync(() async {
+      SharedPreferences.setMockInitialValues({});
+      prefsStore = await PrefsStore.create();
+      authProvider = AuthProvider(
+        userRepo: userRepo,
+        prefsStore: prefsStore,
+      );
+      await authProvider.restoreSession();
+    });
 
     await tester.pumpWidget(
       MultiProvider(
@@ -76,12 +71,16 @@ void main() {
           ChangeNotifierProvider<AuthProvider>.value(
             value: authProvider,
           ),
+          ChangeNotifierProvider<PlanProvider>(
+            create: (_) => PlanProvider(),
+          ),
         ],
         child: const FitTrackApp(),
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
 
     // Verify LoginScreen is displayed
     expect(find.text('FitTrack'), findsWidgets);
@@ -93,25 +92,30 @@ void main() {
   testWidgets('FitTrack smoke test - AuthGate displays MainShell when authenticated', (
     WidgetTester tester,
   ) async {
-    SharedPreferences.setMockInitialValues({});
-    final prefsStore = await PrefsStore.create();
+    late final PrefsStore prefsStore;
+    late final AuthProvider authProvider;
 
-    // Insert user into test DB first
-    const testUser = User(
-      name: 'Thanh Nguyen',
-      email: 'thanh@example.com',
-      passwordHash: 'hash',
-      salt: 'salt',
-      createdAt: '2026-11-05T00:00:00.000Z',
-    );
-    final userId = await userRepo.insert(testUser);
-    await prefsStore.setUserId(userId);
+    await tester.runAsync(() async {
+      SharedPreferences.setMockInitialValues({AppConstants.prefKeyUserId: 1});
+      prefsStore = await PrefsStore.create();
 
-    final authProvider = AuthProvider(
-      userRepo: userRepo,
-      prefsStore: prefsStore,
-    );
-    await authProvider.restoreSession();
+      // Insert user into test DB first
+      const testUser = User(
+        id: 1,
+        name: 'Thanh Nguyen',
+        email: 'thanh@example.com',
+        passwordHash: 'hash',
+        salt: 'salt',
+        createdAt: '2026-11-05T00:00:00.000Z',
+      );
+      await userRepo.insert(testUser);
+
+      authProvider = AuthProvider(
+        userRepo: userRepo,
+        prefsStore: prefsStore,
+      );
+      await authProvider.restoreSession();
+    });
 
     await tester.pumpWidget(
       MultiProvider(
@@ -122,12 +126,16 @@ void main() {
           ChangeNotifierProvider<AuthProvider>.value(
             value: authProvider,
           ),
+          ChangeNotifierProvider<PlanProvider>(
+            create: (_) => PlanProvider(),
+          ),
         ],
         child: const FitTrackApp(),
       ),
     );
 
-    await tester.pumpAndSettle();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
 
     // Verify MainShell is displayed with NavigationBar
     expect(find.byType(NavigationBar), findsOneWidget);

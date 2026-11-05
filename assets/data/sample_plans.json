@@ -1,0 +1,31 @@
+[
+  {
+    "name_en": "Full Body Starter",
+    "name_vi": "Khởi động Toàn thân",
+    "days": [
+      {
+        "name_en": "Day 1 - Full Body A",
+        "name_vi": "Ngày 1 - Toàn thân A",
+        "items": [
+          {
+            "source_id": "0025",
+            "sets": 3,
+            "reps": 10
+          }
+        ]
+      },
+      {
+        "name_en": "Day 2 - Full Body B",
+        "name_vi": "Ngày 2 - Toàn thân B",
+        "items": [
+          {
+            "source_id": "0025",
+            "sets": 3,
+            "reps": 12
+          }
+        ]
+      }
+    ]
+  }
+]
+

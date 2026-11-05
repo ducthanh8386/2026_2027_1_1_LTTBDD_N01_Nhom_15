@@ -6,6 +6,8 @@ import '../screens/home/main_shell.dart';
 import '../screens/placeholder_screen.dart';
 import '../screens/plan/exercise_detail_screen.dart';
 import '../screens/plan/exercise_library_screen.dart';
+import '../screens/plan/plan_edit_screen.dart';
+import '../screens/plan/plan_list_screen.dart';
 import '../screens/progress/progress_screen.dart';
 import '../screens/settings/profile_screen.dart';
 import '../screens/settings/settings_screen.dart';
@@ -63,6 +65,19 @@ class AppRoutes {
       case home:
         return MaterialPageRoute(
           builder: (_) => const MainShell(),
+          settings: routeSettings,
+        );
+
+      case planList:
+        return MaterialPageRoute(
+          builder: (_) => const PlanListScreen(),
+          settings: routeSettings,
+        );
+
+      case planEdit:
+        final int? planId = routeSettings.arguments as int?;
+        return MaterialPageRoute(
+          builder: (_) => PlanEditScreen(planId: planId),
           settings: routeSettings,
         );
 

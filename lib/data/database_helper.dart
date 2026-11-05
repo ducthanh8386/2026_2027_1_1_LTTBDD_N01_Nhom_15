@@ -41,7 +41,7 @@ class DatabaseHelper {
       dbPath,
       version: _dbVersion,
       onConfigure: _onConfigure,
-      onCreate: _onCreate,
+      onCreate: onCreate,
     );
   }
 
@@ -49,7 +49,7 @@ class DatabaseHelper {
     await db.execute('PRAGMA foreign_keys = ON;');
   }
 
-  static Future<void> _onCreate(Database db, int version) async {
+  static Future<void> onCreate(Database db, int version) async {
     await db.transaction((txn) async {
       // 1. users
       await txn.execute('''

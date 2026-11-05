@@ -119,4 +119,87 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get logout => 'Đăng xuất';
+
+  @override
+  String get workoutPlans => 'Kế hoạch tập luyện';
+
+  @override
+  String get createPlan => 'Tạo kế hoạch';
+
+  @override
+  String get editPlan => 'Sửa kế hoạch';
+
+  @override
+  String get deletePlan => 'Xóa kế hoạch';
+
+  @override
+  String get deletePlanConfirm =>
+      'Bạn có chắc chắn muốn xóa kế hoạch này không?';
+
+  @override
+  String get planName => 'Tên kế hoạch';
+
+  @override
+  String get planNameRequired => 'Vui lòng nhập tên kế hoạch';
+
+  @override
+  String get planDescription => 'Mô tả (không bắt buộc)';
+
+  @override
+  String get addDay => 'Thêm ngày';
+
+  @override
+  String get dayName => 'Tên ngày';
+
+  @override
+  String get addExercise => 'Thêm bài tập';
+
+  @override
+  String get sets => 'Hiệp (Sets)';
+
+  @override
+  String get reps => 'Lần (Reps)';
+
+  @override
+  String get savePlan => 'Lưu kế hoạch';
+
+  @override
+  String get planSavedSuccess => 'Lưu kế hoạch thành công';
+
+  @override
+  String get planDeletedSuccess => 'Đã xóa kế hoạch';
+
+  @override
+  String get samplePlans => 'Kế hoạch mẫu';
+
+  @override
+  String get useSamplePlan => 'Dùng kế hoạch mẫu';
+
+  @override
+  String get samplePlanApplied => 'Đã áp dụng kế hoạch mẫu thành công';
+
+  @override
+  String get planAtLeastOneDay => 'Kế hoạch phải có ít nhất một ngày';
+
+  @override
+  String get dayAtLeastOneExercise => 'Mỗi ngày phải có ít nhất một bài tập';
+
+  @override
+  String get invalidSetsOrReps => 'Số hiệp và số lần phải lớn hơn 0';
+
+  @override
+  String get noPlansFound => 'Chưa có kế hoạch tập nào';
+
+  @override
+  String get noPlansSubtitle => 'Tạo kế hoạch đầu tiên hoặc thử kế hoạch mẫu';
+
+  @override
+  String get historyScreenDisabled => 'Lịch sử tập luyện sẽ sớm khả dụng';
+
+  @override
+  String get deleteDayConfirm => 'Bạn có chắc chắn muốn xóa ngày này không?';
+
+  @override
+  String get noExercisesInDay =>
+      'Chưa có bài tập nào trong ngày này. Bấm \'Thêm bài tập\' để thêm.';
 }

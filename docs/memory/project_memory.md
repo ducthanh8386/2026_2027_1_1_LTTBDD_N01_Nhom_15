@@ -4,17 +4,17 @@
 > Chỉ mở file code khi task hiện tại chạm tới nó; dùng mục "File Index" để biết file nào làm gì.
 > **Cuối mỗi session, agent PHẢI cập nhật file này** theo mục "Quy tắc cập nhật" ở cuối.
 
-Last updated: 2026-11-05 · by: AI Senior Flutter Engineer · Session #4
+Last updated: 2026-11-05 · by: AI Senior Flutter Engineer · Session #5
 
 ## 1. Trạng thái hiện tại
 
-- **Giai đoạn hiện tại:** S04 – Xác thực + MainShell (HOÀN THÀNH VỀ MẶT CODE & TEST)
-- **Tiến độ tổng:** Đã xong S00, S01 (setup repo), S02 (nền tảng), S03 (dữ liệu & hợp đồng), S04 (Auth & MainShell 5 tab)
-- **Nhánh hiện tại:** `feature/a-repo-setup` (chuẩn bị commit và phân nhánh theo quy trình 2 máy)
-- **App chạy được không:** Đã code và test đầy đủ tầng Auth & MainShell, unit test & widget test pass 100%
+- **Giai đoạn hiện tại:** S05 – Kế hoạch tập (HOÀN THÀNH VỀ MẶT CODE & TEST)
+- **Tiến độ tổng:** Đã xong S00, S01 (setup repo), S02 (nền tảng), S03 (dữ liệu & hợp đồng), S04 (Auth & MainShell 5 tab), S05 (Quản lý Kế hoạch tập - Workout Plan)
+- **Nhánh hiện tại:** `feature/a-plan`
+- **App chạy được không:** Đã code và test đầy đủ tầng Plan, unit test & widget test pass 100%, `flutter analyze` 0 lỗi.
 - **Việc đang làm dở:** Không
-- **Việc tiếp theo (làm ngay):** Chuẩn bị cho giai đoạn S05 (Kế hoạch tập - Workout Plan), cần PR0 và PR1 từ Máy B (dữ liệu bài tập & module bài tập)
-- **Đang bị chặn bởi:** S05 cần dữ liệu bài tập và `ExerciseLibraryScreen` từ PR0/PR1 của Máy B (nếu B chưa xong, A có thể tạo tạm 5–6 bài seed để code trước S05)
+- **Việc tiếp theo (làm ngay):** Chuẩn bị cho giai đoạn S06 (Buổi tập thật, ghi set, đồng hồ nghỉ → chuẩn bị tag `contract-v2`)
+- **Đang bị chặn bởi:** Không bị chặn. Màn hình chọn bài tập `ExerciseLibraryScreen` đã sẵn sàng hook nhận `List<Exercise>` từ Module B1 của Máy B khi tích hợp.
 
 ## 2. Checklist phase (theo bảng giai đoạn FitTrack_Prompts)
 
@@ -25,7 +25,7 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 - [x] S02 – Nền tảng: theme, routes, Provider, i18n, PrefsStore
 - [x] S03 – Dữ liệu & Hợp đồng (DatabaseHelper, 10 Models, Repositories, Stubs cho B)
 - [x] S04 – Xác thực (Auth: register, login, session, deleteMyData) + MainShell (5 tabs, AuthGate)
-- [ ] S05 – Kế hoạch tập (Plan: CRUD plan, days, exercises, gán bài tập)
+- [x] S05 – Kế hoạch tập (Plan: CRUD plan, days, exercises, gán bài tập, kế hoạch mẫu)
 - [ ] S06 – Buổi tập, ghi set, đồng hồ nghỉ → tag `contract-v2`
 - [ ] S07 – Dinh dưỡng + quét mã vạch Open Food Facts
 - [ ] S08 – HomeScreen + tích hợp module B
@@ -38,7 +38,7 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 
 - Auth: [x] A01 [x] A02 [x] A03 [x] A04 [x] A05 [x] A06
 - Profile: [ ] U01 [ ] U02
-- Plan: [ ] P01 [ ] P02 [ ] P03 [ ] P04 [ ] P05
+- Plan: [x] P01 [x] P02 [x] P03 [x] P04 [x] P05
 - Session: [ ] L01 [ ] L02 [ ] L03 [ ] L04 [ ] L05
 - Progress: [ ] T01 [ ] T02 [ ] T03 [ ] T04
 - Nutrition: [ ] N01 [ ] N02 [ ] N03 [ ] N04 [ ] N05 [ ] N06 [ ] N07
@@ -94,17 +94,22 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 - `lib/providers/plan_provider.dart` – PlanProvider stub – stub
 - `lib/providers/workout_provider.dart` – WorkoutProvider stub – stub
 - `lib/providers/nutrition_provider.dart` – NutritionProvider stub – stub
+- `lib/services/workout_service.dart` – Validate plan, CRUD plan qua PlanRepository, seed sample plans từ json – done
+- `lib/providers/plan_provider.dart` – Quản lý danh sách plan và PlanDraft (thêm/xóa/đổi tên ngày, thêm/xóa/reorder bài tập, targetSets/Reps) – done
 - `lib/screens/auth/login_screen.dart` – Màn hình Đăng nhập (validator email/pass, toggle ẩn hiện, loading, SnackBar) – done
 - `lib/screens/auth/register_screen.dart` – Màn hình Đăng ký (validator tên/email/pass/confirm, toggle ẩn hiện, loading) – done
 - `lib/screens/home/main_shell.dart` – Shell điều hướng 5 tab (Home, Workout, Progress, Nutrition, Settings) + IndexedStack – done
 - `lib/screens/home/home_screen.dart` – Màn hình trang chủ chào mừng user, hiển thị avatar, email, nút đăng xuất – done
-- `lib/screens/plan/plan_list_screen.dart` – Placeholder màn hình danh sách kế hoạch tập – done
+- `lib/screens/plan/plan_list_screen.dart` – Danh sách kế hoạch tập (ListView, EmptyState, FAB tạo kế hoạch, bottom sheet kế hoạch mẫu, Dismissible & AlertDialog xác nhận xóa) – done
+- `lib/screens/plan/plan_edit_screen.dart` – Màn hình tạo mới và sửa kế hoạch (Form validate, ExpansionTile theo ngày, ReorderableListView bài tập, Thêm ngày, Thêm bài hook ExerciseLibraryScreen) – done
 - `lib/screens/nutrition/food_diary_screen.dart` – Placeholder màn hình nhật ký dinh dưỡng – done
+- `assets/data/sample_plans.json` – Kế hoạch tập mẫu Full Body theo contract – done
 - `lib/app.dart` – FitTrackApp cấu hình theme, locale, AuthGate điều hướng tự động (Splash/Login/MainShell) – done
 - `lib/main.dart` – MultiProvider đăng ký đủ 7 Provider theo hợp đồng contract-v1 – done
-- `lib/core/routes.dart` – Định tuyến AppRoutes và map route tới các màn hình – done
+- `lib/core/routes.dart` – Định tuyến AppRoutes và map route tới các màn hình (bổ sung planList, planEdit) – done
 - `test/auth_test.dart` – Unit test AuthService & AuthProvider (SHA-256 + salt, login, register, duplicate email, deleteMyData) – done
 - `test/widget_test.dart` – Widget test kiểm tra AuthGate hiển thị LoginScreen khi chưa đăng nhập và MainShell khi đã có phiên – done
+- `test/workout_plan_test.dart` – 9 unit/widget tests kiểm tra toàn diện validation rules, CRUD 3 ngày, cascade deletion, sample plan copy, localization – done
 - `test/models_test.dart` – Unit test 10 models pass 100% – done
 - `test/repositories_test.dart` – Unit test DatabaseHelper & Repositories pass 100% – done
 
@@ -120,6 +125,8 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 | 2026-11-04 | Chia việc: A 70% (kiến trúc, DB, Auth, Plan, Workout, Nutrition), B 30% (Data bài tập, Tiến độ, Settings/Team, History) | Theo thỏa thuận nhóm 2 người |
 | 2026-11-05 | Chuyển đổi sang quy trình 2 máy chuẩn (`FitTrack_Prompts`): A cũng làm trên nhánh `feature/a-*`, merge qua PR (Merge commit) | Tuân thủ tuyệt đối quy định không commit thẳng main |
 | 2026-11-05 | Khôi phục phiên tự động qua AuthGate: đọc userId từ SharedPreferences, khôi phục User từ SQLite | Trải nghiệm mượt mà không bắt user đăng nhập lại mỗi khi mở app |
+| 2026-11-05 | Quản lý bản thảo kế hoạch qua `PlanDraft` trong `PlanProvider`: hỗ trợ ReorderableListView theo ngày, lưu giữ trạng thái form khi validate lỗi | Tránh mất dữ liệu người dùng đang nhập dở |
+| 2026-11-05 | An toàn bất đồng bộ trong `PlanProvider`: kiểm tra cờ `_disposed` trước khi `notifyListeners()` | Tránh lỗi assertion `used after being disposed` khi unmount màn hình |
 
 ## 6. Nhật ký bug & fix
 
@@ -130,13 +137,19 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 | 2026-11-05 | Phase 2 | `onGenerateRoute` lỗi `Not a constant expression: case settings:` | Tên tham số che khuất hằng số `AppRoutes.settings` | Đổi tên tham số thành `routeSettings` trong `lib/core/routes.dart` | Đã sửa |
 | 2026-11-05 | Phase 2 | `Exercise.copyWith` lỗi biên dịch tham số `secondaryMuscles` | Tham số không cho phép null | Đổi thành `List<String>? secondaryMuscles` trong `lib/models/exercise.dart` | Đã sửa |
 | 2026-11-05 | S01 | `.gitignore` che mất `docs/project_context.md` và `docs/memory/project_memory.md` | Dòng ignore cũ thiếu dấu gạch chéo đầu `/` | Thêm dấu `/` cho các file gốc trong `.gitignore` | Đã sửa |
+| 2026-11-05 | S05 | Biên dịch `WorkoutPlan` báo lỗi không có trường `description` | Bảng `workout_plans` schema chuẩn chỉ gồm `id, user_id, name, created_at` | Bỏ `description` khỏi Model query, đồng bộ đúng schema trong `workout_service.dart`, `plan_provider.dart`, `plan_list_screen.dart` | Đã sửa |
+| 2026-11-05 | S05 | Flutter deprecation warning với `onReorder` trong `ReorderableListView` | Flutter 3.41+ khuyến khích dùng `onReorderItem` | Cập nhật `onReorderItem` trong `plan_edit_screen.dart` | Đã sửa |
+| 2026-11-05 | S05 | `test/widget_test.dart` lỗi `PlanProvider used after being disposed` | `loadPlans` gọi `notifyListeners()` trong finally sau khi widget đã dispose | Thêm cờ `_disposed` ghi đè `notifyListeners()` trong `PlanProvider` | Đã sửa |
+| 2026-11-05 | S05 | `test/widget_test.dart` không tìm thấy `NavigationBar` khi test phiên đăng nhập | Key Prefs mock dùng sai chuỗi `fittrack_user_id` thay vì `pref_user_id` | Sử dụng hằng số chuẩn `AppConstants.prefKeyUserId` và bọc async setup trong `tester.runAsync` | Đã sửa |
 
 ## 7. Vấn đề mở / nợ kỹ thuật
 
 - [x] Tạo đủ 10 bảng SQLite với quan hệ khóa ngoại ON DELETE CASCADE và SET NULL
 - [x] Cài đặt Git hooks và cấu hình danh tính máy A
 - [x] Hoàn thiện tầng Auth (Service, Provider, Screen, Gate, tests)
-- [ ] Chờ B nộp PR0 & PR1 (dữ liệu bài tập & exercise module) để bước vào S05 (Kế hoạch tập)
+- [x] Hoàn thiện tầng Kế hoạch tập S05 (Service, Provider, ListScreen, EditScreen, Sample plans, 9 tests)
+- [ ] Chờ Máy B nộp PR0 & PR1 (dữ liệu bài tập & màn hình ExerciseLibraryScreen) để hoàn thiện luồng chọn bài tập thực tế ở S08
+- [ ] Bước vào S06 (Buổi tập thật, log set, đồng hồ nghỉ)
 
 ## 8. Việc ngoài code (nhóm tự làm, agent KHÔNG làm)
 
@@ -159,7 +172,8 @@ Repo: `https://github.com/ducthanh8386/fit-track.git`
 
 | # | Ngày | Giai đoạn | Đã làm | Commit/PR |
 | :--- | :--- | :--- | :--- | :--- |
-| 4 | 2026-11-05 | S04 | Triển khai hoàn chỉnh tầng Auth & Shell: AuthService (SHA-256 + salt ngẫu nhiên), AuthProvider (restoreSession, login, register, deleteMyData, logout), LoginScreen, RegisterScreen, MainShell 5 tab, AuthGate tự động điều hướng, hoàn thiện bộ unit test auth_test và widget_test | (đang trên nhánh `feature/a-repo-setup`) |
+| 5 | 2026-11-05 | S05 | Triển khai hoàn chỉnh module Kế hoạch tập (Workout Plan): WorkoutService (validate tên, ngày, set/rep; CRUD plan; seedSamplePlans ánh xạ source_id), PlanProvider (quản lý plans, PlanDraft thêm/xóa/sửa ngày, thêm/xóa/reorder bài tập), PlanListScreen (ListView, EmptyState, FAB, BottomSheet kế hoạch mẫu, AlertDialog xóa), PlanEditScreen (Form, ExpansionTile ngày, ReorderableListView, hook ExerciseLibraryScreen), i18n EN/VI, bộ unit test workout_plan_test pass 100% | (nhánh `feature/a-plan`) |
+| 4 | 2026-11-05 | S04 | Triển khai hoàn chỉnh tầng Auth & Shell: AuthService (SHA-256 + salt ngẫu nhiên), AuthProvider (restoreSession, login, register, deleteMyData, logout), LoginScreen, RegisterScreen, MainShell 5 tab, AuthGate tự động điều hướng, hoàn thiện bộ unit test auth_test và widget_test | (nhánh `feature/a-repo-setup`) |
 | 3 | 2026-11-05 | S01 | Thiết lập cấu trúc docs/, AGENTS.md, .github/, tools/git/, cài đặt hook, cập nhật README, chuẩn hóa .gitignore và chuyển đổi quy trình 2 máy | (nhánh `feature/a-repo-setup`) |
 | 2 | 2026-11-05 | Phase 2 | Triển khai 10 models, DatabaseHelper, 5 Repositories của A, stubs hợp đồng cho B, unit tests pass 100% | `6674451` |
 | 1 | 2026-11-04 | Phase 1 | Thêm dependencies, cấu hình l10n EN/VI, dựng cây thư mục 4 tầng, core theme/routes/validators, PrefsStore, SettingsProvider | `b531d7a` |

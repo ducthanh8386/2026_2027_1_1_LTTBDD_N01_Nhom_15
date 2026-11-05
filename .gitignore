@@ -52,9 +52,6 @@ app.*.map.json
 local.properties
 *.keystore
 
-# ---------------------------------------------------------------------------
-# Prompts & AI Agent Workflows (CHẶN TOÀN BỘ CÁC FILE/THƯ MỤC LIÊN QUAN ĐẾN PROMPT)
-# ---------------------------------------------------------------------------
 FitTrack_Prompts/
 /FitTrack_Prompts
 /FitTrack_Prompts/
@@ -70,3 +67,5 @@ FitTrack_Prompts/
 /project_memory.md
 AGENTS.md
 /.github
+/.docs
+

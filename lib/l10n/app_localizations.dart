@@ -319,6 +319,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
+
+  /// No description provided for @workoutPlans.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout Plans'**
+  String get workoutPlans;
+
+  /// No description provided for @createPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Plan'**
+  String get createPlan;
+
+  /// No description provided for @editPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Plan'**
+  String get editPlan;
+
+  /// No description provided for @deletePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Plan'**
+  String get deletePlan;
+
+  /// No description provided for @deletePlanConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this plan?'**
+  String get deletePlanConfirm;
+
+  /// No description provided for @planName.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan Name'**
+  String get planName;
+
+  /// No description provided for @planNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter plan name'**
+  String get planNameRequired;
+
+  /// No description provided for @planDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description (optional)'**
+  String get planDescription;
+
+  /// No description provided for @addDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Day'**
+  String get addDay;
+
+  /// No description provided for @dayName.
+  ///
+  /// In en, this message translates to:
+  /// **'Day Name'**
+  String get dayName;
+
+  /// No description provided for @addExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Exercise'**
+  String get addExercise;
+
+  /// No description provided for @sets.
+  ///
+  /// In en, this message translates to:
+  /// **'Sets'**
+  String get sets;
+
+  /// No description provided for @reps.
+  ///
+  /// In en, this message translates to:
+  /// **'Reps'**
+  String get reps;
+
+  /// No description provided for @savePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Plan'**
+  String get savePlan;
+
+  /// No description provided for @planSavedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan saved successfully'**
+  String get planSavedSuccess;
+
+  /// No description provided for @planDeletedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan deleted'**
+  String get planDeletedSuccess;
+
+  /// No description provided for @samplePlans.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample Plans'**
+  String get samplePlans;
+
+  /// No description provided for @useSamplePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Sample Plan'**
+  String get useSamplePlan;
+
+  /// No description provided for @samplePlanApplied.
+  ///
+  /// In en, this message translates to:
+  /// **'Sample plan applied successfully'**
+  String get samplePlanApplied;
+
+  /// No description provided for @planAtLeastOneDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan must have at least one day'**
+  String get planAtLeastOneDay;
+
+  /// No description provided for @dayAtLeastOneExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Each day must have at least one exercise'**
+  String get dayAtLeastOneExercise;
+
+  /// No description provided for @invalidSetsOrReps.
+  ///
+  /// In en, this message translates to:
+  /// **'Sets and reps must be greater than 0'**
+  String get invalidSetsOrReps;
+
+  /// No description provided for @noPlansFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No workout plans yet'**
+  String get noPlansFound;
+
+  /// No description provided for @noPlansSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your first plan or try a sample plan'**
+  String get noPlansSubtitle;
+
+  /// No description provided for @historyScreenDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout history will be available soon'**
+  String get historyScreenDisabled;
+
+  /// No description provided for @deleteDayConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this day?'**
+  String get deleteDayConfirm;
+
+  /// No description provided for @noExercisesInDay.
+  ///
+  /// In en, this message translates to:
+  /// **'No exercises in this day yet. Tap \'Add Exercise\' to add some.'**
+  String get noExercisesInDay;
 }
 
 class _AppLocalizationsDelegate
