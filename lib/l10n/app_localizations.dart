@@ -104,6 +104,24 @@ abstract class AppLocalizations {
   /// **'FitTrack'**
   String get appName;
 
+  String get progressTitle;
+  String get progressWeightTab;
+  String get progressVolumeTab;
+  String get progressDays7;
+  String get progressDays30;
+  String get progressAll;
+  String get progressAddWeight;
+  String get progressWeightInputLabel;
+  String get progressDateLabel;
+  String get progressSaveWeight;
+  String get progressWeightSaved;
+  String get progressNoWeightData;
+  String get progressNoWeightSub;
+  String get progressCurrentWeight;
+  String get progressChange;
+  String get progressMinMax;
+  String get progressInvalidWeight;
+
   String get exerciseLibraryTitle;
   String get exerciseSelectTitle;
   String get exerciseSearchPlaceholder;
