@@ -60,6 +60,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
+          heroTag: 'progress_weight_fab',
           onPressed: () => AddWeightSheet.show(context),
           icon: const Icon(Icons.add),
           label: Text(l10n?.progressAddWeight ?? 'Log Weight'),
@@ -177,7 +178,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
         Expanded(
           child: Card(
             elevation: 1,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
               child: Column(
@@ -205,7 +208,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
         Expanded(
           child: Card(
             elevation: 1,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
               child: Column(
@@ -235,7 +240,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
         Expanded(
           child: Card(
             elevation: 1,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
               child: Column(
@@ -274,7 +281,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.monitor_weight_outlined, size: 64, color: theme.disabledColor),
+              Icon(
+                Icons.monitor_weight_outlined,
+                size: 64,
+                color: theme.disabledColor,
+              ),
               const SizedBox(height: 12),
               Text(
                 l10n?.progressNoWeightData ?? 'No weight records yet',
@@ -284,7 +295,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
               ),
               const SizedBox(height: 6),
               Text(
-                l10n?.progressNoWeightSub ?? 'Tap the button below to log your first weight.',
+                l10n?.progressNoWeightSub ??
+                    'Tap the button below to log your first weight.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: theme.disabledColor),
               ),
@@ -330,8 +342,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   ),
                   borderData: FlBorderData(show: false),
                   titlesData: FlTitlesData(
-                    topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                    rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    topTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+                    rightTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
                     leftTitles: AxisTitles(
                       sideTitles: SideTitles(
                         showTitles: true,
@@ -349,7 +365,10 @@ class _ProgressScreenState extends State<ProgressScreen> {
                       sideTitles: SideTitles(
                         showTitles: true,
                         reservedSize: 28,
-                        interval: (points.length / 4).ceilToDouble().clamp(1.0, 10.0),
+                        interval: (points.length / 4).ceilToDouble().clamp(
+                          1.0,
+                          10.0,
+                        ),
                         getTitlesWidget: (val, _) {
                           final idx = val.toInt();
                           if (idx >= 0 && idx < points.length) {
@@ -401,7 +420,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.fitness_center_outlined, size: 64, color: theme.disabledColor),
+            Icon(
+              Icons.fitness_center_outlined,
+              size: 64,
+              color: theme.disabledColor,
+            ),
             const SizedBox(height: 16),
             Text(
               'Biểu đồ Khối lượng tạ',

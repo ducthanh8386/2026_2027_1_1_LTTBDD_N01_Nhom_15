@@ -8,7 +8,7 @@ class StatsRepository {
   final DatabaseHelper _dbHelper;
 
   StatsRepository({DatabaseHelper? dbHelper})
-      : _dbHelper = dbHelper ?? DatabaseHelper();
+    : _dbHelper = dbHelper ?? DatabaseHelper();
 
   DatabaseHelper get dbHelper => _dbHelper;
 }

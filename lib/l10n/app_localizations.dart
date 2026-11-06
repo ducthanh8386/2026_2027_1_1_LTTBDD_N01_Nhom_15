@@ -104,36 +104,184 @@ abstract class AppLocalizations {
   /// **'FitTrack'**
   String get appName;
 
+  /// No description provided for @progressTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
   String get progressTitle;
+
+  /// No description provided for @progressWeightTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
   String get progressWeightTab;
+
+  /// No description provided for @progressVolumeTab.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume'**
   String get progressVolumeTab;
+
+  /// No description provided for @progressDays7.
+  ///
+  /// In en, this message translates to:
+  /// **'7 Days'**
   String get progressDays7;
+
+  /// No description provided for @progressDays30.
+  ///
+  /// In en, this message translates to:
+  /// **'30 Days'**
   String get progressDays30;
+
+  /// No description provided for @progressAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
   String get progressAll;
+
+  /// No description provided for @progressAddWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Weight'**
   String get progressAddWeight;
+
+  /// No description provided for @progressWeightInputLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (kg)'**
   String get progressWeightInputLabel;
+
+  /// No description provided for @progressDateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
   String get progressDateLabel;
+
+  /// No description provided for @progressSaveWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Weight'**
   String get progressSaveWeight;
+
+  /// No description provided for @progressWeightSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight recorded successfully'**
   String get progressWeightSaved;
+
+  /// No description provided for @progressNoWeightData.
+  ///
+  /// In en, this message translates to:
+  /// **'No weight records yet'**
   String get progressNoWeightData;
+
+  /// No description provided for @progressNoWeightSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the button below to log your first weight.'**
   String get progressNoWeightSub;
+
+  /// No description provided for @progressCurrentWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
   String get progressCurrentWeight;
+
+  /// No description provided for @progressChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Change'**
   String get progressChange;
+
+  /// No description provided for @progressMinMax.
+  ///
+  /// In en, this message translates to:
+  /// **'Min / Max'**
   String get progressMinMax;
+
+  /// No description provided for @progressInvalidWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a valid weight between 20 and 300 kg'**
   String get progressInvalidWeight;
 
+  /// No description provided for @exerciseLibraryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise Library'**
   String get exerciseLibraryTitle;
+
+  /// No description provided for @exerciseSelectTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Exercises'**
   String get exerciseSelectTitle;
+
+  /// No description provided for @exerciseSearchPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Search exercises...'**
   String get exerciseSearchPlaceholder;
+
+  /// No description provided for @exerciseFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
   String get exerciseFilterAll;
+
+  /// No description provided for @exerciseAddSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Add ({count})'**
   String exerciseAddSelected(int count);
+
+  /// No description provided for @exerciseDetailTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise Detail'**
   String get exerciseDetailTitle;
+
+  /// No description provided for @exerciseInstructions.
+  ///
+  /// In en, this message translates to:
+  /// **'Instructions'**
   String get exerciseInstructions;
+
+  /// No description provided for @exerciseSecondaryMuscles.
+  ///
+  /// In en, this message translates to:
+  /// **'Secondary Muscles'**
   String get exerciseSecondaryMuscles;
+
+  /// No description provided for @exerciseTargetMuscle.
+  ///
+  /// In en, this message translates to:
+  /// **'Target'**
   String get exerciseTargetMuscle;
+
+  /// No description provided for @exerciseEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'Equipment'**
   String get exerciseEquipment;
+
+  /// No description provided for @exerciseBodyPart.
+  ///
+  /// In en, this message translates to:
+  /// **'Body Part'**
   String get exerciseBodyPart;
+
+  /// No description provided for @exerciseNoExercises.
+  ///
+  /// In en, this message translates to:
+  /// **'No exercises found'**
   String get exerciseNoExercises;
+
+  /// No description provided for @exerciseCredit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise data and media © Gym visual'**
   String get exerciseCredit;
 
   /// No description provided for @welcome.

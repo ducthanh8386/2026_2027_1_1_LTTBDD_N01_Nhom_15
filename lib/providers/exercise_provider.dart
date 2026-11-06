@@ -91,7 +91,7 @@ class ExerciseProvider extends ChangeNotifier {
 
   void _applyFilters() {
     final q = _query.trim().toLowerCase();
-    final noDiacriticQ = ExerciseRepository._stripDiacritics(q);
+    final noDiacriticQ = ExerciseRepository.stripDiacritics(q);
 
     _filteredExercises = _allExercises.where((ex) {
       if (_selectedBodyPart != null &&
@@ -102,7 +102,7 @@ class ExerciseProvider extends ChangeNotifier {
       if (q.isNotEmpty) {
         final en = ex.nameEn.toLowerCase();
         final vi = ex.nameVi.toLowerCase();
-        final viNoDiacritic = ExerciseRepository._stripDiacritics(vi);
+        final viNoDiacritic = ExerciseRepository.stripDiacritics(vi);
         final target = (ex.target ?? '').toLowerCase();
 
         final matches = en.contains(q) ||

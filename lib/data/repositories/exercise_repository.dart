@@ -53,12 +53,12 @@ class ExerciseRepository {
 
     if (query != null && query.trim().isNotEmpty) {
       final cleanQuery = query.trim().toLowerCase();
-      final noDiacriticQuery = _stripDiacritics(cleanQuery);
+      final noDiacriticQuery = stripDiacritics(cleanQuery);
 
       exercises = exercises.where((ex) {
         final en = ex.nameEn.toLowerCase();
         final vi = ex.nameVi.toLowerCase();
-        final viNoDiacritic = _stripDiacritics(vi);
+        final viNoDiacritic = stripDiacritics(vi);
         final target = (ex.target ?? '').toLowerCase();
 
         return en.contains(cleanQuery) ||
@@ -98,7 +98,7 @@ class ExerciseRepository {
   Future<List<String>> distinctBodyParts() async {
     final db = await _db;
     final results = await db.rawQuery(
-      'SELECT DISTINCT body_part FROM ${AppConstants.tableExercises} WHERE body_part IS NOT NULL AND body_part != "" ORDER BY body_part ASC',
+      "SELECT DISTINCT body_part FROM ${AppConstants.tableExercises} WHERE body_part IS NOT NULL AND body_part != '' ORDER BY body_part ASC",
     );
     return results.map((r) => r['body_part'] as String).toList();
   }
@@ -106,12 +106,12 @@ class ExerciseRepository {
   Future<List<String>> distinctEquipment() async {
     final db = await _db;
     final results = await db.rawQuery(
-      'SELECT DISTINCT equipment FROM ${AppConstants.tableExercises} WHERE equipment IS NOT NULL AND equipment != "" ORDER BY equipment ASC',
+      "SELECT DISTINCT equipment FROM ${AppConstants.tableExercises} WHERE equipment IS NOT NULL AND equipment != '' ORDER BY equipment ASC",
     );
     return results.map((r) => r['equipment'] as String).toList();
   }
 
-  static String _stripDiacritics(String str) {
+  static String stripDiacritics(String str) {
     var result = str.toLowerCase();
     const map = {
       'a': ['á', 'à', 'ả', 'ã', 'ạ', 'ă', 'ắ', 'ằ', 'ẳ', 'ẵ', 'ặ', 'â', 'ấ', 'ầ', 'ẩ', 'ẫ', 'ậ'],

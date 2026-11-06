@@ -463,6 +463,7 @@ class _PlanListScreenState extends State<PlanListScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'plan_list_fab',
         icon: const Icon(Icons.add),
         label: Text(l10n.createPlan),
         onPressed: () {

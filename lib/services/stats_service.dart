@@ -8,10 +8,7 @@ class WeightPoint {
   final DateTime date;
   final double kg;
 
-  const WeightPoint({
-    required this.date,
-    required this.kg,
-  });
+  const WeightPoint({required this.date, required this.kg});
 
   @override
   String toString() => 'WeightPoint(date: $date, kg: $kg)';
@@ -34,10 +31,7 @@ class VolumePoint {
   final DateTime date;
   final double value;
 
-  const VolumePoint({
-    required this.date,
-    required this.value,
-  });
+  const VolumePoint({required this.date, required this.value});
 
   @override
   String toString() => 'VolumePoint(date: $date, value: $value)';
@@ -67,11 +61,9 @@ class StatsService {
   final StatsRepository _statsRepo;
   final WeightRepository _weightRepo;
 
-  StatsService({
-    StatsRepository? stats,
-    WeightRepository? weights,
-  })  : _statsRepo = stats ?? StatsRepository(),
-        _weightRepo = weights ?? WeightRepository();
+  StatsService({StatsRepository? stats, WeightRepository? weights})
+    : _statsRepo = stats ?? StatsRepository(),
+      _weightRepo = weights ?? WeightRepository();
 
   StatsRepository get statsRepo => _statsRepo;
   WeightRepository get weightRepo => _weightRepo;
@@ -100,7 +92,11 @@ class StatsService {
     final points = entries.map((e) {
       final parts = e.date.split('-');
       final d = (parts.length == 3)
-          ? DateTime(int.parse(parts[0]), int.parse(parts[1]), int.parse(parts[2]))
+          ? DateTime(
+              int.parse(parts[0]),
+              int.parse(parts[1]),
+              int.parse(parts[2]),
+            )
           : DateTime.parse(e.date);
       return WeightPoint(date: d, kg: e.weightKg);
     }).toList();
@@ -115,11 +111,7 @@ class StatsService {
     final d = date.day.toString().padLeft(2, '0');
     final dateStr = '$y-$m-$d';
 
-    final entry = WeightEntry(
-      userId: userId,
-      date: dateStr,
-      weightKg: kg,
-    );
+    final entry = WeightEntry(userId: userId, date: dateStr, weightKg: kg);
 
     await _weightRepo.upsert(entry);
   }
@@ -132,17 +124,16 @@ class StatsService {
   }
 
   Future<List<VolumePoint>> maxWeightSeries(
-      int userId, int exerciseId, StatsRange range) async {
+    int userId,
+    int exerciseId,
+    StatsRange range,
+  ) async {
     // B07: calculate exercise 1RM / max weight series
     return [];
   }
 
   Future<WeeklySummary> weeklySummary(int userId) async {
     // B07: calculate weekly total volume and food log kcal
-    return const WeeklySummary(
-      sessions: 0,
-      totalVolume: 0.0,
-      totalKcal: 0.0,
-    );
+    return const WeeklySummary(sessions: 0, totalVolume: 0.0, totalKcal: 0.0);
   }
 }

@@ -49,7 +49,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get progressNoWeightData => 'No weight records yet';
 
   @override
-  String get progressNoWeightSub => 'Tap the button below to log your first weight.';
+  String get progressNoWeightSub =>
+      'Tap the button below to log your first weight.';
 
   @override
   String get progressCurrentWeight => 'Current';
@@ -61,7 +62,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get progressMinMax => 'Min / Max';
 
   @override
-  String get progressInvalidWeight => 'Please enter a valid weight between 20 and 300 kg';
+  String get progressInvalidWeight =>
+      'Please enter a valid weight between 20 and 300 kg';
 
   @override
   String get exerciseLibraryTitle => 'Exercise Library';
@@ -76,7 +78,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exerciseFilterAll => 'All';
 
   @override
-  String exerciseAddSelected(int count) => 'Add ($count)';
+  String exerciseAddSelected(int count) {
+    return 'Add ($count)';
+  }
 
   @override
   String get exerciseDetailTitle => 'Exercise Detail';

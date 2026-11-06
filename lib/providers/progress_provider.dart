@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:flutter/foundation.dart';
+
 import '../services/stats_service.dart';
 
 /// ProgressProvider owned by Partner B (Module B2/B4).
@@ -21,7 +23,7 @@ class ProgressProvider extends ChangeNotifier {
   bool _disposed = false;
 
   ProgressProvider({StatsService? service})
-      : _service = service ?? StatsService();
+    : _service = service ?? StatsService();
 
   int? get userId => _userId;
   StatsRange get range => _range;
@@ -98,7 +100,11 @@ class ProgressProvider extends ChangeNotifier {
   Future<void> loadMaxWeight(int exerciseId) async {
     if (_userId == null) return;
     try {
-      _maxWeightPoints = await _service.maxWeightSeries(_userId!, exerciseId, _range);
+      _maxWeightPoints = await _service.maxWeightSeries(
+        _userId!,
+        exerciseId,
+        _range,
+      );
       _safeNotifyListeners();
     } catch (_) {}
   }

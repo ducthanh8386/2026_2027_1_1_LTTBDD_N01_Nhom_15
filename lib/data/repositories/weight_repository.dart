@@ -1,4 +1,5 @@
 import 'package:sqflite/sqflite.dart';
+
 import '../../core/constants.dart';
 import '../../models/weight_entry.dart';
 import '../database_helper.dart';
@@ -11,7 +12,7 @@ class WeightRepository {
   final DatabaseHelper _dbHelper;
 
   WeightRepository({DatabaseHelper? dbHelper})
-      : _dbHelper = dbHelper ?? DatabaseHelper();
+    : _dbHelper = dbHelper ?? DatabaseHelper();
 
   Future<Database> get _db => _dbHelper.database;
 
@@ -25,7 +26,10 @@ class WeightRepository {
   }
 
   Future<List<WeightEntry>> findRange(
-      int userId, DateTime from, DateTime to) async {
+    int userId,
+    DateTime from,
+    DateTime to,
+  ) async {
     final db = await _db;
     final fromStr = _formatDate(from);
     final toStr = _formatDate(to);

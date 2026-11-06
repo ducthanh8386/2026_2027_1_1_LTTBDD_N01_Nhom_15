@@ -49,7 +49,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get progressNoWeightData => 'Chưa có dữ liệu cân nặng';
 
   @override
-  String get progressNoWeightSub => 'Chạm vào nút bên dưới để ghi nhận cân nặng đầu tiên.';
+  String get progressNoWeightSub =>
+      'Chạm vào nút bên dưới để ghi nhận cân nặng đầu tiên.';
 
   @override
   String get progressCurrentWeight => 'Hiện tại';
@@ -61,7 +62,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get progressMinMax => 'Thấp / Cao';
 
   @override
-  String get progressInvalidWeight => 'Vui lòng nhập cân nặng hợp lệ từ 20 đến 300 kg';
+  String get progressInvalidWeight =>
+      'Vui lòng nhập cân nặng hợp lệ từ 20 đến 300 kg';
 
   @override
   String get exerciseLibraryTitle => 'Thư viện bài tập';
@@ -76,7 +78,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get exerciseFilterAll => 'Tất cả';
 
   @override
-  String exerciseAddSelected(int count) => 'Thêm ($count)';
+  String exerciseAddSelected(int count) {
+    return 'Thêm ($count)';
+  }
 
   @override
   String get exerciseDetailTitle => 'Chi tiết bài tập';

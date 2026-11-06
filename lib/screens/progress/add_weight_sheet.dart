@@ -11,23 +11,20 @@ class AddWeightSheet extends StatefulWidget {
   final DateTime? initialDate;
   final double? initialWeight;
 
-  const AddWeightSheet({
-    super.key,
-    this.initialDate,
-    this.initialWeight,
-  });
+  const AddWeightSheet({super.key, this.initialDate, this.initialWeight});
 
-  static Future<void> show(BuildContext context, {DateTime? date, double? weight}) {
+  static Future<void> show(
+    BuildContext context, {
+    DateTime? date,
+    double? weight,
+  }) {
     return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
-      builder: (_) => AddWeightSheet(
-        initialDate: date,
-        initialWeight: weight,
-      ),
+      builder: (_) => AddWeightSheet(initialDate: date, initialWeight: weight),
     );
   }
 
@@ -98,10 +95,7 @@ class _AddWeightSheetState extends State<AddWeightSheet> {
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Error: $e'),
-          backgroundColor: Colors.red,
-        ),
+        SnackBar(content: Text('Error: $e'), backgroundColor: Colors.red),
       );
     } finally {
       if (mounted) {
@@ -155,10 +149,7 @@ class _AddWeightSheetState extends State<AddWeightSheet> {
                   ),
                   isDense: true,
                 ),
-                child: Text(
-                  dateDisplay,
-                  style: const TextStyle(fontSize: 16),
-                ),
+                child: Text(dateDisplay, style: const TextStyle(fontSize: 16)),
               ),
             ),
             const SizedBox(height: 16),
@@ -166,7 +157,9 @@ class _AddWeightSheetState extends State<AddWeightSheet> {
             // 2. Weight Input (kg)
             TextFormField(
               controller: _weightController,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               autofocus: true,
               decoration: InputDecoration(
                 labelText: l10n?.progressWeightInputLabel ?? 'Weight (kg)',
