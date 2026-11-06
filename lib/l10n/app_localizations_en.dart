@@ -13,6 +13,57 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'FitTrack';
 
   @override
+  String get progressTitle => 'Progress';
+
+  @override
+  String get progressWeightTab => 'Weight';
+
+  @override
+  String get progressVolumeTab => 'Volume';
+
+  @override
+  String get progressDays7 => '7 Days';
+
+  @override
+  String get progressDays30 => '30 Days';
+
+  @override
+  String get progressAll => 'All';
+
+  @override
+  String get progressAddWeight => 'Log Weight';
+
+  @override
+  String get progressWeightInputLabel => 'Weight (kg)';
+
+  @override
+  String get progressDateLabel => 'Date';
+
+  @override
+  String get progressSaveWeight => 'Save Weight';
+
+  @override
+  String get progressWeightSaved => 'Weight recorded successfully';
+
+  @override
+  String get progressNoWeightData => 'No weight records yet';
+
+  @override
+  String get progressNoWeightSub => 'Tap the button below to log your first weight.';
+
+  @override
+  String get progressCurrentWeight => 'Current';
+
+  @override
+  String get progressChange => 'Change';
+
+  @override
+  String get progressMinMax => 'Min / Max';
+
+  @override
+  String get progressInvalidWeight => 'Please enter a valid weight between 20 and 300 kg';
+
+  @override
   String get exerciseLibraryTitle => 'Exercise Library';
 
   @override

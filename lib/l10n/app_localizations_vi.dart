@@ -13,6 +13,57 @@ class AppLocalizationsVi extends AppLocalizations {
   String get appName => 'FitTrack';
 
   @override
+  String get progressTitle => 'Tiến độ';
+
+  @override
+  String get progressWeightTab => 'Cân nặng';
+
+  @override
+  String get progressVolumeTab => 'Khối lượng tạ';
+
+  @override
+  String get progressDays7 => '7 ngày';
+
+  @override
+  String get progressDays30 => '30 ngày';
+
+  @override
+  String get progressAll => 'Tất cả';
+
+  @override
+  String get progressAddWeight => 'Ghi cân nặng';
+
+  @override
+  String get progressWeightInputLabel => 'Cân nặng (kg)';
+
+  @override
+  String get progressDateLabel => 'Ngày ghi nhận';
+
+  @override
+  String get progressSaveWeight => 'Lưu cân nặng';
+
+  @override
+  String get progressWeightSaved => 'Đã ghi nhận cân nặng thành công';
+
+  @override
+  String get progressNoWeightData => 'Chưa có dữ liệu cân nặng';
+
+  @override
+  String get progressNoWeightSub => 'Chạm vào nút bên dưới để ghi nhận cân nặng đầu tiên.';
+
+  @override
+  String get progressCurrentWeight => 'Hiện tại';
+
+  @override
+  String get progressChange => 'Thay đổi';
+
+  @override
+  String get progressMinMax => 'Thấp / Cao';
+
+  @override
+  String get progressInvalidWeight => 'Vui lòng nhập cân nặng hợp lệ từ 20 đến 300 kg';
+
+  @override
   String get exerciseLibraryTitle => 'Thư viện bài tập';
 
   @override
