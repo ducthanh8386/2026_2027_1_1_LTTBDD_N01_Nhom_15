@@ -5,7 +5,7 @@ ROLE="$(git config --local fittrack.role || true)"
 ZERO="0000000000000000000000000000000000000000"
 while read -r lref lsha rref rsha; do
   [[ "$lsha" == "$ZERO" ]] && continue                       # xóa nhánh: bỏ qua
-  if [[ "$rref" == "refs/heads/main" ]]; then
+  if [[ "$ROLE" == "B" && "$rref" == "refs/heads/main" ]]; then
     echo "✖ Không push thẳng lên main. Hãy push nhánh feature và mở Pull Request."; exit 1
   fi
   if [[ "$rsha" != "$ZERO" ]] && ! git merge-base --is-ancestor "$rsha" "$lsha" 2>/dev/null; then
