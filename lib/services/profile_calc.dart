@@ -118,3 +118,4 @@ class ProfileCalc {
     return isVi ? 'Béo phì' : 'Obese';
   }
 }
+
