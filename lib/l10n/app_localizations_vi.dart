@@ -66,6 +66,87 @@ class AppLocalizationsVi extends AppLocalizations {
       'Vui lòng nhập cân nặng hợp lệ từ 20 đến 300 kg';
 
   @override
+  String get progressVolumeChartTitle => 'Khối lượng tạ';
+
+  @override
+  String get progressNoVolumeData => 'Chưa có dữ liệu khối lượng';
+
+  @override
+  String get progressNoVolumeSub =>
+      'Hoàn thành các buổi tập để xem biểu đồ khối lượng tự động.';
+
+  @override
+  String get progressWeeklySummary => 'Tổng kết tuần này';
+
+  @override
+  String get progressWeeklySessions => 'Số buổi';
+
+  @override
+  String get progressWeeklyVolume => 'Khối lượng';
+
+  @override
+  String get progressWeeklyKcal => 'Calories';
+
+  @override
+  String get progressTotalVolume => 'Tổng khối lượng';
+
+  @override
+  String get progressAvgVolume => 'Trung bình / Buổi';
+
+  @override
+  String get progressMaxVolume => 'Buổi cao nhất';
+
+  @override
+  String get progressMaxWeightTitle => 'Mức tạ cao nhất theo bài';
+
+  @override
+  String get progressSelectExercise => 'Chọn bài tập';
+
+  @override
+  String get historyTitle => 'Lịch sử tập luyện';
+
+  @override
+  String get historyEmptyTitle => 'Chưa có lịch sử tập';
+
+  @override
+  String get historyEmptySubtitle =>
+      'Các buổi tập đã hoàn thành sẽ xuất hiện tại đây. Bắt đầu ngay hôm nay!';
+
+  @override
+  String get historyFreeWorkout => 'Buổi tập tự do';
+
+  @override
+  String get historyDeleteTitle => 'Xóa buổi tập';
+
+  @override
+  String get historyDeleteConfirm =>
+      'Bạn có chắc chắn muốn xóa buổi tập này không?';
+
+  @override
+  String get historyDetailTitle => 'Chi tiết buổi tập';
+
+  @override
+  String get historySets => 'hiệp';
+
+  @override
+  String get historyMinutes => 'phút';
+
+  @override
+  String get historyVolume => 'Khối lượng';
+
+  @override
+  String get historyTotalSets => 'Tổng hiệp';
+
+  @override
+  String get historyDuration => 'Thời gian';
+
+  @override
+  String get historyExerciseSets => 'Chi tiết các hiệp';
+
+  @override
+  String historySetNumber(int number) => 'Hiệp $number';
+
+  @override
   String get exerciseLibraryTitle => 'Thư viện bài tập';
 
   @override

@@ -206,6 +206,33 @@ abstract class AppLocalizations {
   /// **'Please enter a valid weight between 20 and 300 kg'**
   String get progressInvalidWeight;
 
+  String get progressVolumeChartTitle;
+  String get progressNoVolumeData;
+  String get progressNoVolumeSub;
+  String get progressWeeklySummary;
+  String get progressWeeklySessions;
+  String get progressWeeklyVolume;
+  String get progressWeeklyKcal;
+  String get progressTotalVolume;
+  String get progressAvgVolume;
+  String get progressMaxVolume;
+  String get progressMaxWeightTitle;
+  String get progressSelectExercise;
+  String get historyTitle;
+  String get historyEmptyTitle;
+  String get historyEmptySubtitle;
+  String get historyFreeWorkout;
+  String get historyDeleteTitle;
+  String get historyDeleteConfirm;
+  String get historyDetailTitle;
+  String get historySets;
+  String get historyMinutes;
+  String get historyVolume;
+  String get historyTotalSets;
+  String get historyDuration;
+  String get historyExerciseSets;
+  String historySetNumber(int number);
+
   /// No description provided for @exerciseLibraryTitle.
   ///
   /// In en, this message translates to:

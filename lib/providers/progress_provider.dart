@@ -80,6 +80,7 @@ class ProgressProvider extends ChangeNotifier {
     try {
       _weightPoints = await _service.weightSeries(_userId!, _range);
       _volumePoints = await _service.volumeSeries(_userId!, _range);
+      _weeklySummary = await _service.weeklySummary(_userId!);
       _error = null;
     } catch (e) {
       _error = e.toString();
