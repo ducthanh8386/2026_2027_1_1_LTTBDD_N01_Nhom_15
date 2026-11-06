@@ -66,6 +66,87 @@ class AppLocalizationsEn extends AppLocalizations {
       'Please enter a valid weight between 20 and 300 kg';
 
   @override
+  String get progressVolumeChartTitle => 'Workout Volume';
+
+  @override
+  String get progressNoVolumeData => 'No volume records yet';
+
+  @override
+  String get progressNoVolumeSub =>
+      'Completed workouts will automatically generate volume charts.';
+
+  @override
+  String get progressWeeklySummary => 'Weekly Summary';
+
+  @override
+  String get progressWeeklySessions => 'Sessions';
+
+  @override
+  String get progressWeeklyVolume => 'Volume';
+
+  @override
+  String get progressWeeklyKcal => 'Calories';
+
+  @override
+  String get progressTotalVolume => 'Total Volume';
+
+  @override
+  String get progressAvgVolume => 'Avg / Session';
+
+  @override
+  String get progressMaxVolume => 'Max Session';
+
+  @override
+  String get progressMaxWeightTitle => 'Max Weight By Exercise';
+
+  @override
+  String get progressSelectExercise => 'Select Exercise';
+
+  @override
+  String get historyTitle => 'Workout History';
+
+  @override
+  String get historyEmptyTitle => 'No Workout History';
+
+  @override
+  String get historyEmptySubtitle =>
+      'Completed workouts will appear here. Start training today!';
+
+  @override
+  String get historyFreeWorkout => 'Free Workout';
+
+  @override
+  String get historyDeleteTitle => 'Delete Session';
+
+  @override
+  String get historyDeleteConfirm =>
+      'Are you sure you want to delete this workout session?';
+
+  @override
+  String get historyDetailTitle => 'Workout Detail';
+
+  @override
+  String get historySets => 'sets';
+
+  @override
+  String get historyMinutes => 'min';
+
+  @override
+  String get historyVolume => 'Volume';
+
+  @override
+  String get historyTotalSets => 'Total Sets';
+
+  @override
+  String get historyDuration => 'Duration';
+
+  @override
+  String get historyExerciseSets => 'Sets Performed';
+
+  @override
+  String historySetNumber(int number) => 'Set $number';
+
+  @override
   String get exerciseLibraryTitle => 'Exercise Library';
 
   @override

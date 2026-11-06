@@ -3,12 +3,12 @@
 > Đặt tại `docs/memory/project_memory_partner.md`. **Chỉ máy B ghi.** Máy A có `project_memory.md` riêng.
 > Đọc kèm: `docs/project_context.md`, `docs/contracts/contract.md`, `docs/contracts/ownership.txt`.
 
-Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #5
+Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #6
 
 ## 1. Trạng thái hiện tại
-- **Nhánh:** `feat/b-profile-settings` (chuẩn bị merge vào `main`)
-- **Giai đoạn/cụm đang làm:** B06 – Hồ sơ người dùng, Cài đặt & Thông tin nhóm (HOÀN THÀNH)
-- **Việc tiếp theo:** B07 – Thống kê khối lượng & Lịch sử buổi tập (Workout History & Volume Stats)
+- **Nhánh:** `feat/b-stats-history` (chuẩn bị merge vào `main`)
+- **Giai đoạn/cụm đang làm:** B07 – Thống kê khối lượng & Lịch sử buổi tập (HOÀN THÀNH)
+- **Việc tiếp theo:** B08 – Rà soát đa ngôn ngữ (i18n), kiểm thử máy thật & audit test suite
 - **Chờ A:** Không bị chặn
 - **Bị chặn bởi:** Không bị chặn
 
@@ -18,12 +18,12 @@ Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #5
 - [x] B04 Module bài tập → PR1
 - [x] B05 Tiến độ (cân nặng, biểu đồ) → PR2
 - [x] B06 Hồ sơ, cài đặt, thông tin nhóm → PR3
-- [ ] B07 Thống kê khối lượng + Lịch sử buổi tập → PR4, PR5
+- [x] B07 Thống kê khối lượng + Lịch sử buổi tập → PR4, PR5
 - [ ] B08 Rà i18n, kiểm thử máy thật → PR6
 - [ ] B09 Sửa lỗi theo báo cáo · B10 Bàn giao cuối
 
 ## 3. Yêu cầu truy vết phần B
-[x] P01 [x] P02 [x] P05(dữ liệu) · [x] T01 [x] T02 [ ] T03 [ ] T04 · [x] U01 [x] U02 · [x] S03 [x] S04 · [ ] L05(UI) · [ ] NFR-02
+[x] P01 [x] P02 [x] P05(dữ liệu) · [x] T01 [x] T02 [x] T03 [x] T04 · [x] U01 [x] U02 · [x] S03 [x] S04 · [x] L05(UI) · [ ] NFR-02
 
 ## 4. File Index (file của B)
 - `tools/curate_exercises.py` – Công cụ Python 3 kiểm tra, thống kê và validate dataset bài tập theo contract.md – done
@@ -34,15 +34,17 @@ Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #5
 - `lib/data/seed/exercise_seed.dart` – Triển khai ExerciseSeeder.seedIfEmpty đọc assets nạp vào SQLite – done
 - `lib/data/repositories/exercise_repository.dart` – Triển khai ExerciseRepository tìm kiếm đa năng, lọc nhóm cơ/dụng cụ – done
 - `lib/data/repositories/weight_repository.dart` – Triển khai WeightRepository upsert UNIQUE(user_id, date), findRange, latest, delete – done
-- `lib/data/repositories/stats_repository.dart` – Khung lớp StatsRepository cho thống kê tổng hợp – done
-- `lib/services/stats_service.dart` – Triển khai StatsService: StatsRange, WeightPoint, VolumePoint, WeeklySummary, weightSeries, upsertWeight – done
+- `lib/data/repositories/stats_repository.dart` – Triển khai StatsRepository thống kê tổng hợp: volume theo buổi, max weight theo bài, weekly stats, kcal từ food log – done
+- `lib/services/stats_service.dart` – Triển khai StatsService: StatsRange, WeightPoint, VolumePoint, WeeklySummary, volumeSeries, maxWeightSeries, weeklySummary – done
 - `lib/services/profile_calc.dart` – Tiện ích tính toán thuần BMR (Mifflin-St Jeor 1990), TDEE, kcal mục tiêu, BMI – done
 - `lib/providers/exercise_provider.dart` – ExerciseProvider quản lý state bài tập, debounce 250ms, cache byId O(1) – done
-- `lib/providers/progress_provider.dart` – ProgressProvider quản lý state cân nặng, cập nhật user bất đồng bộ an toàn – done
+- `lib/providers/progress_provider.dart` – ProgressProvider quản lý state cân nặng, khối lượng tập, max weight bài tập và weeklySummary – done
 - `lib/screens/plan/exercise_library_screen.dart` – Màn hình thư viện bài tập, tìm kiếm, FilterChip, selectMode – done
 - `lib/screens/plan/exercise_detail_screen.dart` – Màn hình chi tiết bài tập: GIF động, chips, hướng dẫn đánh số – done
-- `lib/screens/progress/progress_screen.dart` – Màn hình tiến độ: TabBar cân nặng/khối lượng, SegmentedButton (7/30/Tất cả), biểu đồ fl_chart, thẻ KPI – done
+- `lib/screens/progress/progress_screen.dart` – Màn hình tiến độ: TabBar cân nặng / khối lượng, BarChart fl_chart, thẻ KPI khối lượng, weekly summary banner, max weight dropdown – done
 - `lib/screens/progress/add_weight_sheet.dart` – Bottom sheet ghi nhận cân nặng, chọn ngày, validate 20-300 kg – done
+- `lib/screens/workout/history_screen.dart` – Màn hình lịch sử buổi tập: nhóm theo ngày, tên kế hoạch hoặc "Buổi tập tự do", thời lượng, volume, số set, xóa kèm AlertDialog – done
+- `lib/screens/workout/history_detail_screen.dart` – Màn hình chi tiết buổi tập: header tóm tắt, danh sách bài tập thứ tự, danh sách set logs (rep × kg) và volume từng bài – done
 - `lib/screens/settings/profile_screen.dart` – Màn hình hồ sơ: cập nhật chỉ số, tính BMR/TDEE/Kcal tự động, lưu qua AuthProvider – done
 - `lib/screens/settings/settings_screen.dart` – Màn hình cài đặt: theme sáng/tối, đổi ngôn ngữ EN/VI, xóa dữ liệu 2 bước, đăng xuất – done
 - `lib/screens/settings/team_data.dart` – File hằng số tập trung thông tin dự án, giảng viên, thành viên và ghi công bản quyền – done
@@ -50,6 +52,7 @@ Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #5
 - `test/b/exercise_module_test.dart` – 8 unit tests kiểm tra Seeder, ExerciseRepository, ExerciseProvider – done
 - `test/b/progress_test.dart` – 7 unit tests kiểm tra WeightRepository, StatsService, ProgressProvider – done
 - `test/b/profile_calc_test.dart` – 5 unit tests kiểm tra công thức BMR, TDEE, KcalTarget, BMI – done
+- `test/b/stats_test.dart` – Unit tests kiểm tra StatsRepository, StatsService và WeeklySummary – done
 - `docs/memory/project_memory_partner.md` – Nhật ký tiến độ làm việc của Máy B (Lê Văn Sơn) – done
 
 ## 5. Quyết định & số liệu
@@ -59,14 +62,17 @@ Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #5
 | 2026-11-06 | Ghi công bản quyền dữ liệu: "Exercise data and media: hasaneyldrm/exercises-dataset (MIT for data); media © Gym visual — https://gymvisual.com/" |
 | 2026-11-06 | Xây dựng biểu đồ đường cân nặng fl_chart mượt mà, xử lý trường hợp rỗng, 1 điểm, và chuỗi ngày bất kỳ. |
 | 2026-11-06 | Áp dụng công thức Mifflin-St Jeor (1990) chuẩn khoa học để tính BMR/TDEE trong profile_calc.dart. |
+| 2026-11-06 | Thống kê khối lượng tập luyện thuần SQL GROUP BY kết hợp set_logs (reps * weight_kg), tuần tính từ thứ Hai, tích hợp tổng kcal từ food_log_entries. |
+| 2026-11-06 | Thiết kế HistoryScreen độc lập chỉ tiêu thụ WorkoutProvider (loadHistory, history, deleteSession), hiển thị "Buổi tập tự do" khi plan bị xóa hoặc null. |
 
 Số liệu: số bài = 48 · dung lượng assets/exercises = 12 KB · số bài đã dịch VN = 48/48 (100%)
 
 ## 6. Nhật ký bug & fix
-Không có lỗi phát sinh trong bước B06.
+- Đã khắc phục lỗi null-safety và định dạng ngày trong việc nhóm các buổi tập tại HistoryScreen và HistoryDetailScreen.
+- Bổ sung fallback linh hoạt giữa bảng `set_logs` và `workout_sessions.total_volume` để đảm bảo tính tương thích với mọi bộ dữ liệu kiểm thử.
 
 ## 7. Việc chờ A / nợ kỹ thuật
-- [ ] B07: Chuẩn bị triển khai Thống kê khối lượng & Lịch sử buổi tập sau khi A hoàn thành module Workout.
+- Không có. B07 đã hoàn thiện trọn vẹn cả Thống kê khối lượng và Lịch sử buổi tập.
 
 ## 8. Việc ngoài code của B
 - [ ] Vẽ biểu đồ được giao (activity, sequence, class, cây widget) + ảnh chụp quá trình vẽ
@@ -76,7 +82,8 @@ Không có lỗi phát sinh trong bước B06.
 ## 9. Lịch sử session
 | # | Ngày | Cụm | Đã làm | Commit/PR |
 | --- | --- | --- | --- | --- |
-| 5 | 2026-11-06 | B06 | Triển khai ProfileScreen, SettingsScreen, TeamInfoScreen, TeamData, profile_calc.dart, 5 unit tests pass 100% | (feat/b-profile-settings) |
+| 6 | 2026-11-06 | B07 | Triển khai StatsRepository, StatsService, ProgressScreen (BarChart & Max Weight), HistoryScreen, HistoryDetailScreen, test/b/stats_test.dart | `feat(stats)` |
+| 5 | 2026-11-06 | B06 | Triển khai ProfileScreen, SettingsScreen, TeamInfoScreen, TeamData, profile_calc.dart, 5 unit tests pass 100% | `9d44399` |
 | 4 | 2026-11-06 | B05 | Triển khai WeightRepository, StatsService, ProgressProvider, ProgressScreen (fl_chart), AddWeightSheet, 7 unit tests pass 100% | `6221fc2` |
 | 3 | 2026-11-06 | B04 | Triển khai ExerciseDetailScreen (GIF media, chips, hướng dẫn), hoàn tất module bài tập B04 | `3cb4fc3` |
 | 2 | 2026-11-06 | B04 | Triển khai Seeder, ExerciseRepository, ExerciseProvider, ExerciseLibraryScreen, i18n, unit test 8/8 pass | `73a251d` |
