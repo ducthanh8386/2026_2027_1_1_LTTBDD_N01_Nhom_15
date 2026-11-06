@@ -13,6 +13,45 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'FitTrack';
 
   @override
+  String get exerciseLibraryTitle => 'Exercise Library';
+
+  @override
+  String get exerciseSelectTitle => 'Select Exercises';
+
+  @override
+  String get exerciseSearchPlaceholder => 'Search exercises...';
+
+  @override
+  String get exerciseFilterAll => 'All';
+
+  @override
+  String exerciseAddSelected(int count) => 'Add ($count)';
+
+  @override
+  String get exerciseDetailTitle => 'Exercise Detail';
+
+  @override
+  String get exerciseInstructions => 'Instructions';
+
+  @override
+  String get exerciseSecondaryMuscles => 'Secondary Muscles';
+
+  @override
+  String get exerciseTargetMuscle => 'Target';
+
+  @override
+  String get exerciseEquipment => 'Equipment';
+
+  @override
+  String get exerciseBodyPart => 'Body Part';
+
+  @override
+  String get exerciseNoExercises => 'No exercises found';
+
+  @override
+  String get exerciseCredit => 'Exercise data and media © Gym visual';
+
+  @override
   String get welcome => 'Welcome to FitTrack';
 
   @override

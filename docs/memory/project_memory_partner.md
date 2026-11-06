@@ -3,19 +3,19 @@
 > Đặt tại `docs/memory/project_memory_partner.md`. **Chỉ máy B ghi.** Máy A có `project_memory.md` riêng.
 > Đọc kèm: `docs/project_context.md`, `docs/contracts/contract.md`, `docs/contracts/ownership.txt`.
 
-Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #2
+Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #3
 
 ## 1. Trạng thái hiện tại
-- **Nhánh:** `feat/b-exercise-data` (sắp merge vào `main`)
-- **Giai đoạn/cụm đang làm:** B03 – PR0: Tích hợp seed data vào project và kiểm tra định dạng theo contract (HOÀN THÀNH)
-- **Việc tiếp theo:** B04 – Module Thư viện Bài tập (Exercise Library, Filters, Exercise Detail)
-- **Chờ A:** Không bị chặn
+- **Nhánh:** `feat/b-exercise-module` (chuẩn bị merge vào `main`)
+- **Giai đoạn/cụm đang làm:** B04 – Module Thư viện Bài tập (HOÀN THÀNH)
+- **Việc tiếp theo:** B05 – Module Theo dõi tiến độ & Cân nặng (Weight logging, fl_chart)
+- **Chờ A:** Nhận diện ExerciseLibraryScreen(selectMode: true) cho luồng tạo Plan (A05)
 - **Bị chặn bởi:** Không bị chặn
 
 ## 2. Checklist cụm việc
 - [x] B01–B02 Dữ liệu bài tập (chọn, dịch, script, sample_plans)
 - [x] B03 PR0: dữ liệu + asset vào repo
-- [ ] B04 Module bài tập → PR1
+- [x] B04 Module bài tập → PR1
 - [ ] B05 Tiến độ (cân nặng, biểu đồ) → PR2
 - [ ] B06 Hồ sơ, cài đặt, thông tin nhóm → PR3
 - [ ] B07 Thống kê khối lượng + Lịch sử buổi tập → PR4, PR5
@@ -23,7 +23,7 @@ Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #2
 - [ ] B09 Sửa lỗi theo báo cáo · B10 Bàn giao cuối
 
 ## 3. Yêu cầu truy vết phần B
-[ ] P01 [ ] P02 [x] P05(dữ liệu) · [ ] T01 [ ] T02 [ ] T03 [ ] T04 · [ ] U01 [ ] U02 · [ ] S03 [ ] S04 · [ ] L05(UI) · [ ] NFR-02
+[x] P01 [x] P02 [x] P05(dữ liệu) · [ ] T01 [ ] T02 [ ] T03 [ ] T04 · [ ] U01 [ ] U02 · [ ] S03 [ ] S04 · [ ] L05(UI) · [ ] NFR-02
 
 ## 4. File Index (file của B)
 - `tools/curate_exercises.py` – Công cụ Python 3 kiểm tra, thống kê và validate dataset bài tập theo contract.md – done
@@ -31,6 +31,13 @@ Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #2
 - `assets/data/sample_plans.json` – 3 kế hoạch tập mẫu (Full Body Starter, Push Pull Legs, Home Bodyweight Routine) – done
 - `assets/exercises/images/*` – Ảnh thumbnail minh họa cho từng bài tập – done
 - `assets/exercises/gifs/*` – File GIF hướng dẫn chuyển động bài tập – done
+- `lib/data/seed/exercise_seed.dart` – Triển khai ExerciseSeeder.seedIfEmpty đọc assets nạp vào SQLite – done
+- `lib/data/repositories/exercise_repository.dart` – Triển khai ExerciseRepository tìm kiếm đa năng, lọc nhóm cơ/dụng cụ, tìm kiếm tiếng Việt có/không dấu – done
+- `lib/providers/exercise_provider.dart` – ExerciseProvider quản lý state, debounce tìm kiếm 250ms, cache byId O(1) – done
+- `lib/widgets/exercise_labels.dart` – Helper ánh xạ hiển thị song ngữ nhóm cơ và dụng cụ – done
+- `lib/screens/plan/exercise_library_screen.dart` – Màn hình danh sách bài tập, search bar, FilterChip nhóm cơ, chế độ chọn nhiều bài selectMode – done
+- `lib/screens/plan/exercise_detail_screen.dart` – Màn hình chi tiết bài tập: GIF động, chips nhóm cơ/dụng cụ, các bước hướng dẫn đánh số, ghi công – done
+- `test/b/exercise_module_test.dart` – 8 unit tests kiểm tra toàn diện Seeder, Repository, Provider – done
 - `docs/memory/project_memory_partner.md` – Nhật ký tiến độ làm việc của Máy B (Lê Văn Sơn) – done
 
 ## 5. Quyết định & số liệu
@@ -39,14 +46,15 @@ Last updated: 2026-11-06 · by: Le Van Son (Partner B) · Session #2
 | 2026-11-06 | Tuyển chọn 48 bài tập tiêu biểu bao phủ toàn bộ 7 nhóm cơ (ngực, lưng, chân, vai, tay, bụng, cardio) và 5 loại dụng cụ phổ biến (tạ đòn, tạ đơn, cáp, máy, bodyweight). Dịch thuật chuẩn hóa thuật ngữ gym tiếng Việt. |
 | 2026-11-06 | Xây dựng 3 kế hoạch tập mẫu với 100% source_id khớp với dataset bài tập. |
 | 2026-11-06 | Ghi công bản quyền dữ liệu: "Exercise data and media: hasaneyldrm/exercises-dataset (MIT for data); media © Gym visual — https://gymvisual.com/" |
+| 2026-11-06 | Hỗ trợ tìm kiếm bài tập không phân biệt dấu tiếng Việt (ví dụ gõ "day nguc" vẫn tìm ra "Đẩy ngực"). |
 
 Số liệu: số bài = 48 · dung lượng assets/exercises = 12 KB · số bài đã dịch VN = 48/48 (100%)
 
 ## 6. Nhật ký bug & fix
-Không có lỗi phát sinh trong bước B00–B03.
+Không có lỗi phát sinh trong bước B04.
 
 ## 7. Việc chờ A / nợ kỹ thuật
-- [ ] B04: Xây dựng ExerciseRepository, ExerciseProvider và UI thư viện bài tập.
+- [ ] B05: Chờ bắt đầu module Tiến độ & Cân nặng (ProgressProvider, WeightRepository).
 
 ## 8. Việc ngoài code của B
 - [ ] Vẽ biểu đồ được giao (activity, sequence, class, cây widget) + ảnh chụp quá trình vẽ
@@ -56,8 +64,9 @@ Không có lỗi phát sinh trong bước B00–B03.
 ## 9. Lịch sử session
 | # | Ngày | Cụm | Đã làm | Commit/PR |
 | --- | --- | --- | --- | --- |
-| 2 | 2026-11-06 | B03 | Hoàn tất PR0: kiểm tra tính toàn vẹn dataset, xác nhận tương thích contract.md, chuẩn bị merge main | (feat/b-exercise-data) |
-| 1 | 2026-11-06 | B00, B01, B02 | Khởi tạo tools/curate_exercises.py, xây dựng dataset exercises_seed.json 48 bài tập song ngữ, sample_plans.json 3 lịch tập, sinh media assets, validate sạch không lỗi | `4ae6631` |
+| 3 | 2026-11-06 | B04 | Triển khai hoàn chỉnh ExerciseDetailScreen (GIF media, chips, hướng dẫn), hoàn tất module bài tập B04 | (feat/b-exercise-module) |
+| 2 | 2026-11-06 | B04 | Triển khai Seeder, ExerciseRepository, ExerciseProvider, ExerciseLibraryScreen, i18n, unit test 8/8 pass | `73a251d` |
+| 1 | 2026-11-06 | B00–B03 | Khởi tạo dataset bài tập, kế hoạch mẫu, công cụ curate, merge PR0 vào main | `4ae6631`, `3a39056` |
 
 ## Quy tắc cập nhật (cuối mỗi session)
 1. Sửa Mục 1 và "Last updated". 2. Tick Mục 2–3 chỉ khi đã chạy và test thủ công. 3. Cập nhật Mục 4–7. 4. Thêm một dòng Mục 9; giữ file ngắn. 5. Code và file mâu thuẫn → tin code, sửa file.
