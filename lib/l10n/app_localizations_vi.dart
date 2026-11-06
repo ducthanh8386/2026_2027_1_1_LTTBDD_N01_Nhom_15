@@ -13,6 +13,45 @@ class AppLocalizationsVi extends AppLocalizations {
   String get appName => 'FitTrack';
 
   @override
+  String get exerciseLibraryTitle => 'Thư viện bài tập';
+
+  @override
+  String get exerciseSelectTitle => 'Chọn bài tập';
+
+  @override
+  String get exerciseSearchPlaceholder => 'Tìm kiếm bài tập...';
+
+  @override
+  String get exerciseFilterAll => 'Tất cả';
+
+  @override
+  String exerciseAddSelected(int count) => 'Thêm ($count)';
+
+  @override
+  String get exerciseDetailTitle => 'Chi tiết bài tập';
+
+  @override
+  String get exerciseInstructions => 'Hướng dẫn thực hiện';
+
+  @override
+  String get exerciseSecondaryMuscles => 'Nhóm cơ phụ';
+
+  @override
+  String get exerciseTargetMuscle => 'Cơ mục tiêu';
+
+  @override
+  String get exerciseEquipment => 'Dụng cụ';
+
+  @override
+  String get exerciseBodyPart => 'Nhóm cơ';
+
+  @override
+  String get exerciseNoExercises => 'Không tìm thấy bài tập nào';
+
+  @override
+  String get exerciseCredit => 'Dữ liệu & hình ảnh bài tập © Gym visual';
+
+  @override
   String get welcome => 'Chào mừng đến với FitTrack';
 
   @override

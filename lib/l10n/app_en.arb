@@ -1,6 +1,26 @@
 {
   "@@locale": "en",
   "appName": "FitTrack",
+  "exerciseLibraryTitle": "Exercise Library",
+  "exerciseSelectTitle": "Select Exercises",
+  "exerciseSearchPlaceholder": "Search exercises...",
+  "exerciseFilterAll": "All",
+  "exerciseAddSelected": "Add ({count})",
+  "@exerciseAddSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exerciseDetailTitle": "Exercise Detail",
+  "exerciseInstructions": "Instructions",
+  "exerciseSecondaryMuscles": "Secondary Muscles",
+  "exerciseTargetMuscle": "Target",
+  "exerciseEquipment": "Equipment",
+  "exerciseBodyPart": "Body Part",
+  "exerciseNoExercises": "No exercises found",
+  "exerciseCredit": "Exercise data and media © Gym visual",
   "welcome": "Welcome to FitTrack",
   "login": "Login",
   "register": "Register",

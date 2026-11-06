@@ -1,6 +1,26 @@
 {
   "@@locale": "vi",
   "appName": "FitTrack",
+  "exerciseLibraryTitle": "Thư viện bài tập",
+  "exerciseSelectTitle": "Chọn bài tập",
+  "exerciseSearchPlaceholder": "Tìm kiếm bài tập...",
+  "exerciseFilterAll": "Tất cả",
+  "exerciseAddSelected": "Thêm ({count})",
+  "@exerciseAddSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exerciseDetailTitle": "Chi tiết bài tập",
+  "exerciseInstructions": "Hướng dẫn thực hiện",
+  "exerciseSecondaryMuscles": "Nhóm cơ phụ",
+  "exerciseTargetMuscle": "Cơ mục tiêu",
+  "exerciseEquipment": "Dụng cụ",
+  "exerciseBodyPart": "Nhóm cơ",
+  "exerciseNoExercises": "Không tìm thấy bài tập nào",
+  "exerciseCredit": "Dữ liệu & hình ảnh bài tập © Gym visual",
   "welcome": "Chào mừng đến với FitTrack",
   "login": "Đăng nhập",
   "register": "Đăng ký",

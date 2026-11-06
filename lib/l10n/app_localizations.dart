@@ -104,6 +104,20 @@ abstract class AppLocalizations {
   /// **'FitTrack'**
   String get appName;
 
+  String get exerciseLibraryTitle;
+  String get exerciseSelectTitle;
+  String get exerciseSearchPlaceholder;
+  String get exerciseFilterAll;
+  String exerciseAddSelected(int count);
+  String get exerciseDetailTitle;
+  String get exerciseInstructions;
+  String get exerciseSecondaryMuscles;
+  String get exerciseTargetMuscle;
+  String get exerciseEquipment;
+  String get exerciseBodyPart;
+  String get exerciseNoExercises;
+  String get exerciseCredit;
+
   /// No description provided for @welcome.
   ///
   /// In en, this message translates to:
