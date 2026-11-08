@@ -28,6 +28,7 @@ Last updated: 2026-11-08 · by: Le Van Son (Partner B) · Session #7
 ## 4. File Index (file của B)
 - `tools/curate_exercises.py` – Công cụ Python 3 kiểm tra, thống kê và validate dataset bài tập theo contract.md – done
 - `tools/check_arb.py` – Tool Python 3 chuẩn kiểm tra đối xứng ARB giữa app_en.arb và app_vi.arb, placeholder và cú pháp JSON – done
+- `tools/download_exercise_assets.py` – Tool Python 3 tải toàn bộ media ảnh động GIF thực tế từ kho lưu trữ Gym Visual – done
 - `assets/data/exercises_seed.json` – Bộ dữ liệu 48 bài tập chuẩn hóa song ngữ (EN/VI) phân bố đều theo nhóm cơ và dụng cụ – done
 - `assets/data/sample_plans.json` – 3 kế hoạch tập mẫu (Full Body Starter, Push Pull Legs, Home Bodyweight Routine) – done
 - `assets/exercises/images/*` – Ảnh thumbnail minh họa cho từng bài tập – done
@@ -68,7 +69,9 @@ Last updated: 2026-11-08 · by: Le Van Son (Partner B) · Session #7
 | 2026-11-06 | Thiết kế HistoryScreen độc lập chỉ tiêu thụ WorkoutProvider (loadHistory, history, deleteSession), hiển thị "Buổi tập tự do" khi plan bị xóa hoặc null. |
 | 2026-11-08 | Hoàn tất audit i18n B08: 243/243 keys khớp 100% giữa EN và VI; loại bỏ toàn bộ chuỗi hardcode ở Profile, Settings, TeamInfo, History, Progress, Exercise screens. |
 
-Số liệu: số bài = 48 · dung lượng assets/exercises = 12 KB · số bài đã dịch VN = 48/48 (100%) · tổng localization keys = 243 (100% EN/VI match)
+| 2026-11-09 | Tích hợp thành công toàn bộ 48/48 file media ảnh động GIF thực tế của bài tập từ kho Gym Visual (4.45 MB), phục vụ hiển thị chuyển động trực quan cho đồ án. |
+
+Số liệu: số bài = 48 · dung lượng assets/exercises = 4.45 MB (48/48 ảnh động GIF thực tế) · số bài đã dịch VN = 48/48 (100%) · tổng localization keys = 243 (100% EN/VI match)
 
 ## 6. Nhật ký bug & fix
 - Đã khắc phục các chuỗi hardcode tiếng Việt tại ProfileScreen (giới tính, mục tiêu, thông báo), SettingsScreen (hộp thoại xác nhận xóa dữ liệu 2 bước, đăng xuất), TeamInfoScreen (thông báo lỗi mở link) và HistoryScreen.

@@ -160,10 +160,7 @@ class SettingsScreen extends StatelessWidget {
     final initial = userName.isNotEmpty ? userName[0].toUpperCase() : 'U';
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n?.navSettings ?? 'Cài đặt'),
-        elevation: 0,
-      ),
+      appBar: AppBar(title: Text(l10n?.navSettings ?? 'Cài đặt'), elevation: 0),
       body: ListView(
         children: [
           // 1. User Header Tile
@@ -185,7 +182,10 @@ class SettingsScreen extends StatelessWidget {
                     foregroundColor: theme.colorScheme.onPrimary,
                     child: Text(
                       initial,
-                      style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -325,7 +325,10 @@ class SettingsScreen extends StatelessWidget {
           _buildSectionHeader('Tài khoản & Dữ liệu', theme),
 
           ListTile(
-            leading: Icon(Icons.delete_forever_outlined, color: theme.colorScheme.error),
+            leading: Icon(
+              Icons.delete_forever_outlined,
+              color: theme.colorScheme.error,
+            ),
             title: Text(
               'Xóa toàn bộ dữ liệu cá nhân',
               style: TextStyle(color: theme.colorScheme.error),
@@ -338,7 +341,10 @@ class SettingsScreen extends StatelessWidget {
 
           ListTile(
             leading: const Icon(Icons.logout, color: Colors.orange),
-            title: const Text('Đăng xuất', style: TextStyle(color: Colors.orange)),
+            title: const Text(
+              'Đăng xuất',
+              style: TextStyle(color: Colors.orange),
+            ),
             onTap: () => _confirmLogout(context),
           ),
           const SizedBox(height: 32),
@@ -346,7 +352,9 @@ class SettingsScreen extends StatelessWidget {
           Center(
             child: Text(
               'FitTrack v1.0.0 (Phenikaa University)',
-              style: theme.textTheme.bodySmall?.copyWith(color: theme.disabledColor),
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.disabledColor,
+              ),
             ),
           ),
           const SizedBox(height: 32),

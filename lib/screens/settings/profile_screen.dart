@@ -87,10 +87,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         bmr: bmr,
         activityLevel: _activityLevel,
       );
-      final target = ProfileCalc.calculateKcalTarget(
-        tdee: tdee,
-        goal: _goal,
-      );
+      final target = ProfileCalc.calculateKcalTarget(tdee: tdee, goal: _goal);
 
       setState(() {
         _kcalController.text = target.toString();
@@ -185,7 +182,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               // 1. Live BMI & BMR Card
               Card(
                 elevation: 2,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 color: theme.colorScheme.primaryContainer.withOpacity(0.3),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
@@ -200,14 +199,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             bmiDesc,
                             theme,
                           ),
-                          Container(width: 1, height: 40, color: theme.dividerColor),
+                          Container(
+                            width: 1,
+                            height: 40,
+                            color: theme.dividerColor,
+                          ),
                           _buildMetricItem(
                             'BMR',
                             bmr > 0 ? '${bmr.round()}' : '--',
                             'kcal/ngày',
                             theme,
                           ),
-                          Container(width: 1, height: 40, color: theme.dividerColor),
+                          Container(
+                            width: 1,
+                            height: 40,
+                            color: theme.dividerColor,
+                          ),
                           _buildMetricItem(
                             'TDEE',
                             tdee > 0 ? '${tdee.round()}' : '--',
@@ -234,7 +241,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               // 2. Personal Info Section
               Text(
                 'Thông tin cơ thể',
-                style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(height: 12),
 
@@ -246,8 +255,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   border: OutlineInputBorder(),
                   isDense: true,
                 ),
-                validator: (val) =>
-                    (val == null || val.trim().isEmpty) ? 'Vui lòng nhập họ tên' : null,
+                validator: (val) => (val == null || val.trim().isEmpty)
+                    ? 'Vui lòng nhập họ tên'
+                    : null,
               ),
               const SizedBox(height: 14),
 
@@ -256,7 +266,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Expanded(
                     child: TextFormField(
                       controller: _heightController,
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                      keyboardType: const TextInputType.numberWithOptions(
+                        decimal: true,
+                      ),
                       decoration: const InputDecoration(
                         labelText: 'Chiều cao (cm)',
                         prefixIcon: Icon(Icons.height),
@@ -271,7 +283,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Expanded(
                     child: TextFormField(
                       controller: _weightController,
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                      keyboardType: const TextInputType.numberWithOptions(
+                        decimal: true,
+                      ),
                       decoration: const InputDecoration(
                         labelText: 'Cân nặng (kg)',
                         prefixIcon: Icon(Icons.monitor_weight_outlined),
@@ -332,7 +346,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               // 3. Goal & Activity Level
               Text(
                 'Mục tiêu tập luyện',
-                style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(height: 12),
 
@@ -391,7 +407,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Text(
                     'Mục tiêu Calo hàng ngày',
-                    style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   TextButton.icon(
                     onPressed: _calculateMetrics,
@@ -433,7 +451,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       )
                     : const Text(
                         'Lưu hồ sơ',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
               ),
               const SizedBox(height: 20),
@@ -444,7 +465,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget _buildMetricItem(String label, String value, String sub, ThemeData theme) {
+  Widget _buildMetricItem(
+    String label,
+    String value,
+    String sub,
+    ThemeData theme,
+  ) {
     return Column(
       children: [
         Text(label, style: theme.textTheme.bodySmall),
