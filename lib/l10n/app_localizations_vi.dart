@@ -690,4 +690,83 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get profile => 'Hồ sơ cá nhân';
+
+  @override
+  String get progressNoExerciseData =>
+      'Chưa có dữ liệu bài tập này trong khoảng thời gian đã chọn';
+
+  @override
+  String get exerciseNotFound => 'Không tìm thấy bài tập';
+
+  @override
+  String get refresh => 'Làm mới';
+
+  @override
+  String get profileUpdatedSuccess => 'Hồ sơ đã được cập nhật thành công!';
+
+  @override
+  String profileUpdateError(String error) => 'Lỗi cập nhật hồ sơ: $error';
+
+  @override
+  String get genderMale => 'Nam';
+
+  @override
+  String get genderFemale => 'Nữ';
+
+  @override
+  String get goalLoseFat => 'Giảm mỡ';
+
+  @override
+  String get goalMaintain => 'Duy trì';
+
+  @override
+  String get goalBuildMuscle => 'Tăng cơ';
+
+  @override
+  String get profileAutoCalculate => 'Tính tự động';
+
+  @override
+  String get settingsDeleteTitle => 'Xóa dữ liệu cá nhân?';
+
+  @override
+  String get settingsDeletePrompt =>
+      'Hành động này sẽ xóa toàn bộ lịch sử tập, dữ liệu cân nặng, kế hoạch tự tạo và đưa ứng dụng về trạng thái ban đầu.';
+
+  @override
+  String get settingsDeleteConfirmTitle => 'Xác nhận lần cuối';
+
+  @override
+  String get settingsDeleteConfirmPrompt =>
+      'Thao tác này KHÔNG THỂ hoàn tác. Bạn có hoàn toàn chắc chắn không?';
+
+  @override
+  String get settingsDeleteSuccess =>
+      'Toàn bộ dữ liệu cá nhân đã được dọn sạch.';
+
+  @override
+  String settingsDeleteError(String error) => 'Lỗi xóa dữ liệu: $error';
+
+  @override
+  String get settingsLogoutConfirm =>
+      'Bạn có chắc chắn muốn đăng xuất khỏi ứng dụng không?';
+
+  @override
+  String get themeSystem => 'Hệ thống';
+
+  @override
+  String get settingsTeamInfo => 'Thông tin nhóm & Dự án';
+
+  @override
+  String get settingsTeamSubtitle =>
+      'Đại học Phenikaa · GV: TS. Nguyễn Xuân Quế';
+
+  @override
+  String get settingsCreditsTitle => 'Ghi công Dữ liệu & Bản quyền';
+
+  @override
+  String get settingsCreditsSubtitle =>
+      'hasaneyldrm / Gym Visual / Open Food Facts';
+
+  @override
+  String teamLinkError(String url) => 'Không thể mở liên kết: $url';
 }

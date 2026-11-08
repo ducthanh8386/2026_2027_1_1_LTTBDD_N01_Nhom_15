@@ -78,6 +78,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
   }
 
   Widget _buildWeightTab(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Consumer<ProgressProvider>(
       builder: (context, provider, _) {
         if (provider.isLoading) {
@@ -95,7 +97,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 const SizedBox(height: 12),
                 ElevatedButton(
                   onPressed: () => provider.reload(),
-                  child: const Text('Retry'),
+                  child: Text(l10n?.retry ?? 'Retry'),
                 ),
               ],
             ),
@@ -603,7 +605,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Center(
                   child: Text(
-                    'Chưa có dữ liệu bài tập này trong khoảng thời gian đã chọn',
+                    l10n?.progressNoExerciseData ??
+                        'No data recorded for this exercise in selected range',
                     style: TextStyle(color: theme.disabledColor),
                   ),
                 ),

@@ -121,16 +121,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
       await auth.updateProfile(updated);
       if (!mounted) return;
 
+      final l10n = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Hồ sơ đã được cập nhật thành công!'),
+        SnackBar(
+          content: Text(
+            l10n?.profileUpdatedSuccess ?? 'Profile updated successfully',
+          ),
           behavior: SnackBarBehavior.floating,
         ),
       );
     } catch (e) {
       if (!mounted) return;
+      final l10n = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Lỗi cập nhật hồ sơ: $e'), backgroundColor: Colors.red),
+        SnackBar(
+          content: Text(
+            l10n?.profileUpdateError(e.toString()) ??
+                'Failed to update profile: $e',
+          ),
+          backgroundColor: Colors.red,
+        ),
       );
     } finally {
       if (mounted) setState(() => _isSaving = false);
@@ -140,6 +150,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
     final langCode = Localizations.localeOf(context).languageCode;
 
     final weight = double.tryParse(_weightController.text.trim()) ?? 0;
@@ -161,7 +172,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hồ sơ cá nhân'),
+        title: Text(l10n?.profile ?? 'Hồ sơ cá nhân'),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -295,9 +306,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Expanded(
                     child: Center(
                       child: SegmentedButton<String>(
-                        segments: const [
-                          ButtonSegment(value: 'male', label: Text('Nam')),
-                          ButtonSegment(value: 'female', label: Text('Nữ')),
+                        segments: [
+                          ButtonSegment(
+                            value: 'male',
+                            label: Text(l10n?.genderMale ?? 'Nam'),
+                          ),
+                          ButtonSegment(
+                            value: 'female',
+                            label: Text(l10n?.genderFemale ?? 'Nữ'),
+                          ),
                         ],
                         selected: {_gender},
                         onSelectionChanged: (set) {
@@ -320,10 +337,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 12),
 
               SegmentedButton<String>(
-                segments: const [
-                  ButtonSegment(value: 'lose_fat', label: Text('Giảm mỡ')),
-                  ButtonSegment(value: 'maintain', label: Text('Duy trì')),
-                  ButtonSegment(value: 'build_muscle', label: Text('Tăng cơ')),
+                segments: [
+                  ButtonSegment(
+                    value: 'lose_fat',
+                    label: Text(l10n?.goalLoseFat ?? 'Giảm mỡ'),
+                  ),
+                  ButtonSegment(
+                    value: 'maintain',
+                    label: Text(l10n?.goalMaintain ?? 'Duy trì'),
+                  ),
+                  ButtonSegment(
+                    value: 'build_muscle',
+                    label: Text(l10n?.goalBuildMuscle ?? 'Tăng cơ'),
+                  ),
                 ],
                 selected: {_goal},
                 onSelectionChanged: (set) {
@@ -370,7 +396,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   TextButton.icon(
                     onPressed: _calculateMetrics,
                     icon: const Icon(Icons.calculate_outlined, size: 18),
-                    label: const Text('Tính tự động'),
+                    label: Text(l10n?.profileAutoCalculate ?? 'Tính tự động'),
                   ),
                 ],
               ),

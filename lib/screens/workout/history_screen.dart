@@ -106,7 +106,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     const SizedBox(height: 12),
                     ElevatedButton(
                       onPressed: _refresh,
-                      child: const Text('Retry'),
+                      child: Text(l10n?.retry ?? 'Retry'),
                     ),
                   ],
                 ),
@@ -214,7 +214,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
             ElevatedButton.icon(
               onPressed: _refresh,
               icon: const Icon(Icons.refresh),
-              label: const Text('Refresh'),
+              label: Text(l10n?.refresh ?? 'Refresh'),
             ),
           ],
         ),

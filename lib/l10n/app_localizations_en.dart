@@ -691,4 +691,82 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profile => 'Profile';
+
+  @override
+  String get progressNoExerciseData =>
+      'No data recorded for this exercise in selected range';
+
+  @override
+  String get exerciseNotFound => 'Exercise not found';
+
+  @override
+  String get refresh => 'Refresh';
+
+  @override
+  String get profileUpdatedSuccess => 'Profile updated successfully';
+
+  @override
+  String profileUpdateError(String error) => 'Failed to update profile: $error';
+
+  @override
+  String get genderMale => 'Male';
+
+  @override
+  String get genderFemale => 'Female';
+
+  @override
+  String get goalLoseFat => 'Lose Fat';
+
+  @override
+  String get goalMaintain => 'Maintain';
+
+  @override
+  String get goalBuildMuscle => 'Build Muscle';
+
+  @override
+  String get profileAutoCalculate => 'Auto Calculate';
+
+  @override
+  String get settingsDeleteTitle => 'Delete Personal Data?';
+
+  @override
+  String get settingsDeletePrompt =>
+      'This will wipe all weight records, workout history, custom plans, and restore initial state.';
+
+  @override
+  String get settingsDeleteConfirmTitle => 'Final Confirmation';
+
+  @override
+  String get settingsDeleteConfirmPrompt =>
+      'This action cannot be undone. Are you absolutely sure?';
+
+  @override
+  String get settingsDeleteSuccess =>
+      'All personal data has been wiped successfully.';
+
+  @override
+  String settingsDeleteError(String error) => 'Error clearing data: $error';
+
+  @override
+  String get settingsLogoutConfirm => 'Are you sure you want to log out?';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get settingsTeamInfo => 'Team & Project Info';
+
+  @override
+  String get settingsTeamSubtitle =>
+      'Phenikaa University · Instructor: Dr. Nguyen Xuan Que';
+
+  @override
+  String get settingsCreditsTitle => 'Data & Media Attribution';
+
+  @override
+  String get settingsCreditsSubtitle =>
+      'hasaneyldrm / Gym Visual / Open Food Facts';
+
+  @override
+  String teamLinkError(String url) => 'Could not open link: $url';
 }

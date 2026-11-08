@@ -22,23 +22,28 @@ class SettingsScreen extends StatelessWidget {
 
   Future<void> _confirmDeleteMyData(BuildContext context) async {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
+
     final confirmedFirst = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Xóa dữ liệu cá nhân?'),
-        content: const Text(
-          'Hành động này sẽ xóa toàn bộ kế hoạch tập, lịch sử buổi tập, dữ liệu cân nặng và nhật ký ăn uống của bạn.\n\nTài khoản đăng nhập của bạn vẫn sẽ được giữ lại.',
+        title: Text(l10n?.settingsDeleteTitle ?? 'Delete Personal Data?'),
+        content: Text(
+          l10n?.settingsDeletePrompt ??
+              'This will wipe all weight records, workout history, custom plans, and restore initial state.',
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Hủy'),
+            child: Text(l10n?.cancel ?? 'Cancel'),
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: theme.colorScheme.error),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: theme.colorScheme.error,
+            ),
             onPressed: () => Navigator.pop(ctx, true),
             child: Text(
-              'Tiếp tục',
+              l10n?.continueWorkout ?? 'Continue',
               style: TextStyle(color: theme.colorScheme.onError),
             ),
           ),
@@ -50,21 +55,27 @@ class SettingsScreen extends StatelessWidget {
       final confirmedSecond = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: const Text('Xác nhận lần cuối'),
-          content: const Text(
-            'Bạn có chắc chắn 100% muốn xóa dữ liệu không? Thao tác này KHÔNG thể hoàn tác!',
+          title: Text(
+            l10n?.settingsDeleteConfirmTitle ?? 'Final Confirmation',
+          ),
+          content: Text(
+            l10n?.settingsDeleteConfirmPrompt ??
+                'This action cannot be undone. Are you absolutely sure?',
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(ctx, false),
-              child: const Text('Hủy'),
+              child: Text(l10n?.cancel ?? 'Cancel'),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
               onPressed: () => Navigator.pop(ctx, true),
-              child: const Text(
-                'XÓA TẤT CẢ DỮ LIỆU',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              child: Text(
+                l10n?.deletePlan ?? 'Delete',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
@@ -76,8 +87,11 @@ class SettingsScreen extends StatelessWidget {
           await context.read<AuthProvider>().deleteMyData();
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Toàn bộ dữ liệu cá nhân đã được dọn sạch.'),
+              SnackBar(
+                content: Text(
+                  l10n?.settingsDeleteSuccess ??
+                      'All personal data has been wiped successfully.',
+                ),
                 behavior: SnackBarBehavior.floating,
               ),
             );
@@ -85,7 +99,13 @@ class SettingsScreen extends StatelessWidget {
         } catch (e) {
           if (context.mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Lỗi xóa dữ liệu: $e'), backgroundColor: Colors.red),
+              SnackBar(
+                content: Text(
+                  l10n?.settingsDeleteError(e.toString()) ??
+                      'Error clearing data: $e',
+                ),
+                backgroundColor: Colors.red,
+              ),
             );
           }
         }
@@ -94,19 +114,23 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Future<void> _confirmLogout(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
+
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Đăng xuất'),
-        content: const Text('Bạn có chắc chắn muốn đăng xuất khỏi ứng dụng không?'),
+        title: Text(l10n?.logout ?? 'Logout'),
+        content: Text(
+          l10n?.settingsLogoutConfirm ?? 'Are you sure you want to log out?',
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
-            child: const Text('Hủy'),
+            child: Text(l10n?.cancel ?? 'Cancel'),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Đăng xuất'),
+            child: Text(l10n?.logout ?? 'Logout'),
           ),
         ],
       ),
@@ -229,26 +253,26 @@ class SettingsScreen extends StatelessWidget {
             title: Text(l10n?.themeMode ?? 'Giao diện sáng / tối'),
             subtitle: Text(
               settings.themeMode == ThemeMode.dark
-                  ? 'Giao diện tối'
+                  ? (l10n?.darkTheme ?? 'Dark Theme')
                   : (settings.themeMode == ThemeMode.light
-                      ? 'Giao diện sáng'
-                      : 'Theo hệ thống'),
+                      ? (l10n?.lightTheme ?? 'Light Theme')
+                      : (l10n?.themeSystem ?? 'System')),
             ),
             trailing: DropdownButton<ThemeMode>(
               value: settings.themeMode,
               underline: const SizedBox.shrink(),
-              items: const [
+              items: [
                 DropdownMenuItem(
                   value: ThemeMode.system,
-                  child: Text('Hệ thống'),
+                  child: Text(l10n?.themeSystem ?? 'System'),
                 ),
                 DropdownMenuItem(
                   value: ThemeMode.light,
-                  child: Text('Sáng'),
+                  child: Text(l10n?.lightTheme ?? 'Light'),
                 ),
                 DropdownMenuItem(
                   value: ThemeMode.dark,
-                  child: Text('Tối'),
+                  child: Text(l10n?.darkTheme ?? 'Dark'),
                 ),
               ],
               onChanged: (mode) {
@@ -261,12 +285,15 @@ class SettingsScreen extends StatelessWidget {
           const Divider(),
 
           // 3. Information & About
-          _buildSectionHeader('Thông tin ứng dụng', theme),
+          _buildSectionHeader(l10n?.settingsTeamInfo ?? 'Team & Project Info', theme),
 
           ListTile(
             leading: const Icon(Icons.info_outline),
-            title: const Text('Thông tin nhóm & Dự án'),
-            subtitle: const Text('Đại học Phenikaa · GV: TS. Nguyễn Xuân Quế'),
+            title: Text(l10n?.settingsTeamInfo ?? 'Team & Project Info'),
+            subtitle: Text(
+              l10n?.settingsTeamSubtitle ??
+                  'Phenikaa University · Instructor: Dr. Nguyen Xuan Que',
+            ),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               Navigator.push(
@@ -277,8 +304,13 @@ class SettingsScreen extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.dataset_outlined),
-            title: const Text('Ghi công Dữ liệu & Bản quyền'),
-            subtitle: const Text('hasaneyldrm / Gym Visual / Open Food Facts'),
+            title: Text(
+              l10n?.settingsCreditsTitle ?? 'Data & Media Attribution',
+            ),
+            subtitle: Text(
+              l10n?.settingsCreditsSubtitle ??
+                  'hasaneyldrm / Gym Visual / Open Food Facts',
+            ),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
               Navigator.push(
