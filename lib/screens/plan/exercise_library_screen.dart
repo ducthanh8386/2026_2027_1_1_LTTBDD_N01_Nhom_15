@@ -176,7 +176,7 @@ class _ExerciseLibraryScreenState extends State<ExerciseLibraryScreen> {
                         const SizedBox(height: 12),
                         ElevatedButton(
                           onPressed: () => provider.load(),
-                          child: const Text('Retry'),
+                          child: Text(l10n?.retry ?? 'Retry'),
                         ),
                       ],
                     ),

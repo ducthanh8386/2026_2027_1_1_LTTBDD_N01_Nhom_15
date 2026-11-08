@@ -39,10 +39,11 @@ class ExerciseDetailScreen extends StatelessWidget {
 
         final exercise = snapshot.data;
         if (exercise == null) {
+          final l10n = AppLocalizations.of(context);
           return Scaffold(
             appBar: AppBar(),
-            body: const Center(
-              child: Text('Exercise not found'),
+            body: Center(
+              child: Text(l10n?.exerciseNotFound ?? 'Exercise not found'),
             ),
           );
         }

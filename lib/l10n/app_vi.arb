@@ -232,5 +232,50 @@
   "homeViewAllPlans": "Xem kế hoạch",
   "homeUnitSessions": "buổi",
   "homeTarget": "Mục tiêu: {target}",
-  "profile": "Hồ sơ cá nhân"
+  "profile": "Hồ sơ cá nhân",
+  "progressNoExerciseData": "Chưa có dữ liệu bài tập này trong khoảng thời gian đã chọn",
+  "exerciseNotFound": "Không tìm thấy bài tập",
+  "refresh": "Làm mới",
+  "profileUpdatedSuccess": "Hồ sơ đã được cập nhật thành công!",
+  "profileUpdateError": "Lỗi cập nhật hồ sơ: {error}",
+  "@profileUpdateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "genderMale": "Nam",
+  "genderFemale": "Nữ",
+  "goalLoseFat": "Giảm mỡ",
+  "goalMaintain": "Duy trì",
+  "goalBuildMuscle": "Tăng cơ",
+  "profileAutoCalculate": "Tính tự động",
+  "settingsDeleteTitle": "Xóa dữ liệu cá nhân?",
+  "settingsDeletePrompt": "Hành động này sẽ xóa toàn bộ lịch sử tập, dữ liệu cân nặng, kế hoạch tự tạo và đưa ứng dụng về trạng thái ban đầu.",
+  "settingsDeleteConfirmTitle": "Xác nhận lần cuối",
+  "settingsDeleteConfirmPrompt": "Thao tác này KHÔNG THỂ hoàn tác. Bạn có hoàn toàn chắc chắn không?",
+  "settingsDeleteSuccess": "Toàn bộ dữ liệu cá nhân đã được dọn sạch.",
+  "settingsDeleteError": "Lỗi xóa dữ liệu: {error}",
+  "@settingsDeleteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsLogoutConfirm": "Bạn có chắc chắn muốn đăng xuất khỏi ứng dụng không?",
+  "themeSystem": "Hệ thống",
+  "settingsTeamInfo": "Thông tin nhóm & Dự án",
+  "settingsTeamSubtitle": "Đại học Phenikaa · GV: TS. Nguyễn Xuân Quế",
+  "settingsCreditsTitle": "Ghi công Dữ liệu & Bản quyền",
+  "settingsCreditsSubtitle": "hasaneyldrm / Gym Visual / Open Food Facts",
+  "teamLinkError": "Không thể mở liên kết: {url}",
+  "@teamLinkError": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -267,5 +267,50 @@
       }
     }
   },
-  "profile": "Profile"
+  "profile": "Profile",
+  "progressNoExerciseData": "No data recorded for this exercise in selected range",
+  "exerciseNotFound": "Exercise not found",
+  "refresh": "Refresh",
+  "profileUpdatedSuccess": "Profile updated successfully",
+  "profileUpdateError": "Failed to update profile: {error}",
+  "@profileUpdateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "genderMale": "Male",
+  "genderFemale": "Female",
+  "goalLoseFat": "Lose Fat",
+  "goalMaintain": "Maintain",
+  "goalBuildMuscle": "Build Muscle",
+  "profileAutoCalculate": "Auto Calculate",
+  "settingsDeleteTitle": "Delete Personal Data?",
+  "settingsDeletePrompt": "This will wipe all weight records, workout history, custom plans, and restore initial state.",
+  "settingsDeleteConfirmTitle": "Final Confirmation",
+  "settingsDeleteConfirmPrompt": "This action cannot be undone. Are you absolutely sure?",
+  "settingsDeleteSuccess": "All personal data has been wiped successfully.",
+  "settingsDeleteError": "Error clearing data: {error}",
+  "@settingsDeleteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsLogoutConfirm": "Are you sure you want to log out?",
+  "themeSystem": "System",
+  "settingsTeamInfo": "Team & Project Info",
+  "settingsTeamSubtitle": "Phenikaa University · Instructor: Dr. Nguyen Xuan Que",
+  "settingsCreditsTitle": "Data & Media Attribution",
+  "settingsCreditsSubtitle": "hasaneyldrm / Gym Visual / Open Food Facts",
+  "teamLinkError": "Could not open link: {url}",
+  "@teamLinkError": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  }
 }

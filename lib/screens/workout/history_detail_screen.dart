@@ -99,7 +99,7 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
               const SizedBox(height: 12),
               ElevatedButton(
                 onPressed: _loadSession,
-                child: const Text('Retry'),
+                child: Text(l10n?.retry ?? 'Retry'),
               ),
             ],
           ),

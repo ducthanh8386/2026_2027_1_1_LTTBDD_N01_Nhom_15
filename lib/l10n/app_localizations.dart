@@ -1411,6 +1411,31 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
+
+  String get progressNoExerciseData;
+  String get exerciseNotFound;
+  String get refresh;
+  String get profileUpdatedSuccess;
+  String profileUpdateError(String error);
+  String get genderMale;
+  String get genderFemale;
+  String get goalLoseFat;
+  String get goalMaintain;
+  String get goalBuildMuscle;
+  String get profileAutoCalculate;
+  String get settingsDeleteTitle;
+  String get settingsDeletePrompt;
+  String get settingsDeleteConfirmTitle;
+  String get settingsDeleteConfirmPrompt;
+  String get settingsDeleteSuccess;
+  String settingsDeleteError(String error);
+  String get settingsLogoutConfirm;
+  String get themeSystem;
+  String get settingsTeamInfo;
+  String get settingsTeamSubtitle;
+  String get settingsCreditsTitle;
+  String get settingsCreditsSubtitle;
+  String teamLinkError(String url);
 }
 
 class _AppLocalizationsDelegate

@@ -18,14 +18,24 @@ class TeamInfoScreen extends StatelessWidget {
       try {
         final success = await launchUrl(uri, mode: LaunchMode.externalApplication);
         if (!success && context.mounted) {
+          final l10n = AppLocalizations.of(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Could not open link: $urlString')),
+            SnackBar(
+              content: Text(
+                l10n?.teamLinkError(urlString) ?? 'Could not open link: $urlString',
+              ),
+            ),
           );
         }
       } catch (e) {
         if (context.mounted) {
+          final l10n = AppLocalizations.of(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Error opening link: $e')),
+            SnackBar(
+              content: Text(
+                l10n?.teamLinkError(e.toString()) ?? 'Error opening link: $e',
+              ),
+            ),
           );
         }
       }
@@ -35,10 +45,11 @@ class TeamInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Thông tin nhóm & Dự án'),
+        title: Text(l10n?.settingsTeamInfo ?? 'Team & Project Info'),
         elevation: 0,
       ),
       body: SingleChildScrollView(
