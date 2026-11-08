@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../models/food.dart';
 import '../models/workout_session.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/register_screen.dart';
 import '../screens/home/main_shell.dart';
+import '../screens/nutrition/barcode_scan_screen.dart';
+import '../screens/nutrition/food_detail_screen.dart';
+import '../screens/nutrition/food_diary_screen.dart';
+import '../screens/nutrition/manual_food_screen.dart';
 import '../screens/placeholder_screen.dart';
 import '../screens/plan/exercise_detail_screen.dart';
 import '../screens/plan/exercise_library_screen.dart';
@@ -138,6 +143,40 @@ class AppRoutes {
       case teamInfo:
         return MaterialPageRoute(
           builder: (_) => const TeamInfoScreen(),
+          settings: routeSettings,
+        );
+
+      case foodDiary:
+        return MaterialPageRoute(
+          builder: (_) => const FoodDiaryScreen(),
+          settings: routeSettings,
+        );
+
+      case barcodeScan:
+        final mealType = routeSettings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => BarcodeScanScreen(mealType: mealType),
+          settings: routeSettings,
+        );
+
+      case foodDetail:
+        final args = routeSettings.arguments as Map<String, dynamic>;
+        final food = args['food'] as Food;
+        final mealType = args['mealType'] as String?;
+        return MaterialPageRoute(
+          builder: (_) => FoodDetailScreen(food: food, initialMealType: mealType),
+          settings: routeSettings,
+        );
+
+      case manualFood:
+        final args = routeSettings.arguments as Map<String, dynamic>?;
+        final barcode = args?['barcode'] as String?;
+        final mealType = args?['mealType'] as String?;
+        return MaterialPageRoute(
+          builder: (_) => ManualFoodScreen(
+            initialBarcode: barcode,
+            initialMealType: mealType,
+          ),
           settings: routeSettings,
         );
 

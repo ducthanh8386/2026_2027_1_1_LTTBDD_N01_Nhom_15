@@ -37,39 +37,51 @@ void main() {
     statsService = StatsService(stats: statsRepo);
 
     // Insert dummy user
-    await db.insert(AppConstants.tableUsers, {
-      'id': 1,
-      'name': 'Test User',
-      'email': 'test@example.com',
-      'password_hash': 'hash',
-      'salt': 'salt',
-      'created_at': DateTime.now().toIso8601String(),
-    });
+    await db.insert(
+      AppConstants.tableUsers,
+      {
+        'id': 1,
+        'name': 'Test User',
+        'email': 'test@example.com',
+        'password_hash': 'hash',
+        'salt': 'salt',
+        'created_at': DateTime.now().toIso8601String(),
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
 
     // Insert dummy exercises
-    await db.insert(AppConstants.tableExercises, {
-      'id': 1,
-      'source_id': 'ex_1',
-      'name_en': 'Bench Press',
-      'name_vi': 'Đẩy ngực ngang',
-      'body_part': 'chest',
-      'target': 'pectorals',
-      'equipment': 'barbell',
-      'instructions_en': 'Push bar up',
-      'instructions_vi': 'Đẩy tạ lên',
-    });
+    await db.insert(
+      AppConstants.tableExercises,
+      {
+        'id': 1,
+        'source_id': 'ex_1',
+        'name_en': 'Bench Press',
+        'name_vi': 'Đẩy ngực ngang',
+        'body_part': 'chest',
+        'target': 'pectorals',
+        'equipment': 'barbell',
+        'instructions_en': 'Push bar up',
+        'instructions_vi': 'Đẩy tạ lên',
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
 
-    await db.insert(AppConstants.tableExercises, {
-      'id': 2,
-      'source_id': 'ex_2',
-      'name_en': 'Squat',
-      'name_vi': 'Gánh tạ',
-      'body_part': 'legs',
-      'target': 'quads',
-      'equipment': 'barbell',
-      'instructions_en': 'Squat down',
-      'instructions_vi': 'Ngồi xổm xuống',
-    });
+    await db.insert(
+      AppConstants.tableExercises,
+      {
+        'id': 2,
+        'source_id': 'ex_2',
+        'name_en': 'Squat',
+        'name_vi': 'Gánh tạ',
+        'body_part': 'legs',
+        'target': 'quads',
+        'equipment': 'barbell',
+        'instructions_en': 'Squat down',
+        'instructions_vi': 'Ngồi xổm xuống',
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   });
 
   tearDown(() async {

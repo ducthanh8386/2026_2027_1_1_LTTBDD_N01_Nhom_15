@@ -61,27 +61,35 @@ void main() {
     testUserId = await userRepo.insert(testUser);
 
     // Seed mock exercises into DB for foreign key constraints
-    await db.insert(AppConstants.tableExercises, {
-      'id': 1,
-      'source_id': '0025',
-      'name_en': 'barbell bench press',
-      'name_vi': 'Đẩy ngực với tạ đòn',
-      'body_part': 'chest',
-      'target': 'pectorals',
-      'equipment': 'barbell',
-      'secondary_muscles': '["triceps", "shoulders"]',
-    });
+    await db.insert(
+      AppConstants.tableExercises,
+      {
+        'id': 1,
+        'source_id': '0025',
+        'name_en': 'barbell bench press',
+        'name_vi': 'Đẩy ngực với tạ đòn',
+        'body_part': 'chest',
+        'target': 'pectorals',
+        'equipment': 'barbell',
+        'secondary_muscles': '["triceps", "shoulders"]',
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
 
-    await db.insert(AppConstants.tableExercises, {
-      'id': 2,
-      'source_id': '0026',
-      'name_en': 'barbell squat',
-      'name_vi': 'Gánh đùi tạ đòn',
-      'body_part': 'legs',
-      'target': 'quads',
-      'equipment': 'barbell',
-      'secondary_muscles': '["glutes", "hamstrings"]',
-    });
+    await db.insert(
+      AppConstants.tableExercises,
+      {
+        'id': 2,
+        'source_id': '0026',
+        'name_en': 'barbell squat',
+        'name_vi': 'Gánh đùi tạ đòn',
+        'body_part': 'legs',
+        'target': 'quads',
+        'equipment': 'barbell',
+        'secondary_muscles': '["glutes", "hamstrings"]',
+      },
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   });
 
   tearDown(() async {

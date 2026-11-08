@@ -51,8 +51,10 @@ void main() async {
         ChangeNotifierProvider<WorkoutProvider>(
           create: (_) => WorkoutProvider(),
         ),
-        ChangeNotifierProvider<NutritionProvider>(
+        ChangeNotifierProxyProvider<AuthProvider, NutritionProvider>(
           create: (_) => NutritionProvider(),
+          update: (_, auth, nutrition) => (nutrition ?? NutritionProvider())
+            ..updateUser(auth.currentUser),
         ),
       ],
       child: const FitTrackApp(),

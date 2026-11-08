@@ -11,8 +11,12 @@ import 'package:fit_track/data/local/prefs_store.dart';
 import 'package:fit_track/data/repositories/user_repository.dart';
 import 'package:fit_track/models/user.dart';
 import 'package:fit_track/providers/auth_provider.dart';
+import 'package:fit_track/providers/exercise_provider.dart';
+import 'package:fit_track/providers/nutrition_provider.dart';
 import 'package:fit_track/providers/plan_provider.dart';
+import 'package:fit_track/providers/progress_provider.dart';
 import 'package:fit_track/providers/settings_provider.dart';
+import 'package:fit_track/providers/workout_provider.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -71,8 +75,20 @@ void main() {
           ChangeNotifierProvider<AuthProvider>.value(
             value: authProvider,
           ),
+          ChangeNotifierProvider<ExerciseProvider>(
+            create: (_) => ExerciseProvider(),
+          ),
+          ChangeNotifierProvider<ProgressProvider>(
+            create: (_) => ProgressProvider(),
+          ),
           ChangeNotifierProvider<PlanProvider>(
             create: (_) => PlanProvider(),
+          ),
+          ChangeNotifierProvider<WorkoutProvider>(
+            create: (_) => WorkoutProvider(),
+          ),
+          ChangeNotifierProvider<NutritionProvider>(
+            create: (_) => NutritionProvider(),
           ),
         ],
         child: const FitTrackApp(),
@@ -80,7 +96,7 @@ void main() {
     );
 
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
+    await tester.pump(const Duration(milliseconds: 500));
 
     // Verify LoginScreen is displayed
     expect(find.text('FitTrack'), findsWidgets);
@@ -126,8 +142,20 @@ void main() {
           ChangeNotifierProvider<AuthProvider>.value(
             value: authProvider,
           ),
+          ChangeNotifierProvider<ExerciseProvider>(
+            create: (_) => ExerciseProvider(),
+          ),
+          ChangeNotifierProvider<ProgressProvider>(
+            create: (_) => ProgressProvider(),
+          ),
           ChangeNotifierProvider<PlanProvider>(
             create: (_) => PlanProvider(),
+          ),
+          ChangeNotifierProvider<WorkoutProvider>(
+            create: (_) => WorkoutProvider(),
+          ),
+          ChangeNotifierProvider<NutritionProvider>(
+            create: (_) => NutritionProvider(),
           ),
         ],
         child: const FitTrackApp(),
@@ -135,7 +163,7 @@ void main() {
     );
 
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
+    await tester.pump(const Duration(milliseconds: 500));
 
     // Verify MainShell is displayed with NavigationBar
     expect(find.byType(NavigationBar), findsOneWidget);
@@ -144,6 +172,9 @@ void main() {
     expect(find.text('Tiến độ'), findsOneWidget);
     expect(find.text('Dinh dưỡng'), findsOneWidget);
     expect(find.text('Cài đặt'), findsOneWidget);
+
+    // Advance past any pending sqflite transaction lock timers (10s)
+    await tester.pump(const Duration(seconds: 11));
   });
 }
 

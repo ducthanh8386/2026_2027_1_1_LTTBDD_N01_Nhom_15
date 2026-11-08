@@ -477,4 +477,141 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backToHome => 'Back to Home';
+
+  @override
+  String get nutritionTitle => 'Nutrition Diary';
+
+  @override
+  String get nutritionCalories => 'Calories';
+
+  @override
+  String get nutritionProtein => 'Protein';
+
+  @override
+  String get nutritionCarbs => 'Carbs';
+
+  @override
+  String get nutritionFat => 'Fat';
+
+  @override
+  String get nutritionTarget => 'Target';
+
+  @override
+  String get nutritionConsumed => 'Consumed';
+
+  @override
+  String get nutritionRemaining => 'Remaining';
+
+  @override
+  String get mealBreakfast => 'Breakfast';
+
+  @override
+  String get mealLunch => 'Lunch';
+
+  @override
+  String get mealDinner => 'Dinner';
+
+  @override
+  String get mealSnack => 'Snacks';
+
+  @override
+  String get addFood => 'Add Food';
+
+  @override
+  String get scanBarcode => 'Scan Barcode';
+
+  @override
+  String get manualEntry => 'Manual Entry';
+
+  @override
+  String get searchFood => 'Search Foods';
+
+  @override
+  String get barcodeScanner => 'Barcode Scanner';
+
+  @override
+  String get barcodePointCamera => 'Point camera at food barcode';
+
+  @override
+  String get cameraPermissionRequired =>
+      'Camera permission is required to scan barcodes.';
+
+  @override
+  String get openSettings => 'Open Settings';
+
+  @override
+  String get searchingProduct => 'Searching product...';
+
+  @override
+  String get productNotFound => 'Product not found on Open Food Facts.';
+
+  @override
+  String get networkError =>
+      'Network error. Please check your internet connection.';
+
+  @override
+  String get timeoutError => 'Request timed out. Please try again.';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get foodDetails => 'Food Details';
+
+  @override
+  String get per100g => 'Per 100g';
+
+  @override
+  String get servingSize => 'Serving (g)';
+
+  @override
+  String get selectMeal => 'Select Meal';
+
+  @override
+  String get addToDiary => 'Add to Diary';
+
+  @override
+  String get foodAddedSuccess => 'Food added to diary';
+
+  @override
+  String get createManualFood => 'Create Food Item';
+
+  @override
+  String get foodName => 'Food Name';
+
+  @override
+  String get foodBrand => 'Brand (optional)';
+
+  @override
+  String get barcodeOptional => 'Barcode (optional)';
+
+  @override
+  String get caloriesPer100g => 'Calories (kcal / 100g)';
+
+  @override
+  String get proteinPer100g => 'Protein (g / 100g)';
+
+  @override
+  String get carbsPer100g => 'Carbs (g / 100g)';
+
+  @override
+  String get fatPer100g => 'Fat (g / 100g)';
+
+  @override
+  String get editGrams => 'Edit Grams';
+
+  @override
+  String get deleteFoodEntry => 'Delete Entry';
+
+  @override
+  String get deleteFoodConfirm => 'Remove this item from your diary?';
+
+  @override
+  String get noFoodInMeal => 'No food logged for this meal yet.';
+
+  @override
+  String get gramsPositiveRequired => 'Grams must be greater than 0';
+
+  @override
+  String get today => 'Today';
 }
