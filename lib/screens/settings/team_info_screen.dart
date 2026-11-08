@@ -16,7 +16,10 @@ class TeamInfoScreen extends StatelessWidget {
     final uri = Uri.tryParse(urlString);
     if (uri != null) {
       try {
-        final success = await launchUrl(uri, mode: LaunchMode.externalApplication);
+        final success = await launchUrl(
+          uri,
+          mode: LaunchMode.externalApplication,
+        );
         if (!success && context.mounted) {
           final l10n = AppLocalizations.of(context);
           ScaffoldMessenger.of(context).showSnackBar(
@@ -60,7 +63,9 @@ class TeamInfoScreen extends StatelessWidget {
             // 1. Project & Course Card
             Card(
               elevation: 2,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: Column(
@@ -104,23 +109,31 @@ class TeamInfoScreen extends StatelessWidget {
             // 2. Members Section Header
             Text(
               'Thành viên nhóm',
-              style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+              style: theme.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 12),
 
             // 3. Member Cards
-            ...TeamData.members.map((member) => _buildMemberCard(context, member, theme)),
+            ...TeamData.members.map(
+              (member) => _buildMemberCard(context, member, theme),
+            ),
             const SizedBox(height: 20),
 
             // 4. Data & License Attributions
             Text(
               'Ghi công bản quyền & Dữ liệu',
-              style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+              style: theme.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 12),
             Card(
               elevation: 1,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
@@ -136,7 +149,8 @@ class TeamInfoScreen extends StatelessWidget {
                       subtitle: const Text(TeamData.exerciseAttribution),
                       trailing: IconButton(
                         icon: const Icon(Icons.open_in_new, size: 20),
-                        onPressed: () => _launchUrl(context, 'https://gymvisual.com/'),
+                        onPressed: () =>
+                            _launchUrl(context, 'https://gymvisual.com/'),
                       ),
                     ),
                     const Divider(),
@@ -150,7 +164,8 @@ class TeamInfoScreen extends StatelessWidget {
                       subtitle: const Text(TeamData.nutritionAttribution),
                       trailing: IconButton(
                         icon: const Icon(Icons.open_in_new, size: 20),
-                        onPressed: () => _launchUrl(context, 'https://openfoodfacts.org'),
+                        onPressed: () =>
+                            _launchUrl(context, 'https://openfoodfacts.org'),
                       ),
                     ),
                   ],
@@ -177,13 +192,19 @@ class TeamInfoScreen extends StatelessWidget {
         ),
         Text(
           value,
-          style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+          style: theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ],
     );
   }
 
-  Widget _buildMemberCard(BuildContext context, TeamMember member, ThemeData theme) {
+  Widget _buildMemberCard(
+    BuildContext context,
+    TeamMember member,
+    ThemeData theme,
+  ) {
     final initials = member.name.isNotEmpty
         ? member.name.trim().split(' ').last.substring(0, 1).toUpperCase()
         : '?';
@@ -205,7 +226,10 @@ class TeamInfoScreen extends StatelessWidget {
                   foregroundColor: theme.colorScheme.onPrimary,
                   child: Text(
                     initials,
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 14),
@@ -244,7 +268,9 @@ class TeamInfoScreen extends StatelessWidget {
               children: [
                 Text(
                   'MSSV: ${member.studentId}',
-                  style: theme.textTheme.bodySmall?.copyWith(color: theme.disabledColor),
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.disabledColor,
+                  ),
                 ),
                 OutlinedButton.icon(
                   onPressed: () => _launchUrl(context, member.githubUrl),
