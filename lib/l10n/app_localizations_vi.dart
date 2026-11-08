@@ -477,4 +477,140 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get backToHome => 'Về trang chủ';
+
+  @override
+  String get nutritionTitle => 'Nhật ký dinh dưỡng';
+
+  @override
+  String get nutritionCalories => 'Calo';
+
+  @override
+  String get nutritionProtein => 'Chất đạm';
+
+  @override
+  String get nutritionCarbs => 'Tinh bột';
+
+  @override
+  String get nutritionFat => 'Chất béo';
+
+  @override
+  String get nutritionTarget => 'Mục tiêu';
+
+  @override
+  String get nutritionConsumed => 'Đã nạp';
+
+  @override
+  String get nutritionRemaining => 'Còn lại';
+
+  @override
+  String get mealBreakfast => 'Bữa sáng';
+
+  @override
+  String get mealLunch => 'Bữa trưa';
+
+  @override
+  String get mealDinner => 'Bữa tối';
+
+  @override
+  String get mealSnack => 'Bữa phụ';
+
+  @override
+  String get addFood => 'Thêm món';
+
+  @override
+  String get scanBarcode => 'Quét mã vạch';
+
+  @override
+  String get manualEntry => 'Nhập thủ công';
+
+  @override
+  String get searchFood => 'Tìm món ăn';
+
+  @override
+  String get barcodeScanner => 'Quét mã vạch';
+
+  @override
+  String get barcodePointCamera => 'Hướng camera vào mã vạch thực phẩm';
+
+  @override
+  String get cameraPermissionRequired =>
+      'Cần cấp quyền camera để quét mã vạch.';
+
+  @override
+  String get openSettings => 'Mở cài đặt';
+
+  @override
+  String get searchingProduct => 'Đang tìm sản phẩm...';
+
+  @override
+  String get productNotFound => 'Không tìm thấy sản phẩm trên Open Food Facts.';
+
+  @override
+  String get networkError => 'Lỗi mạng. Vui lòng kiểm tra kết nối internet.';
+
+  @override
+  String get timeoutError => 'Quá thời gian yêu cầu. Vui lòng thử lại.';
+
+  @override
+  String get retry => 'Thử lại';
+
+  @override
+  String get foodDetails => 'Chi tiết món ăn';
+
+  @override
+  String get per100g => 'Trên 100g';
+
+  @override
+  String get servingSize => 'Khối lượng (g)';
+
+  @override
+  String get selectMeal => 'Chọn bữa ăn';
+
+  @override
+  String get addToDiary => 'Thêm vào nhật ký';
+
+  @override
+  String get foodAddedSuccess => 'Đã thêm món vào nhật ký';
+
+  @override
+  String get createManualFood => 'Tạo món ăn thủ công';
+
+  @override
+  String get foodName => 'Tên món ăn';
+
+  @override
+  String get foodBrand => 'Thương hiệu (tùy chọn)';
+
+  @override
+  String get barcodeOptional => 'Mã vạch (tùy chọn)';
+
+  @override
+  String get caloriesPer100g => 'Calo (kcal / 100g)';
+
+  @override
+  String get proteinPer100g => 'Chất đạm (g / 100g)';
+
+  @override
+  String get carbsPer100g => 'Tinh bột (g / 100g)';
+
+  @override
+  String get fatPer100g => 'Chất béo (g / 100g)';
+
+  @override
+  String get editGrams => 'Sửa số gram';
+
+  @override
+  String get deleteFoodEntry => 'Xóa món ăn';
+
+  @override
+  String get deleteFoodConfirm => 'Bạn có chắc muốn xóa món này khỏi nhật ký?';
+
+  @override
+  String get noFoodInMeal => 'Chưa có món nào trong bữa này.';
+
+  @override
+  String get gramsPositiveRequired => 'Khối lượng phải lớn hơn 0';
+
+  @override
+  String get today => 'Hôm nay';
 }

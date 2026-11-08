@@ -1009,6 +1009,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to Home'**
   String get backToHome;
+
+  /// No description provided for @nutritionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Nutrition Diary'**
+  String get nutritionTitle;
+
+  /// No description provided for @nutritionCalories.
+  ///
+  /// In en, this message translates to:
+  /// **'Calories'**
+  String get nutritionCalories;
+
+  /// No description provided for @nutritionProtein.
+  ///
+  /// In en, this message translates to:
+  /// **'Protein'**
+  String get nutritionProtein;
+
+  /// No description provided for @nutritionCarbs.
+  ///
+  /// In en, this message translates to:
+  /// **'Carbs'**
+  String get nutritionCarbs;
+
+  /// No description provided for @nutritionFat.
+  ///
+  /// In en, this message translates to:
+  /// **'Fat'**
+  String get nutritionFat;
+
+  /// No description provided for @nutritionTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Target'**
+  String get nutritionTarget;
+
+  /// No description provided for @nutritionConsumed.
+  ///
+  /// In en, this message translates to:
+  /// **'Consumed'**
+  String get nutritionConsumed;
+
+  /// No description provided for @nutritionRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Remaining'**
+  String get nutritionRemaining;
+
+  /// No description provided for @mealBreakfast.
+  ///
+  /// In en, this message translates to:
+  /// **'Breakfast'**
+  String get mealBreakfast;
+
+  /// No description provided for @mealLunch.
+  ///
+  /// In en, this message translates to:
+  /// **'Lunch'**
+  String get mealLunch;
+
+  /// No description provided for @mealDinner.
+  ///
+  /// In en, this message translates to:
+  /// **'Dinner'**
+  String get mealDinner;
+
+  /// No description provided for @mealSnack.
+  ///
+  /// In en, this message translates to:
+  /// **'Snacks'**
+  String get mealSnack;
+
+  /// No description provided for @addFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Food'**
+  String get addFood;
+
+  /// No description provided for @scanBarcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan Barcode'**
+  String get scanBarcode;
+
+  /// No description provided for @manualEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual Entry'**
+  String get manualEntry;
+
+  /// No description provided for @searchFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Foods'**
+  String get searchFood;
+
+  /// No description provided for @barcodeScanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Barcode Scanner'**
+  String get barcodeScanner;
+
+  /// No description provided for @barcodePointCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Point camera at food barcode'**
+  String get barcodePointCamera;
+
+  /// No description provided for @cameraPermissionRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera permission is required to scan barcodes.'**
+  String get cameraPermissionRequired;
+
+  /// No description provided for @openSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Settings'**
+  String get openSettings;
+
+  /// No description provided for @searchingProduct.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching product...'**
+  String get searchingProduct;
+
+  /// No description provided for @productNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Product not found on Open Food Facts.'**
+  String get productNotFound;
+
+  /// No description provided for @networkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Network error. Please check your internet connection.'**
+  String get networkError;
+
+  /// No description provided for @timeoutError.
+  ///
+  /// In en, this message translates to:
+  /// **'Request timed out. Please try again.'**
+  String get timeoutError;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @foodDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Food Details'**
+  String get foodDetails;
+
+  /// No description provided for @per100g.
+  ///
+  /// In en, this message translates to:
+  /// **'Per 100g'**
+  String get per100g;
+
+  /// No description provided for @servingSize.
+  ///
+  /// In en, this message translates to:
+  /// **'Serving (g)'**
+  String get servingSize;
+
+  /// No description provided for @selectMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Meal'**
+  String get selectMeal;
+
+  /// No description provided for @addToDiary.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Diary'**
+  String get addToDiary;
+
+  /// No description provided for @foodAddedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Food added to diary'**
+  String get foodAddedSuccess;
+
+  /// No description provided for @createManualFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Food Item'**
+  String get createManualFood;
+
+  /// No description provided for @foodName.
+  ///
+  /// In en, this message translates to:
+  /// **'Food Name'**
+  String get foodName;
+
+  /// No description provided for @foodBrand.
+  ///
+  /// In en, this message translates to:
+  /// **'Brand (optional)'**
+  String get foodBrand;
+
+  /// No description provided for @barcodeOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Barcode (optional)'**
+  String get barcodeOptional;
+
+  /// No description provided for @caloriesPer100g.
+  ///
+  /// In en, this message translates to:
+  /// **'Calories (kcal / 100g)'**
+  String get caloriesPer100g;
+
+  /// No description provided for @proteinPer100g.
+  ///
+  /// In en, this message translates to:
+  /// **'Protein (g / 100g)'**
+  String get proteinPer100g;
+
+  /// No description provided for @carbsPer100g.
+  ///
+  /// In en, this message translates to:
+  /// **'Carbs (g / 100g)'**
+  String get carbsPer100g;
+
+  /// No description provided for @fatPer100g.
+  ///
+  /// In en, this message translates to:
+  /// **'Fat (g / 100g)'**
+  String get fatPer100g;
+
+  /// No description provided for @editGrams.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Grams'**
+  String get editGrams;
+
+  /// No description provided for @deleteFoodEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Entry'**
+  String get deleteFoodEntry;
+
+  /// No description provided for @deleteFoodConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this item from your diary?'**
+  String get deleteFoodConfirm;
+
+  /// No description provided for @noFoodInMeal.
+  ///
+  /// In en, this message translates to:
+  /// **'No food logged for this meal yet.'**
+  String get noFoodInMeal;
+
+  /// No description provided for @gramsPositiveRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Grams must be greater than 0'**
+  String get gramsPositiveRequired;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
 }
 
 class _AppLocalizationsDelegate

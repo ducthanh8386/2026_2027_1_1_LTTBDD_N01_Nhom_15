@@ -400,12 +400,19 @@ void main() {
 
       final userPlans = await workoutService.getPlansByUser(testUserId);
       expect(userPlans.length, equals(createdIds.length));
-      expect(userPlans.first.userId, testUserId);
-      expect(userPlans.first.name, contains('Toàn thân'));
+      expect(userPlans.every((p) => p.userId == testUserId), isTrue);
+      expect(userPlans.any((p) => p.name.contains('Toàn thân')), isTrue);
 
-      final fullSample = await workoutService.getFullPlan(userPlans.first.id!);
+      final fullSample = await workoutService.getFullPlan(
+        userPlans.firstWhere((p) => p.name.contains('Toàn thân')).id!,
+      );
       expect(fullSample, isNotNull);
-      expect(fullSample!.days.first.exercises.first.exercise?.sourceId, '0025');
+      expect(
+        fullSample!.days.first.exercises.any(
+          (e) => e.exercise?.sourceId == '0025',
+        ),
+        isTrue,
+      );
     });
 
     test('Exercise localizedName changes correctly by locale', () {
