@@ -4,16 +4,16 @@
 > Chỉ mở file code khi task hiện tại chạm tới nó; dùng mục "File Index" để biết file nào làm gì.
 > **Cuối mỗi session, agent PHẢI cập nhật file này** theo mục "Quy tắc cập nhật" ở cuối.
 
-Last updated: 2026-11-08 · by: AI Senior Flutter Engineer · Session #8
+Last updated: 2026-11-08 · by: AI Senior Flutter Engineer · Session #9
 
 ## 1. Trạng thái hiện tại
 
-- **Giai đoạn hiện tại:** S07 – Dinh dưỡng, quét mã vạch, Open Food Facts (HOÀN THÀNH 100%) → Sẵn sàng PR sang `main`
-- **Tiến độ tổng:** Đã xong S00–S07. 83/83 unit test và widget test toàn app pass 100%.
-- **Nhánh hiện tại:** `feature/a-nutrition`
-- **App chạy được không:** Có, app chạy tốt trên cả Android, Web và Desktop. 83 tests pass 100%.
+- **Giai đoạn hiện tại:** S08 – HomeScreen thật + Tích hợp hoàn thiện module B (HOÀN THÀNH 100%) → Sẵn sàng merge sang `main`
+- **Tiến độ tổng:** Đã xong S00–S08. 87/87 unit test và widget test toàn app pass 100%.
+- **Nhánh hiện tại:** `feature/a-home-integration`
+- **App chạy được không:** Có, app chạy tốt trên cả Android, Web và Desktop. 87 tests pass 100%.
 - **Việc đang làm dở:** Không
-- **Việc tiếp theo (làm ngay):** Merge PR nhánh `feature/a-nutrition` vào `main`, bắt đầu S08 (HomeScreen thật & Tích hợp toàn app)
+- **Việc tiếp theo (làm ngay):** Merge nhánh `feature/a-home-integration` vào `main`, bắt đầu S09 (Kiểm thử toàn app, QA)
 - **Đang bị chặn bởi:** Không bị chặn.
 
 ## 2. Checklist phase (theo bảng giai đoạn FitTrack_Prompts)
@@ -28,7 +28,7 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 - [x] S05 – Kế hoạch tập (Plan: CRUD plan, days, exercises, gán bài tập, kế hoạch mẫu)
 - [x] S06 – Buổi tập, ghi set, đồng hồ nghỉ → tag `contract-v2`
 - [x] S07 – Dinh dưỡng + quét mã vạch Open Food Facts
-- [ ] S08 – HomeScreen + tích hợp module B
+- [x] S08 – HomeScreen + tích hợp module B
 - [ ] S09 – Kiểm thử toàn app, QA
 - [ ] S10 – Hoàn thiện, build APK, tag `v1.0`
 
@@ -105,8 +105,10 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 - `lib/providers/plan_provider.dart` – Quản lý danh sách plan và PlanDraft (thêm/xóa/đổi tên ngày, thêm/xóa/reorder bài tập, targetSets/Reps) – done
 - `lib/screens/auth/login_screen.dart` – Màn hình Đăng nhập (validator email/pass, toggle ẩn hiện, loading, SnackBar) – done
 - `lib/screens/auth/register_screen.dart` – Màn hình Đăng ký (validator tên/email/pass/confirm, toggle ẩn hiện, loading) – done
-- `lib/screens/home/main_shell.dart` – Shell điều hướng 5 tab (Home, Workout, Progress, Nutrition, Settings) + IndexedStack – done
-- `lib/screens/home/home_screen.dart` – Màn hình trang chủ chào mừng user, hiển thị avatar, email, nút đăng xuất – done
+- `lib/screens/home/main_shell.dart` – Shell điều hướng 5 tab (Home, Workout, Progress, Nutrition, Settings) + IndexedStack kèm hỗ trợ MainShell.switchTab – done
+- `lib/widgets/stat_card.dart` – Reusable KPI card (icon, value, title, subtitle, tap ripple) hiển thị thống kê – done
+- `lib/screens/home/home_screen.dart` – Màn hình trang chủ hoàn chỉnh (S08): lời chào theo giờ & tên, 3 StatCards (buổi tập tuần, khối lượng, calo hôm nay), Card Buổi tập hôm nay (đang tập / theo kế hoạch / tự do), 2 nút nhanh quét mã & ghi cân nặng, RefreshIndicator – done
+- `test/home_integration_test.dart` – Bộ 4 tests kiểm tra tích hợp HomeScreen, MainShell.switchTab, deleteMyData, profile kcalTarget propagation – done
 - `lib/screens/plan/plan_list_screen.dart` – Danh sách kế hoạch tập (ListView, EmptyState, FAB tạo kế hoạch, bottom sheet kế hoạch mẫu, Dismissible & AlertDialog xác nhận xóa) – done
 - `lib/screens/plan/plan_edit_screen.dart` – Màn hình tạo mới và sửa kế hoạch (Form validate, ExpansionTile theo ngày, ReorderableListView bài tập, Thêm ngày, Thêm bài hook ExerciseLibraryScreen) – done
 - `assets/data/sample_plans.json` – Kế hoạch tập mẫu Full Body theo contract – done
@@ -139,6 +141,8 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 | 2026-11-08 | UTF-8 decoding trong `OffApiClient` | Sử dụng `utf8.decode(response.bodyBytes)` thay vì `response.body` mặc định (Latin1) để xử lý chuẩn xác tên thực phẩm tiếng Việt và ký tự có dấu từ Open Food Facts |
 | 2026-11-08 | Chiến lược bộ nhớ đệm (Cache-first) cho tra cứu thực phẩm | Tra cứu trong bảng `foods` SQLite cục bộ trước khi gọi API Open Food Facts v2 (timeout 10s), khi tải thành công tự động lưu vào `foods` giúp sử dụng offline và tăng tốc độ |
 | 2026-11-08 | Đồng bộ mục tiêu dinh dưỡng với người dùng đăng nhập | `NutritionProvider` lắng nghe thay đổi qua `ChangeNotifierProxyProvider<AuthProvider, NutritionProvider>`, tự động tính calo mục tiêu (default 2000 kcal hoặc từ profile) và tải lại nhật ký ngày hiện tại |
+| 2026-11-08 | HomeScreen không gọi StatsService trực tiếp từ UI | Tuân thủ triệt để contract.md, HomeScreen chỉ tiêu thụ dữ liệu tuần thông qua ProgressProvider.weeklySummary / loadWeekly() và dữ liệu calo hôm nay qua NutritionProvider.dailyTotals |
+| 2026-11-08 | Điều hướng tab qua MainShell.switchTab(context, index) | Cung cấp phương thức static để các widget con (HomeScreen, StatCard) chuyển tab một cách mượt mà không cần tái tạo NavigationBar |
 
 ## 6. Nhật ký bug & fix
 
@@ -167,6 +171,8 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 | 2026-11-08 | S07 | `SqfliteFfiException(1555): UNIQUE constraint failed: exercises.id` trong test | `ExerciseSeeder` đã seed 48 bài tập có ID 1..48 lúc tạo DB, test insert mock exercise trùng ID 1 | Thêm `conflictAlgorithm: ConflictAlgorithm.replace` trong `test/b/stats_test.dart` và `test/workout_session_test.dart` | Đã sửa |
 | 2026-11-08 | S07 | Lỗi `A Timer is still pending` (sqflite 10s internal transaction timeout) trong `test/widget_test.dart` | `SqfliteDatabaseMixin` đặt timer 10s cho lock transaction | Thêm `await tester.pump(const Duration(seconds: 11))` để timer chạy hết trước khi kết thúc test | Đã sửa |
 | 2026-11-08 | S07 | `test/workout_plan_test.dart` fail vì tên kế hoạch mẫu trả về không theo thứ tự cố định | File `sample_plans.json` có 3 kế hoạch, query order by id desc | Đổi assertion kiểm tra `any((p) => p.name.contains('Toàn thân'))` | Đã sửa |
+| 2026-11-08 | S08 | `The method 'getPlanFull' isn't defined for the type 'PlanProvider'` | Method lấy chi tiết kế hoạch trong PlanProvider đặt tên là `loadPlanDetails` | Sửa lời gọi thành `plan.loadPlanDetails` trong `home_screen.dart` | Đã sửa |
+| 2026-11-08 | S08 | `test/home_integration_test.dart` compilation error `Member not found: 'localizationsDelegates'` trên `FitTrackApp` | `FitTrackApp` là StatelessWidget, các delegate nằm trong `AppLocalizations` | Dùng `AppLocalizations.localizationsDelegates` và `supportedLocales` | Đã sửa |
 
 ## 7. Vấn đề mở / nợ kỹ thuật
 
@@ -178,7 +184,8 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 - [x] Chờ Máy B nộp PR0 & PR1 (dữ liệu bài tập & màn hình ExerciseLibraryScreen) để hoàn thiện luồng chọn bài tập thực tế ở S08
 - [x] Tích hợp code Máy B (PR0–PR5): sửa 8 bug merge/compile/layout, app chạy ổn trên Chrome
 - [x] Hoàn thiện tầng Dinh dưỡng S07 (Food diary, tìm kiếm thực phẩm, quét mã vạch Open Food Facts, 14 unit tests)
-- [ ] Bước vào S08 (HomeScreen & Tích hợp hoàn thiện toàn app)
+- [x] Hoàn thiện tầng HomeScreen & Tích hợp module B S08 (StatCard, HomeScreen, Quick Actions, MainShell.switchTab, 4 integration tests)
+- [ ] Bước vào S09 (Kiểm thử toàn app, QA)
 - [ ] Ảnh/GIF bài tập hiện là stub 1x1 pixel → cần thay bằng asset thật hoặc load từ URL
 
 ## 8. Việc ngoài code (nhóm tự làm, agent KHÔNG làm)
@@ -202,7 +209,8 @@ Repo: `https://github.com/ducthanh8386/fit-track.git`
 
 | # | Ngày | Giai đoạn | Đã làm | Commit/PR |
 | :--- | :--- | :--- | :--- | :--- |
-| 8 | 2026-11-08 | S07 | Hoàn thành toàn diện module Dinh dưỡng (Nutrition): OffApiClient (Open Food Facts v2, timeout 10s, UTF-8, safe parsing, exception types), NutritionService (cache local foods, add/update/delete log entries, macro totals), NutritionProvider (quản lý nhật ký, 4 bữa ăn, macro live preview), 4 màn hình: BarcodeScanScreen (MobileScanner, flash, switch camera, debounce, retry), FoodDetailScreen (preview macro, chọn bữa, nhập gram), ManualFoodScreen (tạo món thủ công), FoodDiaryScreen (lịch ngày, tổng calo vs mục tiêu, 4 ExpansionTile bữa, sửa/xóa gram), 46 i18n keys EN/VI, test nutrition_test 14/14 pass (toàn app 83/83 tests pass 100%). | trên nhánh `feature/a-nutrition` |
+| 9 | 2026-11-08 | S08 | Triển khai hoàn chỉnh HomeScreen thật & Tích hợp hoàn thiện module B (A08): StatCard (KPI metrics), HomeScreen (lời chào theo giờ & tên, 3 StatCards tuần/calo, Card Buổi tập hôm nay, thao tác nhanh quét barcode & ghi cân nặng, RefreshIndicator), MainShell.switchTab điều hướng mượt 5 tab, 21 chuỗi i18n EN/VI, bộ test tích hợp test/home_integration_test 4/4 pass (toàn app 87/87 tests pass 100%), đối chiếu tích hợp toàn bộ routes/màn hình. | trên nhánh `feature/a-home-integration` |
+| 8 | 2026-11-08 | S07 | Hoàn thành toàn diện module Dinh dưỡng (Nutrition): OffApiClient (Open Food Facts v2, timeout 10s, UTF-8, safe parsing, exception types), NutritionService (cache local foods, add/update/delete log entries, macro totals), NutritionProvider (quản lý nhật ký, 4 bữa ăn, macro live preview), 4 màn hình: BarcodeScanScreen (MobileScanner, flash, switch camera, debounce, retry), FoodDetailScreen (preview macro, chọn bữa, nhập gram), ManualFoodScreen (tạo món thủ công), FoodDiaryScreen (lịch ngày, tổng calo vs mục tiêu, 4 ExpansionTile bữa, sửa/xóa gram), 46 i18n keys EN/VI, test nutrition_test 14/14 pass (toàn app 83/83 tests pass 100%). | `fc84211` |
 | 7 | 2026-11-06 | Tích hợp B | Merge code Máy B (PR0–PR5) vào main, sửa 8 bug tích hợp: merge conflict, _stripDiacritics private, Hero tag collision, SQL WASM double quotes, pre-push hook, targetMuscle undefined getter, ListTile trailing overflow. App chạy ổn Chrome. | trên nhánh `main` |
 | 6 | 2026-11-06 | S06 | Triển khai hoàn chỉnh module Buổi tập (Workout Session): WorkoutService (validate set reps>0, kg>=0, volume tổng, CRUD session), WorkoutProvider (active session, elapsed timer, rest countdown timer +/-15s, B4 History API), RestTimerBar, WorkoutSessionScreen (PopScope xác nhận thoát, log sets, điều hướng bài), WorkoutSummaryScreen, cập nhật CHANGELOG contract-v2, bộ unit test workout_session_test 10/10 pass (tổng 43/43 tests pass 100%) | `e99619e` |
 | 5 | 2026-11-05 | S05 | Triển khai hoàn chỉnh module Kế hoạch tập (Workout Plan): WorkoutService (validate tên, ngày, set/rep; CRUD plan; seedSamplePlans ánh xạ source_id), PlanProvider (quản lý plans, PlanDraft thêm/xóa/sửa ngày, thêm/xóa/reorder bài tập), PlanListScreen (ListView, EmptyState, FAB, BottomSheet kế hoạch mẫu, AlertDialog xóa), PlanEditScreen (Form, ExpansionTile ngày, ReorderableListView, hook ExerciseLibraryScreen), i18n EN/VI, bộ unit test workout_plan_test pass 100% | (nhánh `feature/a-plan`) |

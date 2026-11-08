@@ -613,4 +613,81 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get today => 'Hôm nay';
+
+  @override
+  String homeGreetingMorning(String name) {
+    return 'Chào buổi sáng, $name!';
+  }
+
+  @override
+  String homeGreetingAfternoon(String name) {
+    return 'Chào buổi chiều, $name!';
+  }
+
+  @override
+  String homeGreetingEvening(String name) {
+    return 'Chào buổi tối, $name!';
+  }
+
+  @override
+  String homeGreetingGeneric(String name) {
+    return 'Xin chào, $name!';
+  }
+
+  @override
+  String get homeWeeklyOverview => 'Tổng quan tuần';
+
+  @override
+  String get homeWeeklySessions => 'Số buổi tập';
+
+  @override
+  String get homeWeeklyVolume => 'Khối lượng';
+
+  @override
+  String get homeTodayCalories => 'Calo hôm nay';
+
+  @override
+  String get homeTodayWorkout => 'Buổi tập hôm nay';
+
+  @override
+  String get homeNoPlanYet => 'Chưa có kế hoạch tập';
+
+  @override
+  String get homeNoPlanSubtitle =>
+      'Chọn kế hoạch mẫu hoặc bắt đầu buổi tập tự do.';
+
+  @override
+  String get homeStartWorkout => 'Bắt đầu tập';
+
+  @override
+  String get homeContinueWorkout => 'Tiếp tục tập';
+
+  @override
+  String get homeActiveSessionRunning => 'Buổi tập đang diễn ra';
+
+  @override
+  String get homeFreeWorkoutPrompt => 'Tập tự do ngay';
+
+  @override
+  String get homeQuickActions => 'Thao tác nhanh';
+
+  @override
+  String get homeQuickScanBarcode => 'Quét mã thực phẩm';
+
+  @override
+  String get homeQuickLogWeight => 'Ghi cân nặng';
+
+  @override
+  String get homeViewAllPlans => 'Xem kế hoạch';
+
+  @override
+  String get homeUnitSessions => 'buổi';
+
+  @override
+  String homeTarget(String target) {
+    return 'Mục tiêu: $target';
+  }
+
+  @override
+  String get profile => 'Hồ sơ cá nhân';
 }
