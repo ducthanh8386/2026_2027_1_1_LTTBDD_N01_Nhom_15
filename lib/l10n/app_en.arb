@@ -210,5 +210,62 @@
   "deleteFoodConfirm": "Remove this item from your diary?",
   "noFoodInMeal": "No food logged for this meal yet.",
   "gramsPositiveRequired": "Grams must be greater than 0",
-  "today": "Today"
+  "today": "Today",
+  "homeGreetingMorning": "Good morning, {name}!",
+  "@homeGreetingMorning": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeGreetingAfternoon": "Good afternoon, {name}!",
+  "@homeGreetingAfternoon": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeGreetingEvening": "Good evening, {name}!",
+  "@homeGreetingEvening": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeGreetingGeneric": "Hello, {name}!",
+  "@homeGreetingGeneric": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeWeeklyOverview": "Weekly Overview",
+  "homeWeeklySessions": "Sessions",
+  "homeWeeklyVolume": "Volume",
+  "homeTodayCalories": "Calories Today",
+  "homeTodayWorkout": "Today's Workout",
+  "homeNoPlanYet": "No workout plan yet",
+  "homeNoPlanSubtitle": "Choose a sample plan or start a free workout session.",
+  "homeStartWorkout": "Start Workout",
+  "homeContinueWorkout": "Resume Workout",
+  "homeActiveSessionRunning": "Active workout session in progress",
+  "homeFreeWorkoutPrompt": "Start Free Workout",
+  "homeQuickActions": "Quick Actions",
+  "homeQuickScanBarcode": "Scan Food Barcode",
+  "homeQuickLogWeight": "Log Weight",
+  "homeViewAllPlans": "View Plans",
+  "homeUnitSessions": "sessions",
+  "homeTarget": "Target: {target}",
+  "@homeTarget": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "profile": "Profile"
 }

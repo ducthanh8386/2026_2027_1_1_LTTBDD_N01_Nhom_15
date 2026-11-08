@@ -614,4 +614,81 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get today => 'Today';
+
+  @override
+  String homeGreetingMorning(String name) {
+    return 'Good morning, $name!';
+  }
+
+  @override
+  String homeGreetingAfternoon(String name) {
+    return 'Good afternoon, $name!';
+  }
+
+  @override
+  String homeGreetingEvening(String name) {
+    return 'Good evening, $name!';
+  }
+
+  @override
+  String homeGreetingGeneric(String name) {
+    return 'Hello, $name!';
+  }
+
+  @override
+  String get homeWeeklyOverview => 'Weekly Overview';
+
+  @override
+  String get homeWeeklySessions => 'Sessions';
+
+  @override
+  String get homeWeeklyVolume => 'Volume';
+
+  @override
+  String get homeTodayCalories => 'Calories Today';
+
+  @override
+  String get homeTodayWorkout => 'Today\'s Workout';
+
+  @override
+  String get homeNoPlanYet => 'No workout plan yet';
+
+  @override
+  String get homeNoPlanSubtitle =>
+      'Choose a sample plan or start a free workout session.';
+
+  @override
+  String get homeStartWorkout => 'Start Workout';
+
+  @override
+  String get homeContinueWorkout => 'Resume Workout';
+
+  @override
+  String get homeActiveSessionRunning => 'Active workout session in progress';
+
+  @override
+  String get homeFreeWorkoutPrompt => 'Start Free Workout';
+
+  @override
+  String get homeQuickActions => 'Quick Actions';
+
+  @override
+  String get homeQuickScanBarcode => 'Scan Food Barcode';
+
+  @override
+  String get homeQuickLogWeight => 'Log Weight';
+
+  @override
+  String get homeViewAllPlans => 'View Plans';
+
+  @override
+  String get homeUnitSessions => 'sessions';
+
+  @override
+  String homeTarget(String target) {
+    return 'Target: $target';
+  }
+
+  @override
+  String get profile => 'Profile';
 }

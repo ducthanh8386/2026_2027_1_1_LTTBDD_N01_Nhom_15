@@ -1279,6 +1279,138 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Today'**
   String get today;
+
+  /// No description provided for @homeGreetingMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning, {name}!'**
+  String homeGreetingMorning(String name);
+
+  /// No description provided for @homeGreetingAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon, {name}!'**
+  String homeGreetingAfternoon(String name);
+
+  /// No description provided for @homeGreetingEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening, {name}!'**
+  String homeGreetingEvening(String name);
+
+  /// No description provided for @homeGreetingGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, {name}!'**
+  String homeGreetingGeneric(String name);
+
+  /// No description provided for @homeWeeklyOverview.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Overview'**
+  String get homeWeeklyOverview;
+
+  /// No description provided for @homeWeeklySessions.
+  ///
+  /// In en, this message translates to:
+  /// **'Sessions'**
+  String get homeWeeklySessions;
+
+  /// No description provided for @homeWeeklyVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume'**
+  String get homeWeeklyVolume;
+
+  /// No description provided for @homeTodayCalories.
+  ///
+  /// In en, this message translates to:
+  /// **'Calories Today'**
+  String get homeTodayCalories;
+
+  /// No description provided for @homeTodayWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s Workout'**
+  String get homeTodayWorkout;
+
+  /// No description provided for @homeNoPlanYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No workout plan yet'**
+  String get homeNoPlanYet;
+
+  /// No description provided for @homeNoPlanSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a sample plan or start a free workout session.'**
+  String get homeNoPlanSubtitle;
+
+  /// No description provided for @homeStartWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Workout'**
+  String get homeStartWorkout;
+
+  /// No description provided for @homeContinueWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume Workout'**
+  String get homeContinueWorkout;
+
+  /// No description provided for @homeActiveSessionRunning.
+  ///
+  /// In en, this message translates to:
+  /// **'Active workout session in progress'**
+  String get homeActiveSessionRunning;
+
+  /// No description provided for @homeFreeWorkoutPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Free Workout'**
+  String get homeFreeWorkoutPrompt;
+
+  /// No description provided for @homeQuickActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Actions'**
+  String get homeQuickActions;
+
+  /// No description provided for @homeQuickScanBarcode.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan Food Barcode'**
+  String get homeQuickScanBarcode;
+
+  /// No description provided for @homeQuickLogWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Log Weight'**
+  String get homeQuickLogWeight;
+
+  /// No description provided for @homeViewAllPlans.
+  ///
+  /// In en, this message translates to:
+  /// **'View Plans'**
+  String get homeViewAllPlans;
+
+  /// No description provided for @homeUnitSessions.
+  ///
+  /// In en, this message translates to:
+  /// **'sessions'**
+  String get homeUnitSessions;
+
+  /// No description provided for @homeTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Target: {target}'**
+  String homeTarget(String target);
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
 }
 
 class _AppLocalizationsDelegate

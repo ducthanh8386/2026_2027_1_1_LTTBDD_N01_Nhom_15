@@ -10,12 +10,26 @@ import 'home_screen.dart';
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
 
+  /// Allows descendants to switch active tab on MainShell.
+  static void switchTab(BuildContext context, int index) {
+    final state = context.findAncestorStateOfType<_MainShellState>();
+    state?.switchTab(index);
+  }
+
   @override
   State<MainShell> createState() => _MainShellState();
 }
 
 class _MainShellState extends State<MainShell> {
   int _currentIndex = 0;
+
+  void switchTab(int index) {
+    if (index >= 0 && index < _screens.length && _currentIndex != index) {
+      setState(() {
+        _currentIndex = index;
+      });
+    }
+  }
 
   final List<Widget> _screens = const [
     HomeScreen(),

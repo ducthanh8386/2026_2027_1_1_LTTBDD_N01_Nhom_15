@@ -89,56 +89,59 @@ void main() {
   });
 
   group('StatsRepository Volume Tests', () {
-    test('getVolumeByDateRange returns aggregated volume from set_logs', () async {
-      // Session 1: completed
-      final s1 = await db.insert(AppConstants.tableWorkoutSessions, {
-        'user_id': 1,
-        'started_at': '2026-11-01T10:00:00.000',
-        'ended_at': '2026-11-01T11:00:00.000',
-        'total_volume': 1000.0,
-      });
+    test(
+      'getVolumeByDateRange returns aggregated volume from set_logs',
+      () async {
+        // Session 1: completed
+        final s1 = await db.insert(AppConstants.tableWorkoutSessions, {
+          'user_id': 1,
+          'started_at': '2026-11-01T10:00:00.000',
+          'ended_at': '2026-11-01T11:00:00.000',
+          'total_volume': 1000.0,
+        });
 
-      // Sets for Session 1: 10 reps * 50kg = 500, 10 reps * 60kg = 600 -> total 1100
-      await db.insert(AppConstants.tableSetLogs, {
-        'session_id': s1,
-        'exercise_id': 1,
-        'set_index': 1,
-        'reps': 10,
-        'weight_kg': 50.0,
-      });
-      await db.insert(AppConstants.tableSetLogs, {
-        'session_id': s1,
-        'exercise_id': 1,
-        'set_index': 2,
-        'reps': 10,
-        'weight_kg': 60.0,
-      });
+        // Sets for Session 1: 10 reps * 50kg = 500, 10 reps * 60kg = 600 -> total 1100
+        await db.insert(AppConstants.tableSetLogs, {
+          'session_id': s1,
+          'exercise_id': 1,
+          'set_index': 1,
+          'reps': 10,
+          'weight_kg': 50.0,
+        });
+        await db.insert(AppConstants.tableSetLogs, {
+          'session_id': s1,
+          'exercise_id': 1,
+          'set_index': 2,
+          'reps': 10,
+          'weight_kg': 60.0,
+        });
 
-      // Session 2: NOT ended (ongoing) -> should NOT be included
-      final s2 = await db.insert(AppConstants.tableWorkoutSessions, {
-        'user_id': 1,
-        'started_at': '2026-11-02T10:00:00.000',
-        'ended_at': null,
-        'total_volume': 500.0,
-      });
-      await db.insert(AppConstants.tableSetLogs, {
-        'session_id': s2,
-        'exercise_id': 1,
-        'set_index': 1,
-        'reps': 10,
-        'weight_kg': 50.0,
-      });
+        // Session 2: NOT ended (ongoing) -> should NOT be included
+        final s2 = await db.insert(AppConstants.tableWorkoutSessions, {
+          'user_id': 1,
+          'started_at': '2026-11-02T10:00:00.000',
+          'ended_at': null,
+          'total_volume': 500.0,
+        });
+        await db.insert(AppConstants.tableSetLogs, {
+          'session_id': s2,
+          'exercise_id': 1,
+          'set_index': 1,
+          'reps': 10,
+          'weight_kg': 50.0,
+        });
 
-      final records = await statsRepo.getVolumeByDateRange(
-        userId: 1,
-        from: DateTime(2026, 11, 1),
-        to: DateTime(2026, 11, 5),
-      );
+        final records = await statsRepo.getVolumeByDateRange(
+          userId: 1,
+          from: DateTime(2026, 11, 1),
+          to: DateTime(2026, 11, 5),
+        );
 
-      expect(records.length, equals(1));
-      expect(records.first.date, equals('2026-11-01'));
-      expect(records.first.volume, equals(1100.0));
-    });
+        expect(records.length, equals(1));
+        expect(records.first.date, equals('2026-11-01'));
+        expect(records.first.volume, equals(1100.0));
+      },
+    );
 
     test('getMaxWeightByExercise returns max weight grouped by date', () async {
       final s1 = await db.insert(AppConstants.tableWorkoutSessions, {
@@ -185,8 +188,11 @@ void main() {
 
     test('getWeeklyWorkoutStats and getWeeklyTotalKcal', () async {
       final now = DateTime.now();
-      final monday = DateTime(now.year, now.month, now.day)
-          .subtract(Duration(days: now.weekday - 1));
+      final monday = DateTime(
+        now.year,
+        now.month,
+        now.day,
+      ).subtract(Duration(days: now.weekday - 1));
 
       // Completed session this week
       final s1 = await db.insert(AppConstants.tableWorkoutSessions, {
@@ -261,4 +267,3 @@ void main() {
     });
   });
 }
-
