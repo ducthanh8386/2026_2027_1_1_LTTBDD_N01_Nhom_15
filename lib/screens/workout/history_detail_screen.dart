@@ -295,14 +295,15 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
                                         ),
                                         padding: EdgeInsets.zero,
                                       ),
-                                      Chip(
-                                        visualDensity: VisualDensity.compact,
-                                        label: Text(
-                                          exercise.targetMuscle,
-                                          style: const TextStyle(fontSize: 10),
+                                      if (exercise.target != null && exercise.target!.isNotEmpty)
+                                        Chip(
+                                          visualDensity: VisualDensity.compact,
+                                          label: Text(
+                                            exercise.target!,
+                                            style: const TextStyle(fontSize: 10),
+                                          ),
+                                          padding: EdgeInsets.zero,
                                         ),
-                                        padding: EdgeInsets.zero,
-                                      ),
                                     ],
                                   ),
                                 ],
@@ -432,3 +433,4 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
     );
   }
 }
+

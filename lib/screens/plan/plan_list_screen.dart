@@ -218,43 +218,67 @@ class _PlanListScreenState extends State<PlanListScreen> {
                 ),
                 const SizedBox(height: 20),
                 Card(
-                  child: ListTile(
-                    leading: const CircleAvatar(
-                      child: Icon(Icons.fitness_center),
-                    ),
-                    title: const Text(
-                      'Khởi động Toàn thân (Full Body)',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: const Text(
-                      '2 ngày tập • Đầy đủ ngực, vai, tay và chân',
-                    ),
-                    trailing: ElevatedButton(
-                      onPressed: () async {
-                        Navigator.pop(sheetCtx);
-                        final auth = context.read<AuthProvider>();
-                        final userId = auth.currentUser?.id;
-                        if (userId != null) {
-                          final ok = await context
-                              .read<PlanProvider>()
-                              .applySamplePlan(
-                                userId,
-                                locale: locale.languageCode,
-                              );
-                          if (mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  ok
-                                      ? l10n.samplePlanApplied
-                                      : 'Không tìm thấy kế hoạch mẫu',
-                                ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            const CircleAvatar(
+                              child: Icon(Icons.fitness_center),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    'Khởi động Toàn thân (Full Body)',
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Text(
+                                    '2 ngày tập • Đầy đủ ngực, vai, tay và chân',
+                                    style: TextStyle(fontSize: 13, color: Colors.grey),
+                                  ),
+                                ],
                               ),
-                            );
-                          }
-                        }
-                      },
-                      child: Text(l10n.useSamplePlan),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              Navigator.pop(sheetCtx);
+                              final auth = context.read<AuthProvider>();
+                              final userId = auth.currentUser?.id;
+                              if (userId != null) {
+                                final ok = await context
+                                    .read<PlanProvider>()
+                                    .applySamplePlan(
+                                      userId,
+                                      locale: locale.languageCode,
+                                    );
+                                if (mounted) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        ok
+                                            ? l10n.samplePlanApplied
+                                            : 'Không tìm thấy kế hoạch mẫu',
+                                      ),
+                                    ),
+                                  );
+                                }
+                              }
+                            },
+                            child: Text(l10n.useSamplePlan),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

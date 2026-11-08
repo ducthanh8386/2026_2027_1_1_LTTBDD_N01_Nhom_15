@@ -96,7 +96,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.error_outline, size: 48, color: Colors.red),
+                    const Icon(
+                      Icons.error_outline,
+                      size: 48,
+                      color: Colors.red,
+                    ),
                     const SizedBox(height: 12),
                     Text(provider.error!),
                     const SizedBox(height: 12),
@@ -231,8 +235,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
         : session.startedAt;
 
     final durationMinutes = session.duration?.inMinutes ?? 0;
-    final planTitle = session.planDayName ??
-        (l10n?.historyFreeWorkout ?? 'Free Workout');
+    final planTitle =
+        session.planDayName ?? (l10n?.historyFreeWorkout ?? 'Free Workout');
 
     return Card(
       margin: const EdgeInsets.only(bottom: 10),

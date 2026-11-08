@@ -144,7 +144,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get historyExerciseSets => 'Chi tiết các hiệp';
 
   @override
-  String historySetNumber(int number) => 'Hiệp $number';
+  String historySetNumber(int number) {
+    return 'Hiệp $number';
+  }
 
   @override
   String get exerciseLibraryTitle => 'Thư viện bài tập';

@@ -25,7 +25,7 @@ class StatsRepository {
   final DatabaseHelper _dbHelper;
 
   StatsRepository({DatabaseHelper? dbHelper})
-      : _dbHelper = dbHelper ?? DatabaseHelper();
+    : _dbHelper = dbHelper ?? DatabaseHelper();
 
   Future<Database> get _db => _dbHelper.database;
 
@@ -120,7 +120,11 @@ class StatsRepository {
     required DateTime monday,
   }) async {
     final db = await _db;
-    final mondayIso = DateTime(monday.year, monday.month, monday.day).toIso8601String();
+    final mondayIso = DateTime(
+      monday.year,
+      monday.month,
+      monday.day,
+    ).toIso8601String();
 
     // Query 1: Join set_logs for volume
     final setResults = await db.rawQuery(
@@ -133,7 +137,8 @@ class StatsRepository {
       [userId, mondayIso],
     );
 
-    if (setResults.isNotEmpty && (setResults.first['session_count'] as int? ?? 0) > 0) {
+    if (setResults.isNotEmpty &&
+        (setResults.first['session_count'] as int? ?? 0) > 0) {
       final first = setResults.first;
       return {
         'session_count': (first['session_count'] as int?) ?? 0,

@@ -144,7 +144,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get historyExerciseSets => 'Sets Performed';
 
   @override
-  String historySetNumber(int number) => 'Set $number';
+  String historySetNumber(int number) {
+    return 'Set $number';
+  }
 
   @override
   String get exerciseLibraryTitle => 'Exercise Library';

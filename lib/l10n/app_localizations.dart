@@ -206,31 +206,160 @@ abstract class AppLocalizations {
   /// **'Please enter a valid weight between 20 and 300 kg'**
   String get progressInvalidWeight;
 
+  /// No description provided for @progressVolumeChartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout Volume'**
   String get progressVolumeChartTitle;
+
+  /// No description provided for @progressNoVolumeData.
+  ///
+  /// In en, this message translates to:
+  /// **'No volume records yet'**
   String get progressNoVolumeData;
+
+  /// No description provided for @progressNoVolumeSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed workouts will automatically generate volume charts.'**
   String get progressNoVolumeSub;
+
+  /// No description provided for @progressWeeklySummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Summary'**
   String get progressWeeklySummary;
+
+  /// No description provided for @progressWeeklySessions.
+  ///
+  /// In en, this message translates to:
+  /// **'Sessions'**
   String get progressWeeklySessions;
+
+  /// No description provided for @progressWeeklyVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume'**
   String get progressWeeklyVolume;
+
+  /// No description provided for @progressWeeklyKcal.
+  ///
+  /// In en, this message translates to:
+  /// **'Calories'**
   String get progressWeeklyKcal;
+
+  /// No description provided for @progressTotalVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Volume'**
   String get progressTotalVolume;
+
+  /// No description provided for @progressAvgVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg / Session'**
   String get progressAvgVolume;
+
+  /// No description provided for @progressMaxVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Session'**
   String get progressMaxVolume;
+
+  /// No description provided for @progressMaxWeightTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Weight By Exercise'**
   String get progressMaxWeightTitle;
+
+  /// No description provided for @progressSelectExercise.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Exercise'**
   String get progressSelectExercise;
+
+  /// No description provided for @historyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout History'**
   String get historyTitle;
+
+  /// No description provided for @historyEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No Workout History'**
   String get historyEmptyTitle;
+
+  /// No description provided for @historyEmptySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed workouts will appear here. Start training today!'**
   String get historyEmptySubtitle;
+
+  /// No description provided for @historyFreeWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Free Workout'**
   String get historyFreeWorkout;
+
+  /// No description provided for @historyDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Session'**
   String get historyDeleteTitle;
+
+  /// No description provided for @historyDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this workout session?'**
   String get historyDeleteConfirm;
+
+  /// No description provided for @historyDetailTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout Detail'**
   String get historyDetailTitle;
+
+  /// No description provided for @historySets.
+  ///
+  /// In en, this message translates to:
+  /// **'sets'**
   String get historySets;
+
+  /// No description provided for @historyMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'min'**
   String get historyMinutes;
+
+  /// No description provided for @historyVolume.
+  ///
+  /// In en, this message translates to:
+  /// **'Volume'**
   String get historyVolume;
+
+  /// No description provided for @historyTotalSets.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Sets'**
   String get historyTotalSets;
+
+  /// No description provided for @historyDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
   String get historyDuration;
+
+  /// No description provided for @historyExerciseSets.
+  ///
+  /// In en, this message translates to:
+  /// **'Sets Performed'**
   String get historyExerciseSets;
+
+  /// No description provided for @historySetNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Set {number}'**
   String historySetNumber(int number);
 
   /// No description provided for @exerciseLibraryTitle.

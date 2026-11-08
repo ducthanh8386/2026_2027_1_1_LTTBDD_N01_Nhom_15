@@ -71,10 +71,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
           label: Text(l10n?.progressAddWeight ?? 'Log Weight'),
         ),
         body: TabBarView(
-          children: [
-            _buildWeightTab(context),
-            _buildVolumeTab(context),
-          ],
+          children: [_buildWeightTab(context), _buildVolumeTab(context)],
         ),
       ),
     );
@@ -373,8 +370,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
               ),
               const SizedBox(height: 6),
               Text(
-                l10n?.progressNoVolumeSub ??
-                    'Completed workouts will automatically generate volume charts.',
+                l10n?.progressNoVolumeSub ?? 'Completed workouts will automatically generate volume charts.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: theme.disabledColor),
               ),
@@ -493,8 +489,10 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   barGroups: points.asMap().entries.map((entry) {
                     final idx = entry.key;
                     final pt = entry.value;
-                    final barWidth =
-                        (140.0 / points.length.clamp(1, 15)).clamp(8.0, 24.0);
+                    final barWidth = (140.0 / points.length.clamp(1, 15)).clamp(
+                      8.0,
+                      24.0,
+                    );
 
                     return BarChartGroupData(
                       x: idx,
@@ -568,8 +566,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                hintText:
-                    l10n?.progressSelectExercise ?? 'Select Exercise',
+                hintText: l10n?.progressSelectExercise ?? 'Select Exercise',
               ),
               items: exercises.map((ex) {
                 return DropdownMenuItem<int>(
@@ -595,7 +592,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Center(
                   child: Text(
-                    l10n?.progressSelectExercise ?? 'Select an exercise above to see progression',
+                    l10n?.progressSelectExercise ??
+                        'Select an exercise above to see progression',
                     style: TextStyle(color: theme.disabledColor),
                   ),
                 ),
@@ -618,10 +616,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
     );
   }
 
-  Widget _buildMaxWeightChart(
-    BuildContext context,
-    List<VolumePoint> points,
-  ) {
+  Widget _buildMaxWeightChart(BuildContext context, List<VolumePoint> points) {
     final theme = Theme.of(context);
 
     final spots = <FlSpot>[];
@@ -648,8 +643,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
           gridData: const FlGridData(show: true, drawVerticalLine: false),
           borderData: FlBorderData(show: false),
           titlesData: FlTitlesData(
-            topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-            rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            topTitles: const AxisTitles(
+              sideTitles: SideTitles(showTitles: false),
+            ),
+            rightTitles: const AxisTitles(
+              sideTitles: SideTitles(showTitles: false),
+            ),
             leftTitles: AxisTitles(
               sideTitles: SideTitles(
                 showTitles: true,
@@ -669,7 +668,10 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   if (idx >= 0 && idx < points.length) {
                     return Text(
                       DateFormat('dd/MM').format(points[idx].date),
-                      style: TextStyle(color: theme.disabledColor, fontSize: 10),
+                      style: TextStyle(
+                        color: theme.disabledColor,
+                        fontSize: 10,
+                      ),
                     );
                   }
                   return const SizedBox.shrink();
