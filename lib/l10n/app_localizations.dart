@@ -1,4 +1,4 @@
- import 'dart:async';
+import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
@@ -1412,29 +1412,148 @@ abstract class AppLocalizations {
   /// **'Profile'**
   String get profile;
 
+  /// No description provided for @progressNoExerciseData.
+  ///
+  /// In en, this message translates to:
+  /// **'No data recorded for this exercise in selected range'**
   String get progressNoExerciseData;
+
+  /// No description provided for @exerciseNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise not found'**
   String get exerciseNotFound;
+
+  /// No description provided for @refresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
   String get refresh;
+
+  /// No description provided for @profileUpdatedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully'**
   String get profileUpdatedSuccess;
+
+  /// No description provided for @profileUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update profile: {error}'**
   String profileUpdateError(String error);
+
+  /// No description provided for @genderMale.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
   String get genderMale;
+
+  /// No description provided for @genderFemale.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
   String get genderFemale;
+
+  /// No description provided for @goalLoseFat.
+  ///
+  /// In en, this message translates to:
+  /// **'Lose Fat'**
   String get goalLoseFat;
+
+  /// No description provided for @goalMaintain.
+  ///
+  /// In en, this message translates to:
+  /// **'Maintain'**
   String get goalMaintain;
+
+  /// No description provided for @goalBuildMuscle.
+  ///
+  /// In en, this message translates to:
+  /// **'Build Muscle'**
   String get goalBuildMuscle;
+
+  /// No description provided for @profileAutoCalculate.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto Calculate'**
   String get profileAutoCalculate;
+
+  /// No description provided for @settingsDeleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Personal Data?'**
   String get settingsDeleteTitle;
+
+  /// No description provided for @settingsDeletePrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'This will wipe all weight records, workout history, custom plans, and restore initial state.'**
   String get settingsDeletePrompt;
+
+  /// No description provided for @settingsDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Final Confirmation'**
   String get settingsDeleteConfirmTitle;
+
+  /// No description provided for @settingsDeleteConfirmPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'This action cannot be undone. Are you absolutely sure?'**
   String get settingsDeleteConfirmPrompt;
+
+  /// No description provided for @settingsDeleteSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'All personal data has been wiped successfully.'**
   String get settingsDeleteSuccess;
+
+  /// No description provided for @settingsDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error clearing data: {error}'**
   String settingsDeleteError(String error);
+
+  /// No description provided for @settingsLogoutConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to log out?'**
   String get settingsLogoutConfirm;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
   String get themeSystem;
+
+  /// No description provided for @settingsTeamInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Team & Project Info'**
   String get settingsTeamInfo;
+
+  /// No description provided for @settingsTeamSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Phenikaa University · Instructor: Dr. Nguyen Xuan Que'**
   String get settingsTeamSubtitle;
+
+  /// No description provided for @settingsCreditsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Data & Media Attribution'**
   String get settingsCreditsTitle;
+
+  /// No description provided for @settingsCreditsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'hasaneyldrm / Gym Visual / Open Food Facts'**
   String get settingsCreditsSubtitle;
+
+  /// No description provided for @teamLinkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open link: {url}'**
   String teamLinkError(String url);
 }
 

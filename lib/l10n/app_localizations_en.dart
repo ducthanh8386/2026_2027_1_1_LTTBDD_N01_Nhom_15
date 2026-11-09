@@ -706,7 +706,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileUpdatedSuccess => 'Profile updated successfully';
 
   @override
-  String profileUpdateError(String error) => 'Failed to update profile: $error';
+  String profileUpdateError(String error) {
+    return 'Failed to update profile: $error';
+  }
 
   @override
   String get genderMale => 'Male';
@@ -745,7 +747,9 @@ class AppLocalizationsEn extends AppLocalizations {
       'All personal data has been wiped successfully.';
 
   @override
-  String settingsDeleteError(String error) => 'Error clearing data: $error';
+  String settingsDeleteError(String error) {
+    return 'Error clearing data: $error';
+  }
 
   @override
   String get settingsLogoutConfirm => 'Are you sure you want to log out?';
@@ -768,5 +772,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'hasaneyldrm / Gym Visual / Open Food Facts';
 
   @override
-  String teamLinkError(String url) => 'Could not open link: $url';
+  String teamLinkError(String url) {
+    return 'Could not open link: $url';
+  }
 }

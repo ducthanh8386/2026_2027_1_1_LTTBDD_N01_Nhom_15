@@ -705,7 +705,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get profileUpdatedSuccess => 'Hồ sơ đã được cập nhật thành công!';
 
   @override
-  String profileUpdateError(String error) => 'Lỗi cập nhật hồ sơ: $error';
+  String profileUpdateError(String error) {
+    return 'Lỗi cập nhật hồ sơ: $error';
+  }
 
   @override
   String get genderMale => 'Nam';
@@ -744,7 +746,9 @@ class AppLocalizationsVi extends AppLocalizations {
       'Toàn bộ dữ liệu cá nhân đã được dọn sạch.';
 
   @override
-  String settingsDeleteError(String error) => 'Lỗi xóa dữ liệu: $error';
+  String settingsDeleteError(String error) {
+    return 'Lỗi xóa dữ liệu: $error';
+  }
 
   @override
   String get settingsLogoutConfirm =>
@@ -768,5 +772,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'hasaneyldrm / Gym Visual / Open Food Facts';
 
   @override
-  String teamLinkError(String url) => 'Không thể mở liên kết: $url';
+  String teamLinkError(String url) {
+    return 'Không thể mở liên kết: $url';
+  }
 }

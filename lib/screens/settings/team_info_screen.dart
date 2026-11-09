@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../l10n/app_localizations.dart';
 import 'team_data.dart';
 
 /// TeamInfoScreen owned by Partner B (Module B3).
