@@ -72,7 +72,7 @@ class _PlanEditScreenState extends State<PlanEditScreen> {
 
     if (userId == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Vui lòng đăng nhập lại để lưu kế hoạch')),
+        SnackBar(content: Text(l10n.planPleaseReLogin)),
       );
       return;
     }

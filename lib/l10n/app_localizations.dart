@@ -1556,28 +1556,161 @@ abstract class AppLocalizations {
   /// **'Could not open link: {url}'**
   String teamLinkError(String url);
 
+  /// No description provided for @profileBodyInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Body Information'**
   String get profileBodyInfo;
+
+  /// No description provided for @profileHeightCm.
+  ///
+  /// In en, this message translates to:
+  /// **'Height (cm)'**
   String get profileHeightCm;
+
+  /// No description provided for @profileAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
   String get profileAge;
+
+  /// No description provided for @profileFitnessGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Fitness Goal'**
   String get profileFitnessGoal;
+
+  /// No description provided for @profileActivityLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Activity Level'**
   String get profileActivityLevel;
+
+  /// No description provided for @profileDailyCalorieTarget.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Calorie Target'**
   String get profileDailyCalorieTarget;
+
+  /// No description provided for @profileCalorieTargetUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Calorie Target (kcal/day)'**
   String get profileCalorieTargetUnit;
+
+  /// No description provided for @profileSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Profile'**
   String get profileSave;
+
+  /// No description provided for @profileMifflinFormula.
+  ///
+  /// In en, this message translates to:
+  /// **'* Mifflin-St Jeor formula (Am J Clin Nutr 1990)'**
   String get profileMifflinFormula;
+
+  /// No description provided for @profileEditPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile & body metrics →'**
   String get profileEditPrompt;
+
+  /// No description provided for @settingsAppearanceLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance & Language'**
   String get settingsAppearanceLanguage;
+
+  /// No description provided for @settingsAccountData.
+  ///
+  /// In en, this message translates to:
+  /// **'Account & Data'**
   String get settingsAccountData;
+
+  /// No description provided for @settingsDeleteAllData.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Personal Data'**
   String get settingsDeleteAllData;
+
+  /// No description provided for @settingsDeleteDataSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Wipe custom plans, workout history, weight, and meal logs'**
   String get settingsDeleteDataSub;
+
+  /// No description provided for @exerciseNoInstructions.
+  ///
+  /// In en, this message translates to:
+  /// **'No instructions available for this exercise.'**
   String get exerciseNoInstructions;
+
+  /// No description provided for @teamUniversity.
+  ///
+  /// In en, this message translates to:
+  /// **'University:'**
   String get teamUniversity;
+
+  /// No description provided for @teamCourse.
+  ///
+  /// In en, this message translates to:
+  /// **'Course:'**
   String get teamCourse;
+
+  /// No description provided for @teamInstructor.
+  ///
+  /// In en, this message translates to:
+  /// **'Instructor:'**
   String get teamInstructor;
+
+  /// No description provided for @teamMembers.
+  ///
+  /// In en, this message translates to:
+  /// **'Team Members'**
   String get teamMembers;
+
+  /// No description provided for @teamCredits.
+  ///
+  /// In en, this message translates to:
+  /// **'Data & Media Attributions'**
   String get teamCredits;
+
+  /// No description provided for @teamExerciseDataTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise Data & Media'**
   String get teamExerciseDataTitle;
+
+  /// No description provided for @teamNutritionDataTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Food Facts Nutrition Database'**
   String get teamNutritionDataTitle;
+
+  /// No description provided for @nutritionStandardFromOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Standard nutrients from Open Food Facts'**
+  String get nutritionStandardFromOff;
+
+  /// No description provided for @nutritionScanBarcodeSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan barcode using camera'**
+  String get nutritionScanBarcodeSub;
+
+  /// No description provided for @nutritionManualEntrySub.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter food name and nutrients manually'**
+  String get nutritionManualEntrySub;
+
+  /// No description provided for @planPleaseReLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Please re-login to save plan'**
+  String get planPleaseReLogin;
 }
 
 class _AppLocalizationsDelegate

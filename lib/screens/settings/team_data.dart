@@ -35,8 +35,7 @@ class TeamData {
       name: 'Nguyễn Đức Thanh',
       studentId: '(điền)',
       role: 'Máy A / Trưởng nhóm (~70%)',
-      contribution:
-          'Kiến trúc 4 tầng, SQLite CSDL, Auth, Workout Plan, Active Workout Session, Dinh dưỡng, Tích hợp tổng thể',
+      contribution: 'Kiến trúc 4 tầng, SQLite CSDL, Auth, Workout Plan, Active Workout Session, Dinh dưỡng, Tích hợp tổng thể',
       githubUrl: 'https://github.com/ducthanh8386',
       email: 'thanhygqv9@gmail.com',
     ),
@@ -44,11 +43,9 @@ class TeamData {
       name: 'Lê Văn Sơn',
       studentId: '(điền)',
       role: 'Máy B / Thành viên (~30%)',
-      contribution:
-          'Xử lý & dịch thuật bộ dữ liệu bài tập song ngữ, Thư viện bài tập, Module Tiến độ cân nặng (fl_chart), Hồ sơ & Cài đặt, Thống kê khối lượng & Lịch sử buổi tập',
+      contribution: 'Xử lý & dịch thuật bộ dữ liệu bài tập song ngữ, Thư viện bài tập, Module Tiến độ cân nặng (fl_chart), Hồ sơ & Cài đặt, Thống kê khối lượng & Lịch sử buổi tập',
       githubUrl: 'https://github.com/zackcutee',
       email: 'lson44554@gmail.com',
     ),
   ];
 }
-

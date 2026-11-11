@@ -38,7 +38,7 @@ class FoodDiaryScreen extends StatelessWidget {
                   child: const Icon(Icons.qr_code_scanner, color: Colors.blue),
                 ),
                 title: Text(l10n.scanBarcode),
-                subtitle: const Text('Quét mã vạch bằng camera'),
+                subtitle: Text(l10n.nutritionScanBarcodeSub),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () {
                   Navigator.pop(ctx);
@@ -60,7 +60,7 @@ class FoodDiaryScreen extends StatelessWidget {
                   child: const Icon(Icons.edit_note, color: Colors.green),
                 ),
                 title: Text(l10n.manualEntry),
-                subtitle: const Text('Nhập tên và dinh dưỡng món ăn'),
+                subtitle: Text(l10n.nutritionManualEntrySub),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () {
                   Navigator.pop(ctx);

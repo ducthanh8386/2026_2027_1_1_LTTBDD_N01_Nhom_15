@@ -801,7 +801,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileSave => 'Save Profile';
 
   @override
-  String get profileMifflinFormula => '* Mifflin-St Jeor formula (Am J Clin Nutr 1990)';
+  String get profileMifflinFormula =>
+      '* Mifflin-St Jeor formula (Am J Clin Nutr 1990)';
 
   @override
   String get profileEditPrompt => 'Edit profile & body metrics →';
@@ -816,10 +817,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsDeleteAllData => 'Delete Personal Data';
 
   @override
-  String get settingsDeleteDataSub => 'Wipe custom plans, workout history, weight, and meal logs';
+  String get settingsDeleteDataSub =>
+      'Wipe custom plans, workout history, weight, and meal logs';
 
   @override
-  String get exerciseNoInstructions => 'No instructions available for this exercise.';
+  String get exerciseNoInstructions =>
+      'No instructions available for this exercise.';
 
   @override
   String get teamUniversity => 'University:';
@@ -841,4 +844,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get teamNutritionDataTitle => 'Open Food Facts Nutrition Database';
+
+  @override
+  String get nutritionStandardFromOff =>
+      'Standard nutrients from Open Food Facts';
+
+  @override
+  String get nutritionScanBarcodeSub => 'Scan barcode using camera';
+
+  @override
+  String get nutritionManualEntrySub =>
+      'Enter food name and nutrients manually';
+
+  @override
+  String get planPleaseReLogin => 'Please re-login to save plan';
 }

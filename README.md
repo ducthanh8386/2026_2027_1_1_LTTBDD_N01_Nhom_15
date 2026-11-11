@@ -59,6 +59,7 @@ flutter run
 ## 🔗 Repository & Hợp đồng phát triển
 
 - **GitHub Repository:** [https://github.com/ducthanh8386/fit-track](https://github.com/ducthanh8386/fit-track)
+- **Ma trận kiểm thử toàn diện (QA Matrix):** `docs/test_matrix.md` (59 kịch bản test 100% PASS)
 - **Hợp đồng giao tiếp (Contract A $\leftrightarrow$ B):** `docs/contracts/contract.md`
 - **Quyền sở hữu file:** `docs/contracts/ownership.txt`
 - **Quy trình Git 2 máy:** `docs/git_workflow.md`

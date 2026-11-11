@@ -801,7 +801,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get profileSave => 'Lưu hồ sơ';
 
   @override
-  String get profileMifflinFormula => '* Công thức Mifflin-St Jeor (Am J Clin Nutr 1990)';
+  String get profileMifflinFormula =>
+      '* Công thức Mifflin-St Jeor (Am J Clin Nutr 1990)';
 
   @override
   String get profileEditPrompt => 'Chỉnh sửa hồ sơ & chỉ số cơ thể →';
@@ -816,7 +817,8 @@ class AppLocalizationsVi extends AppLocalizations {
   String get settingsDeleteAllData => 'Xóa toàn bộ dữ liệu cá nhân';
 
   @override
-  String get settingsDeleteDataSub => 'Xóa kế hoạch, lịch sử tập, cân nặng, nhật ký ăn (giữ tài khoản)';
+  String get settingsDeleteDataSub =>
+      'Xóa kế hoạch, lịch sử tập, cân nặng, nhật ký ăn (giữ tài khoản)';
 
   @override
   String get exerciseNoInstructions => 'Chưa có hướng dẫn cho bài tập này.';
@@ -840,5 +842,18 @@ class AppLocalizationsVi extends AppLocalizations {
   String get teamExerciseDataTitle => 'Dữ liệu & Hình ảnh bài tập';
 
   @override
-  String get teamNutritionDataTitle => 'Cơ sở dữ liệu Dinh dưỡng Open Food Facts';
+  String get teamNutritionDataTitle =>
+      'Cơ sở dữ liệu Dinh dưỡng Open Food Facts';
+
+  @override
+  String get nutritionStandardFromOff => 'Các chỉ số chuẩn từ Open Food Facts';
+
+  @override
+  String get nutritionScanBarcodeSub => 'Quét mã vạch bằng camera';
+
+  @override
+  String get nutritionManualEntrySub => 'Nhập tên và dinh dưỡng món ăn';
+
+  @override
+  String get planPleaseReLogin => 'Vui lòng đăng nhập lại để lưu kế hoạch';
 }

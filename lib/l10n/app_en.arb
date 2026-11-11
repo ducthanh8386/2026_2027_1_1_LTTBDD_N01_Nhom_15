@@ -334,5 +334,9 @@
   "teamMembers": "Team Members",
   "teamCredits": "Data & Media Attributions",
   "teamExerciseDataTitle": "Exercise Data & Media",
-  "teamNutritionDataTitle": "Open Food Facts Nutrition Database"
+  "teamNutritionDataTitle": "Open Food Facts Nutrition Database",
+  "nutritionStandardFromOff": "Standard nutrients from Open Food Facts",
+  "nutritionScanBarcodeSub": "Scan barcode using camera",
+  "nutritionManualEntrySub": "Enter food name and nutrients manually",
+  "planPleaseReLogin": "Please re-login to save plan"
 }

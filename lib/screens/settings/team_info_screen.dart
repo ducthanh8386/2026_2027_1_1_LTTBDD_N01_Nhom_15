@@ -26,7 +26,8 @@ class TeamInfoScreen extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                l10n?.teamLinkError(urlString) ?? 'Could not open link: $urlString',
+                l10n?.teamLinkError(urlString) ??
+                    'Could not open link: $urlString',
               ),
             ),
           );

@@ -323,10 +323,10 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
               // Nutritional Information per 100g (Editable)
               ExpansionTile(
                 title: Text(
-                  '${l10n.per100g} (Chỉnh sửa nếu thiếu)',
+                  l10n.per100g,
                   style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
-                subtitle: const Text('Các chỉ số chuẩn từ Open Food Facts'),
+                subtitle: Text(l10n.nutritionStandardFromOff),
                 initiallyExpanded: false,
                 children: [
                   Padding(
