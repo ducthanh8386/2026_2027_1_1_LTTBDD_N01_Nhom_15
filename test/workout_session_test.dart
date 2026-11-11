@@ -10,6 +10,7 @@ import 'package:fit_track/data/repositories/plan_repository.dart';
 import 'package:fit_track/data/repositories/session_repository.dart';
 import 'package:fit_track/data/repositories/user_repository.dart';
 import 'package:fit_track/l10n/app_localizations.dart';
+import 'package:fit_track/models/exercise.dart';
 import 'package:fit_track/models/user.dart';
 import 'package:fit_track/models/workout_plan.dart';
 import 'package:fit_track/providers/workout_provider.dart';
@@ -399,8 +400,18 @@ void main() {
     testWidgets(
       'renders Free Workout session with AppTheme.lightTheme without unconstrained layout crash and records sets',
       (WidgetTester tester) async {
+        final testEx = Exercise(
+          id: 1,
+          sourceId: '0025',
+          nameEn: 'barbell bench press',
+          nameVi: 'Đẩy ngực với tạ đòn',
+          bodyPart: 'chest',
+        );
         await tester.runAsync(() async {
-          await workoutProvider.startWorkoutSession(userId: testUserId);
+          await workoutProvider.startFreeWorkoutSession(
+            userId: testUserId,
+            exercises: [testEx],
+          );
         });
 
         await tester.pumpWidget(
@@ -515,6 +526,53 @@ void main() {
         expect(find.byIcon(Icons.check), findsOneWidget);
 
         // Clean up timers
+        workoutProvider.skipRestTimer();
+        await tester.runAsync(() async {
+          await workoutProvider.cancelCurrentSession();
+        });
+        await tester.pump();
+      },
+    );
+
+    testWidgets(
+      'renders empty state with add exercise button when session has 0 exercises and dynamic add works',
+      (WidgetTester tester) async {
+        await tester.runAsync(() async {
+          await workoutProvider.startWorkoutSession(userId: testUserId);
+        });
+
+        await tester.pumpWidget(
+          ChangeNotifierProvider<WorkoutProvider>.value(
+            value: workoutProvider,
+            child: MaterialApp(
+              theme: AppTheme.lightTheme,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: const Locale('vi'),
+              home: const WorkoutSessionScreen(),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Empty state is rendered with add button
+        expect(find.byType(WorkoutSessionScreen), findsOneWidget);
+        expect(find.byIcon(Icons.add), findsOneWidget);
+
+        // Dynamically add an exercise to session
+        final ex = Exercise(
+          id: 1,
+          sourceId: '0025',
+          nameEn: 'barbell bench press',
+          nameVi: 'Đẩy ngực với tạ đòn',
+          bodyPart: 'chest',
+        );
+        workoutProvider.addExerciseToActiveSession(ex);
+        await tester.pumpAndSettle();
+
+        // Check button is now rendered for the newly added exercise
+        expect(find.byIcon(Icons.check), findsOneWidget);
+
         workoutProvider.skipRestTimer();
         await tester.runAsync(() async {
           await workoutProvider.cancelCurrentSession();

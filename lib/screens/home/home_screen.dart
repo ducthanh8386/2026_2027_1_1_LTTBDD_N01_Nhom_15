@@ -5,12 +5,14 @@ import 'package:provider/provider.dart';
 import '../../core/routes.dart';
 import '../../data/repositories/plan_repository.dart';
 import '../../l10n/app_localizations.dart';
+import '../../models/exercise.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/nutrition_provider.dart';
 import '../../providers/plan_provider.dart';
 import '../../providers/progress_provider.dart';
 import '../../providers/workout_provider.dart';
 import '../../widgets/stat_card.dart';
+import '../plan/exercise_library_screen.dart';
 import '../progress/add_weight_sheet.dart';
 import 'main_shell.dart';
 
@@ -114,6 +116,38 @@ class _HomeScreenState extends State<HomeScreen> {
       return l10n.homeGreetingAfternoon(displayName);
     } else {
       return l10n.homeGreetingEvening(displayName);
+    }
+  }
+
+  Future<void> _startFreeWorkoutWithPicker(
+    BuildContext context,
+    dynamic user,
+    WorkoutProvider workout,
+  ) async {
+    if (user?.id == null) return;
+
+    final picked = await Navigator.push<List<Exercise>>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const ExerciseLibraryScreen(selectMode: true),
+      ),
+    );
+
+    if (picked == null || picked.isEmpty) {
+      return;
+    }
+
+    if (!context.mounted) return;
+
+    final l10n = AppLocalizations.of(context)!;
+    await workout.startFreeWorkoutSession(
+      userId: user.id!,
+      exercises: picked,
+      sessionName: l10n.freeWorkout,
+    );
+
+    if (context.mounted) {
+      Navigator.of(context).pushNamed(AppRoutes.workoutSession);
     }
   }
 
@@ -505,13 +539,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(width: 8),
                   OutlinedButton(
-                    onPressed: () async {
-                      if (user?.id == null) return;
-                      await workout.startWorkoutSession(userId: user.id!);
-                      if (context.mounted) {
-                        Navigator.of(context).pushNamed(AppRoutes.workoutSession);
-                      }
-                    },
+                    onPressed: () => _startFreeWorkoutWithPicker(context, user, workout),
                     child: Text(l10n.freeWorkout),
                   ),
                 ],
@@ -573,13 +601,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Expanded(
                   child: FilledButton.icon(
-                    onPressed: () async {
-                      if (user?.id == null) return;
-                      await workout.startWorkoutSession(userId: user.id!);
-                      if (context.mounted) {
-                        Navigator.of(context).pushNamed(AppRoutes.workoutSession);
-                      }
-                    },
+                    onPressed: () => _startFreeWorkoutWithPicker(context, user, workout),
                     icon: const Icon(Icons.bolt_rounded),
                     label: Text(l10n.homeFreeWorkoutPrompt),
                   ),

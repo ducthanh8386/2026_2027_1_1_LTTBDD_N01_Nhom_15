@@ -2,6 +2,9 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 
 import '../data/repositories/plan_repository.dart';
+import '../models/exercise.dart';
+import '../models/plan_day.dart';
+import '../models/plan_exercise.dart';
 import '../models/set_log.dart';
 import '../models/workout_session.dart';
 import '../services/workout_service.dart';
@@ -174,6 +177,84 @@ class WorkoutProvider extends ChangeNotifier {
       _isLoading = false;
       notifyListeners();
     }
+  }
+
+  /// Starts a free workout session with a user-selected list of exercises.
+  Future<void> startFreeWorkoutSession({
+    required int userId,
+    required List<Exercise> exercises,
+    String? sessionName,
+    DateTime? startedAt,
+  }) async {
+    final freeDay = PlanDayFull(
+      day: PlanDay(
+        id: null,
+        planId: 0,
+        dayIndex: 0,
+        name: sessionName ?? 'Buổi tập tự do',
+      ),
+      exercises: exercises.asMap().entries.map((entry) {
+        final idx = entry.key;
+        final ex = entry.value;
+        return PlanExerciseDetail(
+          planExercise: PlanExercise(
+            id: null,
+            planDayId: 0,
+            exerciseId: ex.id ?? 1,
+            orderIndex: idx,
+            targetSets: 3,
+            targetReps: 10,
+          ),
+          exercise: ex,
+        );
+      }).toList(),
+    );
+
+    await startWorkoutSession(
+      userId: userId,
+      planDayFull: freeDay,
+      startedAt: startedAt,
+    );
+  }
+
+  /// Dynamically adds an exercise to the active workout session.
+  void addExerciseToActiveSession(
+    Exercise exercise, {
+    int targetSets = 3,
+    int targetReps = 10,
+  }) {
+    if (_activeSession == null) return;
+
+    final currentExercises = _activeDayFull?.exercises ?? <PlanExerciseDetail>[];
+    final newIndex = currentExercises.length;
+    final newDetail = PlanExerciseDetail(
+      planExercise: PlanExercise(
+        id: null,
+        planDayId: _activeDayFull?.day.id ?? 0,
+        exerciseId: exercise.id ?? 1,
+        orderIndex: newIndex,
+        targetSets: targetSets,
+        targetReps: targetReps,
+      ),
+      exercise: exercise,
+    );
+
+    final updatedList = List<PlanExerciseDetail>.from(currentExercises)..add(newDetail);
+    final currentDay = _activeDayFull?.day ??
+        PlanDay(
+          id: null,
+          planId: 0,
+          dayIndex: 0,
+          name: _activeSession?.planDayName ?? 'Buổi tập tự do',
+        );
+
+    _activeDayFull = PlanDayFull(
+      day: currentDay,
+      exercises: updatedList,
+    );
+
+    _currentExerciseIndex = newIndex;
+    notifyListeners();
   }
 
   void setCurrentExerciseIndex(int index) {

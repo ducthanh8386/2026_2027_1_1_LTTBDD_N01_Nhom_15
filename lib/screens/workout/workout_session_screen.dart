@@ -6,6 +6,7 @@ import '../../l10n/app_localizations.dart';
 import '../../models/exercise.dart';
 import '../../providers/workout_provider.dart';
 import '../../widgets/rest_timer_bar.dart';
+import '../plan/exercise_library_screen.dart';
 import 'workout_summary_screen.dart';
 
 class WorkoutSessionScreen extends StatefulWidget {
@@ -142,6 +143,22 @@ class _WorkoutSessionScreenState extends State<WorkoutSessionScreen> {
         );
   }
 
+  Future<void> _addExerciseToSession(BuildContext context) async {
+    final picked = await Navigator.push<List<Exercise>>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const ExerciseLibraryScreen(selectMode: true),
+      ),
+    );
+
+    if (picked == null || picked.isEmpty || !context.mounted) return;
+
+    final provider = context.read<WorkoutProvider>();
+    for (final ex in picked) {
+      provider.addExerciseToActiveSession(ex);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -203,6 +220,11 @@ class _WorkoutSessionScreenState extends State<WorkoutSessionScreen> {
                 ],
               ),
               actions: [
+                IconButton(
+                  icon: const Icon(Icons.add_rounded),
+                  tooltip: l10n.addExercise,
+                  onPressed: () => _addExerciseToSession(context),
+                ),
                 TextButton.icon(
                   icon: const Icon(Icons.flag_rounded),
                   label: Text(
@@ -213,8 +235,45 @@ class _WorkoutSessionScreenState extends State<WorkoutSessionScreen> {
                 ),
               ],
             ),
-            body: Column(
-              children: [
+            body: exercises.isEmpty
+                ? Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(24.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.fitness_center_outlined,
+                            size: 64,
+                            color: theme.colorScheme.primary,
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            l10n.exerciseSelectTitle,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            l10n.noExercisesInDay,
+                            textAlign: TextAlign.center,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.outline,
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          ElevatedButton.icon(
+                            icon: const Icon(Icons.add),
+                            label: Text(l10n.addExercise),
+                            onPressed: () => _addExerciseToSession(context),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                : Column(
+                    children: [
                 // Exercise Navigation Header
                 Container(
                   color: theme.colorScheme.surfaceContainerLow,
