@@ -4,16 +4,16 @@
 > Chỉ mở file code khi task hiện tại chạm tới nó; dùng mục "File Index" để biết file nào làm gì.
 > **Cuối mỗi session, agent PHẢI cập nhật file này** theo mục "Quy tắc cập nhật" ở cuối.
 
-Last updated: 2026-11-11 · by: AI Senior Flutter Engineer · Session #10
+Last updated: 2026-11-11 · by: AI Senior Flutter Engineer · Session #11
 
 ## 1. Trạng thái hiện tại
 
-- **Giai đoạn hiện tại:** S09 – Kiểm thử toàn app, QA (HOÀN THÀNH 100%) & Hoàn thiện code S10 (Chờ đóng gói APK)
-- **Tiến độ tổng:** Đã xong S00–S09 + toàn bộ code S10. 97/97 unit/widget/integration/NFR tests toàn app pass 100%. 59 kịch bản trong `docs/test_matrix.md` đạt 100% PASS.
-- **Nhánh hiện tại:** `feature/a-qa`
-- **App chạy được không:** Có, app chạy tốt trên cả Android, Web và Desktop. 97 tests pass 100%.
+- **Giai đoạn hiện tại:** S10 – Bugfix layout constraint & Hoàn thiện kiểm thử hồi quy (Chờ đóng gói APK release)
+- **Tiến độ tổng:** Đã xong S00–S09 + toàn bộ code S10. 99/99 unit/widget/integration/NFR tests toàn app pass 100%. 59 kịch bản trong `docs/test_matrix.md` đạt 100% PASS. Đã fix triệt để lỗi unconstrained button width crash trong `WorkoutSessionScreen`.
+- **Nhánh hiện tại:** `main`
+- **App chạy được không:** Có, app chạy tốt trên cả Android, Web và Desktop. 99 tests pass 100%.
 - **Việc đang làm dở:** Không
-- **Việc tiếp theo (làm ngay):** Merge nhánh `feature/a-qa` vào `main`, chờ người dùng thực hiện đóng gói APK release (`flutter build apk --release`) và gắn tag `v1.0`.
+- **Việc tiếp theo (làm ngay):** Chờ người dùng yêu cầu đóng gói APK release (`flutter build apk --release`) và gắn tag `v1.0`.
 - **Đang bị chặn bởi:** Không bị chặn.
 
 ## 2. Checklist phase (theo bảng giai đoạn FitTrack_Prompts)
@@ -178,6 +178,7 @@ Ký hiệu: [ ] chưa · [~] đang làm · [x] xong (đã build + test + commit)
 | 2026-11-08 | S08 | `test/home_integration_test.dart` compilation error `Member not found: 'localizationsDelegates'` trên `FitTrackApp` | `FitTrackApp` là StatelessWidget, các delegate nằm trong `AppLocalizations` | Dùng `AppLocalizations.localizationsDelegates` và `supportedLocales` | Đã sửa |
 | 2026-11-11 | S09 | `OffApiClient` timeout exception message assert chuỗi '10' bị fail khi test dùng duration 500ms | Exception message format theo `timeoutDuration.inSeconds`, khi timeout 500ms thì inSeconds = 0 | Đổi assertion kiểm tra `message.toLowerCase().contains('timed out')` | Đã sửa |
 | 2026-11-11 | S10 | Hardcode text tiếng Việt trong `food_detail_screen`, `food_diary_screen`, `plan_edit_screen` | Các chuỗi phụ subtitle/snackbar chưa được đưa vào `.arb` | Đã tạo 4 key mới trong `app_en.arb`/`app_vi.arb` và chuyển sang `AppLocalizations` | Đã sửa |
+| 2026-11-11 | S10 | `RenderConstrainedBox constraints: BoxConstraints(unconstrained) additionalConstraints: BoxConstraints(w=Infinity, 40.0<=h<=Infinity)` crash layout khi vào màn hình tập luyện | `ThemeData.elevatedButtonTheme` đặt `minimumSize: const Size(double.infinity, 48)` khiến `ElevatedButton` nút check tròn trong `Row` ở `workout_session_screen.dart:378` nhận chiều rộng vô cực trên trục ngang không giới hạn | Sửa `minimumSize: const Size(64, 48)` trong `theme.dart` (cả light và dark theme), đặt `minimumSize: const Size(48, 48), fixedSize: const Size(48, 48), padding: EdgeInsets.zero` cho nút check tròn trong `workout_session_screen.dart`, đồng thời bổ sung 2 widget tests hồi quy trong `test/workout_session_test.dart` | Đã sửa |
 
 ## 7. Vấn đề mở / nợ kỹ thuật
 
@@ -215,6 +216,7 @@ Repo: `https://github.com/ducthanh8386/fit-track.git`
 
 | # | Ngày | Giai đoạn | Đã làm | Commit/PR |
 | :--- | :--- | :--- | :--- | :--- |
+| 11 | 2026-11-11 | S10 Fix | Fix crash layout `RenderConstrainedBox constraints: BoxConstraints(unconstrained)` do `ElevatedButton` check button tròn trong `Row` nhận `minimumSize: const Size(double.infinity, 48)` từ theme. Sửa theme.dart về `minimumSize: Size(64, 48)`, cố định `minimumSize: Size(48, 48), fixedSize: Size(48, 48), padding: EdgeInsets.zero` trong `workout_session_screen.dart`. Bổ sung 2 widget tests hồi quy trong `test/workout_session_test.dart` (toàn app 99/99 tests pass 100%, 0 issues trên Machine A files). | |
 | 10 | 2026-11-11 | S09 + S10 Code | Hoàn thành Phase S09 (QA kiểm thử toàn app) & code S10: Xây dựng docs/test_matrix.md (59 kịch bản kiểm thử 100% PASS), bộ test nfr_performance_test.dart 5/5 pass (tổng toàn app 97/97 tests pass 100%), đo độ phủ kiểm thử coverage (34.3%), rà soát & bản địa hóa 100% chuỗi UI gõ cứng, cập nhật README.md, chuẩn bị sẵn sàng cho bước build APK. | trên nhánh `feature/a-qa` |
 | 9 | 2026-11-08 | S08 | Triển khai hoàn chỉnh HomeScreen thật & Tích hợp hoàn thiện module B (A08): StatCard (KPI metrics), HomeScreen (lời chào theo giờ & tên, 3 StatCards tuần/calo, Card Buổi tập hôm nay, thao tác nhanh quét barcode & ghi cân nặng, RefreshIndicator), MainShell.switchTab điều hướng mượt 5 tab, 21 chuỗi i18n EN/VI, bộ test tích hợp test/home_integration_test 4/4 pass (toàn app 87/87 tests pass 100%), đối chiếu tích hợp toàn bộ routes/màn hình. | `2dc9a60` |
 | 8 | 2026-11-08 | S07 | Hoàn thành toàn diện module Dinh dưỡng (Nutrition): OffApiClient (Open Food Facts v2, timeout 10s, UTF-8, safe parsing, exception types), NutritionService (cache local foods, add/update/delete log entries, macro totals), NutritionProvider (quản lý nhật ký, 4 bữa ăn, macro live preview), 4 màn hình: BarcodeScanScreen (MobileScanner, flash, switch camera, debounce, retry), FoodDetailScreen (preview macro, chọn bữa, nhập gram), ManualFoodScreen (tạo món thủ công), FoodDiaryScreen (lịch ngày, tổng calo vs mục tiêu, 4 ExpansionTile bữa, sửa/xóa gram), 46 i18n keys EN/VI, test nutrition_test 14/14 pass (toàn app 83/83 tests pass 100%). | `fc84211` |

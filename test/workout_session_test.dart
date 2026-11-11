@@ -1,14 +1,19 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'package:fit_track/core/constants.dart';
+import 'package:fit_track/core/theme.dart';
 import 'package:fit_track/data/database_helper.dart';
 import 'package:fit_track/data/repositories/plan_repository.dart';
 import 'package:fit_track/data/repositories/session_repository.dart';
 import 'package:fit_track/data/repositories/user_repository.dart';
+import 'package:fit_track/l10n/app_localizations.dart';
 import 'package:fit_track/models/user.dart';
 import 'package:fit_track/models/workout_plan.dart';
 import 'package:fit_track/providers/workout_provider.dart';
+import 'package:fit_track/screens/workout/workout_session_screen.dart';
 import 'package:fit_track/services/workout_service.dart';
 
 void main() {
@@ -388,5 +393,134 @@ void main() {
       expect(workoutProvider.history.length, 1);
       expect(workoutProvider.history.any((s) => s.id == s1Id), isFalse);
     });
+  });
+
+  group('WorkoutSessionScreen Widget Tests (Regression & Constraints)', () {
+    testWidgets(
+      'renders Free Workout session with AppTheme.lightTheme without unconstrained layout crash and records sets',
+      (WidgetTester tester) async {
+        await tester.runAsync(() async {
+          await workoutProvider.startWorkoutSession(userId: testUserId);
+        });
+
+        await tester.pumpWidget(
+          ChangeNotifierProvider<WorkoutProvider>.value(
+            value: workoutProvider,
+            child: MaterialApp(
+              theme: AppTheme.lightTheme,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: const Locale('vi'),
+              home: const WorkoutSessionScreen(),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Expect workout screen and check button to render without any layout exceptions
+        expect(find.byType(WorkoutSessionScreen), findsOneWidget);
+        expect(find.byIcon(Icons.check), findsOneWidget);
+
+        // Tap the check button to record a set (defaults: 10 reps, 20 kg)
+        await tester.tap(find.byIcon(Icons.check));
+        await tester.pump();
+        await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 100)));
+        await tester.pump();
+
+        // Completed set #1 should be visible
+        expect(find.text('10 reps × 20.0 kg'), findsOneWidget);
+
+        // Clean up timers
+        workoutProvider.skipRestTimer();
+        await tester.runAsync(() async {
+          await workoutProvider.cancelCurrentSession();
+        });
+        await tester.pump();
+      },
+    );
+
+    testWidgets(
+      'renders Plan Workout session with AppTheme.darkTheme without crash and handles exercises',
+      (WidgetTester tester) async {
+        late int planId;
+        await tester.runAsync(() async {
+          final plan = WorkoutPlan(
+            userId: testUserId,
+            name: 'Widget Test Plan',
+            createdAt: DateTime.now().toIso8601String(),
+          );
+          planId = await planRepo.createPlan(
+            plan: plan,
+            days: [
+              const PlanDayInput(
+                name: 'Day 1',
+                dayIndex: 0,
+                exercises: [
+                  PlanExerciseInput(
+                    exerciseId: 1,
+                    orderIndex: 0,
+                    targetSets: 3,
+                    targetReps: 10,
+                  ),
+                  PlanExerciseInput(
+                    exerciseId: 2,
+                    orderIndex: 1,
+                    targetSets: 4,
+                    targetReps: 8,
+                  ),
+                ],
+              ),
+            ],
+          );
+          final fullPlan = await planRepo.getFull(planId);
+          await workoutProvider.startWorkoutSession(
+            userId: testUserId,
+            planDayFull: fullPlan!.days.first,
+          );
+        });
+
+        await tester.pumpWidget(
+          ChangeNotifierProvider<WorkoutProvider>.value(
+            value: workoutProvider,
+            child: MaterialApp(
+              theme: AppTheme.darkTheme,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              locale: const Locale('vi'),
+              home: const WorkoutSessionScreen(),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Expect plan exercise info to render
+        expect(find.byType(WorkoutSessionScreen), findsOneWidget);
+        expect(find.byIcon(Icons.check), findsOneWidget);
+
+        // Tap the check button to record set for exercise #1
+        await tester.tap(find.byIcon(Icons.check));
+        await tester.pump();
+        await tester.runAsync(() => Future.delayed(const Duration(milliseconds: 100)));
+        await tester.pump();
+
+        expect(find.text('10 reps × 20.0 kg'), findsOneWidget);
+
+        // Advance to next exercise
+        final nextBtn = find.byIcon(Icons.skip_next);
+        expect(nextBtn, findsOneWidget);
+        await tester.tap(nextBtn);
+        await tester.pumpAndSettle();
+
+        // Check button exists for exercise #2
+        expect(find.byIcon(Icons.check), findsOneWidget);
+
+        // Clean up timers
+        workoutProvider.skipRestTimer();
+        await tester.runAsync(() async {
+          await workoutProvider.cancelCurrentSession();
+        });
+        await tester.pump();
+      },
+    );
   });
 }

@@ -377,7 +377,9 @@ class _WorkoutSessionScreenState extends State<WorkoutSessionScreen> {
                                   const SizedBox(width: 12),
                                   ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.all(16),
+                                      minimumSize: const Size(48, 48),
+                                      fixedSize: const Size(48, 48),
+                                      padding: EdgeInsets.zero,
                                       shape: const CircleBorder(),
                                     ),
                                     onPressed: () =>
