@@ -775,4 +775,70 @@ class AppLocalizationsEn extends AppLocalizations {
   String teamLinkError(String url) {
     return 'Could not open link: $url';
   }
+
+  @override
+  String get profileBodyInfo => 'Body Information';
+
+  @override
+  String get profileHeightCm => 'Height (cm)';
+
+  @override
+  String get profileAge => 'Age';
+
+  @override
+  String get profileFitnessGoal => 'Fitness Goal';
+
+  @override
+  String get profileActivityLevel => 'Daily Activity Level';
+
+  @override
+  String get profileDailyCalorieTarget => 'Daily Calorie Target';
+
+  @override
+  String get profileCalorieTargetUnit => 'Calorie Target (kcal/day)';
+
+  @override
+  String get profileSave => 'Save Profile';
+
+  @override
+  String get profileMifflinFormula => '* Mifflin-St Jeor formula (Am J Clin Nutr 1990)';
+
+  @override
+  String get profileEditPrompt => 'Edit profile & body metrics →';
+
+  @override
+  String get settingsAppearanceLanguage => 'Appearance & Language';
+
+  @override
+  String get settingsAccountData => 'Account & Data';
+
+  @override
+  String get settingsDeleteAllData => 'Delete Personal Data';
+
+  @override
+  String get settingsDeleteDataSub => 'Wipe custom plans, workout history, weight, and meal logs';
+
+  @override
+  String get exerciseNoInstructions => 'No instructions available for this exercise.';
+
+  @override
+  String get teamUniversity => 'University:';
+
+  @override
+  String get teamCourse => 'Course:';
+
+  @override
+  String get teamInstructor => 'Instructor:';
+
+  @override
+  String get teamMembers => 'Team Members';
+
+  @override
+  String get teamCredits => 'Data & Media Attributions';
+
+  @override
+  String get teamExerciseDataTitle => 'Exercise Data & Media';
+
+  @override
+  String get teamNutritionDataTitle => 'Open Food Facts Nutrition Database';
 }

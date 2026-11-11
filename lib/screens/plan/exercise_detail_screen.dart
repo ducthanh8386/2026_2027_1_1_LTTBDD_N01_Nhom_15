@@ -169,7 +169,8 @@ class _ExerciseDetailContent extends StatelessWidget {
             const SizedBox(height: 12),
             if (steps.isEmpty)
               Text(
-                'No instructions available.',
+                l10n?.exerciseNoInstructions ??
+                    'No instructions available for this exercise.',
                 style: TextStyle(color: theme.disabledColor),
               )
             else

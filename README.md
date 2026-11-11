@@ -9,7 +9,7 @@
 | Vai trò | Thành viên | Tài khoản GitHub | Email Git | Nhiệm vụ chính (~% đóng góp) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Máy A (Chủ repo)** | Nguyễn Đức Thanh | [@ducthanh8386](https://github.com/ducthanh8386) | `thanhygqv9@gmail.com` | Kiến trúc 4 tầng, SQLite, Auth & MainShell, Kế hoạch tập, Buổi tập, Dinh dưỡng (OFF API), Tích hợp & QA (~70%) |
-| **Máy B** | Lê Văn Sơn | (điền) | (điền) | Dữ liệu & Thư viện bài tập, Tiến độ cân nặng (fl_chart), Hồ sơ & Cài đặt, Thông tin nhóm, Lịch sử buổi tập (~30%) |
+| **Máy B** | Lê Văn Sơn | [@zackcutee] | `lson44554@gmail.com` | Dữ liệu & Thư viện bài tập, Tiến độ cân nặng (fl_chart), Hồ sơ & Cài đặt, Thông tin nhóm, Lịch sử buổi tập (~30%) |
 
 ---
 

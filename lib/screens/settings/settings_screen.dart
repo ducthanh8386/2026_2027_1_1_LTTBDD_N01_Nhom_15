@@ -208,7 +208,8 @@ class SettingsScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'Chỉnh sửa hồ sơ & chỉ số cơ thể →',
+                          l10n?.profileEditPrompt ??
+                              'Edit profile & body metrics →',
                           style: TextStyle(
                             fontSize: 12,
                             color: theme.colorScheme.primary,
@@ -226,7 +227,10 @@ class SettingsScreen extends StatelessWidget {
           const Divider(height: 1),
 
           // 2. Preferences Section
-          _buildSectionHeader('Giao diện & Ngôn ngữ', theme),
+          _buildSectionHeader(
+            l10n?.settingsAppearanceLanguage ?? 'Appearance & Language',
+            theme,
+          ),
 
           // Language Selector
           ListTile(
@@ -322,7 +326,10 @@ class SettingsScreen extends StatelessWidget {
           const Divider(),
 
           // 4. Account & Danger Zone
-          _buildSectionHeader('Tài khoản & Dữ liệu', theme),
+          _buildSectionHeader(
+            l10n?.settingsAccountData ?? 'Account & Data',
+            theme,
+          ),
 
           ListTile(
             leading: Icon(
@@ -330,20 +337,21 @@ class SettingsScreen extends StatelessWidget {
               color: theme.colorScheme.error,
             ),
             title: Text(
-              'Xóa toàn bộ dữ liệu cá nhân',
+              l10n?.settingsDeleteAllData ?? 'Delete Personal Data',
               style: TextStyle(color: theme.colorScheme.error),
             ),
-            subtitle: const Text(
-              'Xóa kế hoạch, lịch sử tập, cân nặng, nhật ký ăn (giữ tài khoản)',
+            subtitle: Text(
+              l10n?.settingsDeleteDataSub ??
+                  'Wipe custom plans, workout history, weight, and meal logs',
             ),
             onTap: () => _confirmDeleteMyData(context),
           ),
 
           ListTile(
             leading: const Icon(Icons.logout, color: Colors.orange),
-            title: const Text(
-              'Đăng xuất',
-              style: TextStyle(color: Colors.orange),
+            title: Text(
+              l10n?.logout ?? 'Logout',
+              style: const TextStyle(color: Colors.orange),
             ),
             onTap: () => _confirmLogout(context),
           ),

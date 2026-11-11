@@ -249,10 +249,13 @@ class _ProgressScreenState extends State<ProgressScreen> {
       children: [
         Icon(icon, size: 20, color: theme.colorScheme.primary),
         const SizedBox(height: 4),
-        Text(
-          value,
-          style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            value,
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         Text(
@@ -760,19 +763,25 @@ class _ProgressScreenState extends State<ProgressScreen> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 6),
               child: Column(
                 children: [
                   Text(
                     l10n?.progressCurrentWeight ?? 'Current',
-                    style: theme.textTheme.bodySmall,
+                    style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    '${currentWeight.toStringAsFixed(1)} kg',
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      '${currentWeight.toStringAsFixed(1)} kg',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: theme.colorScheme.primary,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ],
@@ -790,21 +799,27 @@ class _ProgressScreenState extends State<ProgressScreen> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 6),
               child: Column(
                 children: [
                   Text(
                     l10n?.progressChange ?? 'Change',
-                    style: theme.textTheme.bodySmall,
+                    style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    diffText,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: diff == 0
-                          ? Colors.grey
-                          : (diff < 0 ? Colors.green : Colors.orange),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      diffText,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: diff == 0
+                            ? Colors.grey
+                            : (diff < 0 ? Colors.green : Colors.orange),
+                      ),
                     ),
                   ),
                 ],
@@ -822,18 +837,24 @@ class _ProgressScreenState extends State<ProgressScreen> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 6),
               child: Column(
                 children: [
                   Text(
                     l10n?.progressMinMax ?? 'Min / Max',
-                    style: theme.textTheme.bodySmall,
+                    style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    '${minKg.toStringAsFixed(0)} / ${maxKg.toStringAsFixed(0)} kg',
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      '${minKg.toStringAsFixed(0)} / ${maxKg.toStringAsFixed(0)} kg',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ],

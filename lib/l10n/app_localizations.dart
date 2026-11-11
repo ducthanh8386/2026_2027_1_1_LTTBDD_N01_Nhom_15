@@ -1555,6 +1555,29 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not open link: {url}'**
   String teamLinkError(String url);
+
+  String get profileBodyInfo;
+  String get profileHeightCm;
+  String get profileAge;
+  String get profileFitnessGoal;
+  String get profileActivityLevel;
+  String get profileDailyCalorieTarget;
+  String get profileCalorieTargetUnit;
+  String get profileSave;
+  String get profileMifflinFormula;
+  String get profileEditPrompt;
+  String get settingsAppearanceLanguage;
+  String get settingsAccountData;
+  String get settingsDeleteAllData;
+  String get settingsDeleteDataSub;
+  String get exerciseNoInstructions;
+  String get teamUniversity;
+  String get teamCourse;
+  String get teamInstructor;
+  String get teamMembers;
+  String get teamCredits;
+  String get teamExerciseDataTitle;
+  String get teamNutritionDataTitle;
 }
 
 class _AppLocalizationsDelegate

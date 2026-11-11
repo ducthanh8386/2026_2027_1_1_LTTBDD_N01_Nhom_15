@@ -359,21 +359,23 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
                                       fontSize: 12,
                                     ),
                                   ),
-                                  const Spacer(),
-                                  Text(
-                                    '${setLog.reps} reps × ${setLog.weightKg.toStringAsFixed(1)} kg',
-                                    style: const TextStyle(fontSize: 12),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  SizedBox(
-                                    width: 70,
+                                  const SizedBox(width: 8),
+                                  Expanded(
                                     child: Text(
-                                      '(${setVol.toStringAsFixed(1)} kg)',
+                                      '${setLog.reps} reps × ${setLog.weightKg.toStringAsFixed(1)} kg',
                                       textAlign: TextAlign.end,
-                                      style: TextStyle(
-                                        fontSize: 11,
-                                        color: theme.disabledColor,
-                                      ),
+                                      style: const TextStyle(fontSize: 12),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    '(${setVol.toStringAsFixed(1)} kg)',
+                                    textAlign: TextAlign.end,
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      color: theme.disabledColor,
                                     ),
                                   ),
                                 ],

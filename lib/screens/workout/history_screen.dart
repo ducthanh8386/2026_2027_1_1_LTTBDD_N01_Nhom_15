@@ -310,20 +310,20 @@ class _HistoryScreenState extends State<HistoryScreen> {
               const SizedBox(height: 10),
 
               // Badges: Duration • Volume • Sets
-              Row(
+              Wrap(
+                spacing: 8,
+                runSpacing: 6,
                 children: [
                   _buildChip(
                     theme,
                     icon: Icons.timer_outlined,
                     label: '$durationMinutes ${l10n?.historyMinutes ?? 'min'}',
                   ),
-                  const SizedBox(width: 8),
                   _buildChip(
                     theme,
                     icon: Icons.scale_outlined,
                     label: '${session.totalVolume.toStringAsFixed(0)} kg',
                   ),
-                  const SizedBox(width: 8),
                   _buildChip(
                     theme,
                     icon: Icons.repeat_outlined,
