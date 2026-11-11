@@ -312,5 +312,27 @@
         "type": "String"
       }
     }
-  }
+  },
+  "profileBodyInfo": "Body Information",
+  "profileHeightCm": "Height (cm)",
+  "profileAge": "Age",
+  "profileFitnessGoal": "Fitness Goal",
+  "profileActivityLevel": "Daily Activity Level",
+  "profileDailyCalorieTarget": "Daily Calorie Target",
+  "profileCalorieTargetUnit": "Calorie Target (kcal/day)",
+  "profileSave": "Save Profile",
+  "profileMifflinFormula": "* Mifflin-St Jeor formula (Am J Clin Nutr 1990)",
+  "profileEditPrompt": "Edit profile & body metrics →",
+  "settingsAppearanceLanguage": "Appearance & Language",
+  "settingsAccountData": "Account & Data",
+  "settingsDeleteAllData": "Delete Personal Data",
+  "settingsDeleteDataSub": "Wipe custom plans, workout history, weight, and meal logs",
+  "exerciseNoInstructions": "No instructions available for this exercise.",
+  "teamUniversity": "University:",
+  "teamCourse": "Course:",
+  "teamInstructor": "Instructor:",
+  "teamMembers": "Team Members",
+  "teamCredits": "Data & Media Attributions",
+  "teamExerciseDataTitle": "Exercise Data & Media",
+  "teamNutritionDataTitle": "Open Food Facts Nutrition Database"
 }

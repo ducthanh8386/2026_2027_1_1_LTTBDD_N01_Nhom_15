@@ -87,6 +87,25 @@ void main() {
         l10nVi.teamLinkError('https://github.com'),
         contains('https://github.com'),
       );
+
+      // Phase 6 audited keys
+      expect(l10nEn.profileBodyInfo, equals('Body Information'));
+      expect(l10nVi.profileBodyInfo, equals('Thông tin cơ thể'));
+
+      expect(l10nEn.profileHeightCm, equals('Height (cm)'));
+      expect(l10nVi.profileHeightCm, equals('Chiều cao (cm)'));
+
+      expect(l10nEn.profileAge, equals('Age'));
+      expect(l10nVi.profileAge, equals('Tuổi'));
+
+      expect(l10nEn.settingsDeleteAllData, equals('Delete Personal Data'));
+      expect(l10nVi.settingsDeleteAllData, equals('Xóa toàn bộ dữ liệu cá nhân'));
+
+      expect(l10nEn.exerciseNoInstructions, isNotEmpty);
+      expect(l10nVi.exerciseNoInstructions, isNotEmpty);
+
+      expect(l10nEn.teamMembers, equals('Team Members'));
+      expect(l10nVi.teamMembers, equals('Thành viên nhóm'));
     });
   });
 }

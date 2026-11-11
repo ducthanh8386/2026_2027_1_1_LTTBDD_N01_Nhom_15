@@ -46,7 +46,7 @@ class TeamData {
       role: 'Máy B / Thành viên (~30%)',
       contribution:
           'Xử lý & dịch thuật bộ dữ liệu bài tập song ngữ, Thư viện bài tập, Module Tiến độ cân nặng (fl_chart), Hồ sơ & Cài đặt, Thống kê khối lượng & Lịch sử buổi tập',
-      githubUrl: 'https://github.com/lson44554',
+      githubUrl: 'https://github.com/zackcutee',
       email: 'lson44554@gmail.com',
     ),
   ];

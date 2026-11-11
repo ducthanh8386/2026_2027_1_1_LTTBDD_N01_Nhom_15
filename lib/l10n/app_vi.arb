@@ -277,5 +277,27 @@
         "type": "String"
       }
     }
-  }
+  },
+  "profileBodyInfo": "Thông tin cơ thể",
+  "profileHeightCm": "Chiều cao (cm)",
+  "profileAge": "Tuổi",
+  "profileFitnessGoal": "Mục tiêu tập luyện",
+  "profileActivityLevel": "Mức độ hoạt động hàng ngày",
+  "profileDailyCalorieTarget": "Mục tiêu Calo hàng ngày",
+  "profileCalorieTargetUnit": "Mục tiêu Calo (kcal/ngày)",
+  "profileSave": "Lưu hồ sơ",
+  "profileMifflinFormula": "* Công thức Mifflin-St Jeor (Am J Clin Nutr 1990)",
+  "profileEditPrompt": "Chỉnh sửa hồ sơ & chỉ số cơ thể →",
+  "settingsAppearanceLanguage": "Giao diện & Ngôn ngữ",
+  "settingsAccountData": "Tài khoản & Dữ liệu",
+  "settingsDeleteAllData": "Xóa toàn bộ dữ liệu cá nhân",
+  "settingsDeleteDataSub": "Xóa kế hoạch, lịch sử tập, cân nặng, nhật ký ăn (giữ tài khoản)",
+  "exerciseNoInstructions": "Chưa có hướng dẫn cho bài tập này.",
+  "teamUniversity": "Trường:",
+  "teamCourse": "Học phần:",
+  "teamInstructor": "Giảng viên:",
+  "teamMembers": "Thành viên nhóm",
+  "teamCredits": "Ghi công bản quyền & Dữ liệu",
+  "teamExerciseDataTitle": "Dữ liệu & Hình ảnh bài tập",
+  "teamNutritionDataTitle": "Cơ sở dữ liệu Dinh dưỡng Open Food Facts"
 }

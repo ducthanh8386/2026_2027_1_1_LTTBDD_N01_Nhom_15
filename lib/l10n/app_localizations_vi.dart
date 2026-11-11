@@ -775,4 +775,70 @@ class AppLocalizationsVi extends AppLocalizations {
   String teamLinkError(String url) {
     return 'Không thể mở liên kết: $url';
   }
+
+  @override
+  String get profileBodyInfo => 'Thông tin cơ thể';
+
+  @override
+  String get profileHeightCm => 'Chiều cao (cm)';
+
+  @override
+  String get profileAge => 'Tuổi';
+
+  @override
+  String get profileFitnessGoal => 'Mục tiêu tập luyện';
+
+  @override
+  String get profileActivityLevel => 'Mức độ hoạt động hàng ngày';
+
+  @override
+  String get profileDailyCalorieTarget => 'Mục tiêu Calo hàng ngày';
+
+  @override
+  String get profileCalorieTargetUnit => 'Mục tiêu Calo (kcal/ngày)';
+
+  @override
+  String get profileSave => 'Lưu hồ sơ';
+
+  @override
+  String get profileMifflinFormula => '* Công thức Mifflin-St Jeor (Am J Clin Nutr 1990)';
+
+  @override
+  String get profileEditPrompt => 'Chỉnh sửa hồ sơ & chỉ số cơ thể →';
+
+  @override
+  String get settingsAppearanceLanguage => 'Giao diện & Ngôn ngữ';
+
+  @override
+  String get settingsAccountData => 'Tài khoản & Dữ liệu';
+
+  @override
+  String get settingsDeleteAllData => 'Xóa toàn bộ dữ liệu cá nhân';
+
+  @override
+  String get settingsDeleteDataSub => 'Xóa kế hoạch, lịch sử tập, cân nặng, nhật ký ăn (giữ tài khoản)';
+
+  @override
+  String get exerciseNoInstructions => 'Chưa có hướng dẫn cho bài tập này.';
+
+  @override
+  String get teamUniversity => 'Trường:';
+
+  @override
+  String get teamCourse => 'Học phần:';
+
+  @override
+  String get teamInstructor => 'Giảng viên:';
+
+  @override
+  String get teamMembers => 'Thành viên nhóm';
+
+  @override
+  String get teamCredits => 'Ghi công bản quyền & Dữ liệu';
+
+  @override
+  String get teamExerciseDataTitle => 'Dữ liệu & Hình ảnh bài tập';
+
+  @override
+  String get teamNutritionDataTitle => 'Cơ sở dữ liệu Dinh dưỡng Open Food Facts';
 }

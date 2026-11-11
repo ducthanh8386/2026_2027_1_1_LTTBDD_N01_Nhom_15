@@ -96,11 +96,23 @@ class TeamInfoScreen extends StatelessWidget {
                       ),
                     ),
                     const Divider(height: 24),
-                    _buildInfoRow('Trường:', TeamData.university, theme),
+                    _buildInfoRow(
+                      l10n?.teamUniversity ?? 'University:',
+                      TeamData.university,
+                      theme,
+                    ),
                     const SizedBox(height: 6),
-                    _buildInfoRow('Học phần:', TeamData.course, theme),
+                    _buildInfoRow(
+                      l10n?.teamCourse ?? 'Course:',
+                      TeamData.course,
+                      theme,
+                    ),
                     const SizedBox(height: 6),
-                    _buildInfoRow('Giảng viên:', TeamData.instructor, theme),
+                    _buildInfoRow(
+                      l10n?.teamInstructor ?? 'Instructor:',
+                      TeamData.instructor,
+                      theme,
+                    ),
                   ],
                 ),
               ),
@@ -109,7 +121,7 @@ class TeamInfoScreen extends StatelessWidget {
 
             // 2. Members Section Header
             Text(
-              'Thành viên nhóm',
+              l10n?.teamMembers ?? 'Team Members',
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -124,7 +136,7 @@ class TeamInfoScreen extends StatelessWidget {
 
             // 4. Data & License Attributions
             Text(
-              'Ghi công bản quyền & Dữ liệu',
+              l10n?.teamCredits ?? 'Data & Media Attributions',
               style: theme.textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -143,9 +155,9 @@ class TeamInfoScreen extends StatelessWidget {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.dataset_outlined),
-                      title: const Text(
-                        'Dữ liệu & Hình ảnh bài tập',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      title: Text(
+                        l10n?.teamExerciseDataTitle ?? 'Exercise Data & Media',
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       subtitle: const Text(TeamData.exerciseAttribution),
                       trailing: IconButton(
@@ -158,9 +170,10 @@ class TeamInfoScreen extends StatelessWidget {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       leading: const Icon(Icons.qr_code_scanner_outlined),
-                      title: const Text(
-                        'Cơ sở dữ liệu Dinh dưỡng Open Food Facts',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      title: Text(
+                        l10n?.teamNutritionDataTitle ??
+                            'Open Food Facts Nutrition Database',
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       subtitle: const Text(TeamData.nutritionAttribution),
                       trailing: IconButton(

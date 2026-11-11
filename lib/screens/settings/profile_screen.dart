@@ -208,7 +208,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           _buildMetricItem(
                             'BMR',
                             bmr > 0 ? '${bmr.round()}' : '--',
-                            'kcal/ngày',
+                            langCode == 'vi' ? 'kcal/ngày' : 'kcal/day',
                             theme,
                           ),
                           Container(
@@ -219,14 +219,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           _buildMetricItem(
                             'TDEE',
                             tdee > 0 ? '${tdee.round()}' : '--',
-                            'kcal/ngày',
+                            langCode == 'vi' ? 'kcal/ngày' : 'kcal/day',
                             theme,
                           ),
                         ],
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        '* Công thức Mifflin-St Jeor (Am J Clin Nutr 1990)',
+                        l10n?.profileMifflinFormula ??
+                            '* Mifflin-St Jeor formula (Am J Clin Nutr 1990)',
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: theme.disabledColor,
                           fontSize: 10,
@@ -241,7 +242,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               // 2. Personal Info Section
               Text(
-                'Thông tin cơ thể',
+                l10n?.profileBodyInfo ?? 'Body Information',
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -250,14 +251,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               TextFormField(
                 controller: _nameController,
-                decoration: const InputDecoration(
-                  labelText: 'Họ và tên',
-                  prefixIcon: Icon(Icons.person_outline),
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l10n?.fullName ?? 'Full Name',
+                  prefixIcon: const Icon(Icons.person_outline),
+                  border: const OutlineInputBorder(),
                   isDense: true,
                 ),
                 validator: (val) => (val == null || val.trim().isEmpty)
-                    ? 'Vui lòng nhập họ tên'
+                    ? (l10n?.nameRequired ?? 'Please enter your name')
                     : null,
               ),
               const SizedBox(height: 14),
@@ -270,10 +271,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       keyboardType: const TextInputType.numberWithOptions(
                         decimal: true,
                       ),
-                      decoration: const InputDecoration(
-                        labelText: 'Chiều cao (cm)',
-                        prefixIcon: Icon(Icons.height),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n?.profileHeightCm ?? 'Height (cm)',
+                        prefixIcon: const Icon(Icons.height),
+                        border: const OutlineInputBorder(),
                         isDense: true,
                       ),
                       validator: AppValidators.validatePositiveNumber,
@@ -287,10 +288,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       keyboardType: const TextInputType.numberWithOptions(
                         decimal: true,
                       ),
-                      decoration: const InputDecoration(
-                        labelText: 'Cân nặng (kg)',
-                        prefixIcon: Icon(Icons.monitor_weight_outlined),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n?.progressWeightInputLabel ?? 'Weight (kg)',
+                        prefixIcon: const Icon(Icons.monitor_weight_outlined),
+                        border: const OutlineInputBorder(),
                         isDense: true,
                       ),
                       validator: AppValidators.validatePositiveNumber,
@@ -307,10 +308,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: TextFormField(
                       controller: _ageController,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                        labelText: 'Tuổi',
-                        prefixIcon: Icon(Icons.calendar_month_outlined),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n?.profileAge ?? 'Age',
+                        prefixIcon: const Icon(Icons.calendar_month_outlined),
+                        border: const OutlineInputBorder(),
                         isDense: true,
                       ),
                       validator: AppValidators.validatePositiveNumber,
@@ -346,7 +347,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               // 3. Goal & Activity Level
               Text(
-                'Mục tiêu tập luyện',
+                l10n?.profileFitnessGoal ?? 'Fitness Goal',
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -379,10 +380,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
               DropdownButtonFormField<ActivityLevel>(
                 value: _activityLevel,
-                decoration: const InputDecoration(
-                  labelText: 'Mức độ hoạt động hàng ngày',
-                  prefixIcon: Icon(Icons.directions_run),
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l10n?.profileActivityLevel ?? 'Daily Activity Level',
+                  prefixIcon: const Icon(Icons.directions_run),
+                  border: const OutlineInputBorder(),
                   isDense: true,
                 ),
                 items: ActivityLevel.values.map((lvl) {
@@ -407,7 +408,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Mục tiêu Calo hàng ngày',
+                    l10n?.profileDailyCalorieTarget ?? 'Daily Calorie Target',
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -424,11 +425,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               TextFormField(
                 controller: _kcalController,
                 keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  labelText: 'Mục tiêu Calo (kcal/ngày)',
-                  prefixIcon: Icon(Icons.local_fire_department_outlined),
+                decoration: InputDecoration(
+                  labelText: l10n?.profileCalorieTargetUnit ?? 'Calorie Target (kcal/day)',
+                  prefixIcon: const Icon(Icons.local_fire_department_outlined),
                   suffixText: 'kcal',
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   isDense: true,
                 ),
                 validator: AppValidators.validatePositiveNumber,
@@ -450,9 +451,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 20,
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
-                    : const Text(
-                        'Lưu hồ sơ',
-                        style: TextStyle(
+                    : Text(
+                        l10n?.profileSave ?? 'Save Profile',
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -472,25 +473,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
     String sub,
     ThemeData theme,
   ) {
-    return Column(
-      children: [
-        Text(label, style: theme.textTheme.bodySmall),
-        const SizedBox(height: 2),
-        Text(
-          value,
-          style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-            color: theme.colorScheme.primary,
+    return Expanded(
+      child: Column(
+        children: [
+          Text(label, style: theme.textTheme.bodySmall),
+          const SizedBox(height: 2),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              value,
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.primary,
+              ),
+            ),
           ),
-        ),
-        Text(
-          sub,
-          style: theme.textTheme.bodySmall?.copyWith(
-            fontSize: 11,
-            color: theme.disabledColor,
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              sub,
+              style: theme.textTheme.bodySmall?.copyWith(
+                fontSize: 11,
+                color: theme.disabledColor,
+              ),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
