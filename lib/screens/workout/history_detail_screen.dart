@@ -18,10 +18,7 @@ import '../../providers/workout_provider.dart';
 class HistoryDetailScreen extends StatefulWidget {
   final int sessionId;
 
-  const HistoryDetailScreen({
-    super.key,
-    required this.sessionId,
-  });
+  const HistoryDetailScreen({super.key, required this.sessionId});
 
   @override
   State<HistoryDetailScreen> createState() => _HistoryDetailScreenState();
@@ -45,8 +42,9 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
     });
 
     try {
-      final session =
-          await context.read<WorkoutProvider>().getSession(widget.sessionId);
+      final session = await context.read<WorkoutProvider>().getSession(
+        widget.sessionId,
+      );
       if (mounted) {
         setState(() {
           _session = session;
@@ -241,7 +239,8 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
                 padding: const EdgeInsets.all(24.0),
                 child: Center(
                   child: Text(
-                    l10n?.emptyStateMessage ?? 'No exercises logged in this session',
+                    l10n?.emptyStateMessage ??
+                        'No exercises logged in this session',
                     style: TextStyle(color: theme.disabledColor),
                   ),
                 ),
@@ -251,7 +250,8 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
             ...orderedExerciseIds.map((exId) {
               final sets = exerciseSets[exId] ?? [];
               final exercise = exerciseProvider.byId(exId);
-              final exName = exercise?.localizedName(locale) ?? 'Exercise #$exId';
+              final exName =
+                  exercise?.localizedName(locale) ?? 'Exercise #$exId';
               final exVolume = sets.fold<double>(
                 0.0,
                 (acc, s) => acc + (s.reps * s.weightKg),
@@ -295,12 +295,15 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
                                         ),
                                         padding: EdgeInsets.zero,
                                       ),
-                                      if (exercise.target != null && exercise.target!.isNotEmpty)
+                                      if (exercise.target != null &&
+                                          exercise.target!.isNotEmpty)
                                         Chip(
                                           visualDensity: VisualDensity.compact,
                                           label: Text(
                                             exercise.target!,
-                                            style: const TextStyle(fontSize: 10),
+                                            style: const TextStyle(
+                                              fontSize: 10,
+                                            ),
                                           ),
                                           padding: EdgeInsets.zero,
                                         ),
@@ -316,7 +319,9 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
                               vertical: 4,
                             ),
                             decoration: BoxDecoration(
-                              color: theme.colorScheme.primary.withOpacity(0.12),
+                              color: theme.colorScheme.primary.withOpacity(
+                                0.12,
+                              ),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
@@ -335,7 +340,9 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
                       // Set details list
                       Container(
                         decoration: BoxDecoration(
-                          color: theme.colorScheme.surfaceVariant.withOpacity(0.3),
+                          color: theme.colorScheme.surfaceVariant.withOpacity(
+                            0.3,
+                          ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         padding: const EdgeInsets.symmetric(
@@ -349,7 +356,9 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
                             final setVol = setLog.reps * setLog.weightKg;
 
                             return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 4.0),
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 4.0,
+                              ),
                               child: Row(
                                 children: [
                                   Text(
@@ -427,12 +436,8 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
             ),
           ],
         ),
-        Text(
-          label,
-          style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
-        ),
+        Text(label, style: theme.textTheme.bodySmall?.copyWith(fontSize: 11)),
       ],
     );
   }
 }
-

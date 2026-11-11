@@ -150,7 +150,10 @@ class _AddWeightSheetState extends State<AddWeightSheet> {
                     ),
                     isDense: true,
                   ),
-                  child: Text(dateDisplay, style: const TextStyle(fontSize: 16)),
+                  child: Text(
+                    dateDisplay,
+                    style: const TextStyle(fontSize: 16),
+                  ),
                 ),
               ),
               const SizedBox(height: 16),

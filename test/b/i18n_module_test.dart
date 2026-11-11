@@ -99,7 +99,10 @@ void main() {
       expect(l10nVi.profileAge, equals('Tuổi'));
 
       expect(l10nEn.settingsDeleteAllData, equals('Delete Personal Data'));
-      expect(l10nVi.settingsDeleteAllData, equals('Xóa toàn bộ dữ liệu cá nhân'));
+      expect(
+        l10nVi.settingsDeleteAllData,
+        equals('Xóa toàn bộ dữ liệu cá nhân'),
+      );
 
       expect(l10nEn.exerciseNoInstructions, isNotEmpty);
       expect(l10nVi.exerciseNoInstructions, isNotEmpty);
@@ -109,4 +112,3 @@ void main() {
     });
   });
 }
-

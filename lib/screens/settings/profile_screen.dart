@@ -289,7 +289,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         decimal: true,
                       ),
                       decoration: InputDecoration(
-                        labelText: l10n?.progressWeightInputLabel ?? 'Weight (kg)',
+                        labelText:
+                            l10n?.progressWeightInputLabel ?? 'Weight (kg)',
                         prefixIcon: const Icon(Icons.monitor_weight_outlined),
                         border: const OutlineInputBorder(),
                         isDense: true,
@@ -381,7 +382,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               DropdownButtonFormField<ActivityLevel>(
                 value: _activityLevel,
                 decoration: InputDecoration(
-                  labelText: l10n?.profileActivityLevel ?? 'Daily Activity Level',
+                  labelText:
+                      l10n?.profileActivityLevel ?? 'Daily Activity Level',
                   prefixIcon: const Icon(Icons.directions_run),
                   border: const OutlineInputBorder(),
                   isDense: true,
@@ -426,7 +428,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 controller: _kcalController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: l10n?.profileCalorieTargetUnit ?? 'Calorie Target (kcal/day)',
+                  labelText:
+                      l10n?.profileCalorieTargetUnit ??
+                      'Calorie Target (kcal/day)',
                   prefixIcon: const Icon(Icons.local_fire_department_outlined),
                   suffixText: 'kcal',
                   border: const OutlineInputBorder(),

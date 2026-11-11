@@ -299,5 +299,9 @@
   "teamMembers": "Thành viên nhóm",
   "teamCredits": "Ghi công bản quyền & Dữ liệu",
   "teamExerciseDataTitle": "Dữ liệu & Hình ảnh bài tập",
-  "teamNutritionDataTitle": "Cơ sở dữ liệu Dinh dưỡng Open Food Facts"
+  "teamNutritionDataTitle": "Cơ sở dữ liệu Dinh dưỡng Open Food Facts",
+  "nutritionStandardFromOff": "Các chỉ số chuẩn từ Open Food Facts",
+  "nutritionScanBarcodeSub": "Quét mã vạch bằng camera",
+  "nutritionManualEntrySub": "Nhập tên và dinh dưỡng món ăn",
+  "planPleaseReLogin": "Vui lòng đăng nhập lại để lưu kế hoạch"
 }

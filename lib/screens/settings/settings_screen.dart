@@ -29,8 +29,7 @@ class SettingsScreen extends StatelessWidget {
       builder: (ctx) => AlertDialog(
         title: Text(l10n?.settingsDeleteTitle ?? 'Delete Personal Data?'),
         content: Text(
-          l10n?.settingsDeletePrompt ??
-              'This will wipe all weight records, workout history, custom plans, and restore initial state.',
+          l10n?.settingsDeletePrompt ?? 'This will wipe all weight records, workout history, custom plans, and restore initial state.',
         ),
         actions: [
           TextButton(
@@ -55,9 +54,7 @@ class SettingsScreen extends StatelessWidget {
       final confirmedSecond = await showDialog<bool>(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: Text(
-            l10n?.settingsDeleteConfirmTitle ?? 'Final Confirmation',
-          ),
+          title: Text(l10n?.settingsDeleteConfirmTitle ?? 'Final Confirmation'),
           content: Text(
             l10n?.settingsDeleteConfirmPrompt ??
                 'This action cannot be undone. Are you absolutely sure?',
@@ -259,8 +256,8 @@ class SettingsScreen extends StatelessWidget {
               settings.themeMode == ThemeMode.dark
                   ? (l10n?.darkTheme ?? 'Dark Theme')
                   : (settings.themeMode == ThemeMode.light
-                      ? (l10n?.lightTheme ?? 'Light Theme')
-                      : (l10n?.themeSystem ?? 'System')),
+                        ? (l10n?.lightTheme ?? 'Light Theme')
+                        : (l10n?.themeSystem ?? 'System')),
             ),
             trailing: DropdownButton<ThemeMode>(
               value: settings.themeMode,
@@ -289,7 +286,10 @@ class SettingsScreen extends StatelessWidget {
           const Divider(),
 
           // 3. Information & About
-          _buildSectionHeader(l10n?.settingsTeamInfo ?? 'Team & Project Info', theme),
+          _buildSectionHeader(
+            l10n?.settingsTeamInfo ?? 'Team & Project Info',
+            theme,
+          ),
 
           ListTile(
             leading: const Icon(Icons.info_outline),

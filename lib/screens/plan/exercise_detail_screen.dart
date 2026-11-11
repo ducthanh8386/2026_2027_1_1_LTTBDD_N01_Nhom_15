@@ -67,7 +67,10 @@ class _ExerciseDetailContent extends StatelessWidget {
 
     final name = exercise.localizedName(langCode);
     final bodyPart = ExerciseLabels.bodyPartLabel(exercise.bodyPart, langCode);
-    final equipment = ExerciseLabels.equipmentLabel(exercise.equipment, langCode);
+    final equipment = ExerciseLabels.equipmentLabel(
+      exercise.equipment,
+      langCode,
+    );
     final target = exercise.target ?? '';
     final rawInstructions = exercise.localizedInstructions(langCode);
     final steps = rawInstructions
@@ -77,10 +80,7 @@ class _ExerciseDetailContent extends StatelessWidget {
         .toList();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(name),
-        elevation: 0,
-      ),
+      appBar: AppBar(title: Text(name), elevation: 0),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -94,11 +94,13 @@ class _ExerciseDetailContent extends StatelessWidget {
                   width: double.infinity,
                   height: 240,
                   color: theme.colorScheme.surfaceVariant,
-                  child: exercise.gifAsset != null && exercise.gifAsset!.isNotEmpty
+                  child:
+                      exercise.gifAsset != null && exercise.gifAsset!.isNotEmpty
                       ? Image.asset(
                           exercise.gifAsset!,
                           fit: BoxFit.contain,
-                          errorBuilder: (_, __, ___) => _buildFallbackImage(exercise),
+                          errorBuilder: (_, __, ___) =>
+                              _buildFallbackImage(exercise),
                         )
                       : _buildFallbackImage(exercise),
                 ),
@@ -152,7 +154,8 @@ class _ExerciseDetailContent extends StatelessWidget {
                 children: exercise.secondaryMuscles.map((muscle) {
                   return Chip(
                     label: Text(muscle),
-                    backgroundColor: theme.colorScheme.surfaceVariant.withOpacity(0.5),
+                    backgroundColor: theme.colorScheme.surfaceVariant
+                        .withOpacity(0.5),
                   );
                 }).toList(),
               ),
@@ -188,14 +191,19 @@ class _ExerciseDetailContent extends StatelessWidget {
                         foregroundColor: theme.colorScheme.onPrimary,
                         child: Text(
                           '$stepNumber',
-                          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
                         child: Text(
                           text,
-                          style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            height: 1.4,
+                          ),
                         ),
                       ),
                     ],
