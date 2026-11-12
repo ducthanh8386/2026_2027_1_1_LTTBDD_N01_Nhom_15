@@ -5,7 +5,6 @@ import 'package:fit_track/core/constants.dart';
 import 'package:fit_track/data/database_helper.dart';
 import 'package:fit_track/data/repositories/exercise_repository.dart';
 import 'package:fit_track/data/seed/exercise_seed.dart';
-import 'package:fit_track/models/exercise.dart';
 import 'package:fit_track/providers/exercise_provider.dart';
 
 void main() {

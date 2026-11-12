@@ -170,7 +170,7 @@ class SettingsScreen extends StatelessWidget {
             },
             child: Container(
               padding: const EdgeInsets.all(20),
-              color: theme.colorScheme.surfaceVariant.withOpacity(0.3),
+              color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
               child: Row(
                 children: [
                   CircleAvatar(

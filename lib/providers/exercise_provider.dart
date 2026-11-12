@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import '../data/repositories/exercise_repository.dart';
 import '../models/exercise.dart';
+import '../widgets/exercise_labels.dart';
 
 /// ExerciseProvider owned by Partner B (Module B1).
 ///
@@ -14,8 +15,10 @@ class ExerciseProvider extends ChangeNotifier {
   final Map<int, Exercise> _cacheById = {};
   List<Exercise> _filteredExercises = [];
   List<String> _bodyParts = [];
+  List<String> _equipments = [];
 
   String? _selectedBodyPart;
+  String? _selectedEquipment;
   String _query = '';
   bool _isLoading = false;
   String? _error;
@@ -27,7 +30,9 @@ class ExerciseProvider extends ChangeNotifier {
 
   List<Exercise> get exercises => List.unmodifiable(_filteredExercises);
   List<String> get bodyParts => List.unmodifiable(_bodyParts);
+  List<String> get equipments => List.unmodifiable(_equipments);
   String? get selectedBodyPart => _selectedBodyPart;
+  String? get selectedEquipment => _selectedEquipment;
   String get query => _query;
   bool get isLoading => _isLoading;
   String? get error => _error;
@@ -53,6 +58,7 @@ class ExerciseProvider extends ChangeNotifier {
     try {
       final list = await _repository.findAll();
       final parts = await _repository.distinctBodyParts();
+      final eqList = await _repository.distinctEquipments();
 
       _allExercises.clear();
       _cacheById.clear();
@@ -63,6 +69,7 @@ class ExerciseProvider extends ChangeNotifier {
         }
       }
       _bodyParts = parts;
+      _equipments = eqList;
       _applyFilters();
       _error = null;
     } catch (e) {
@@ -76,6 +83,13 @@ class ExerciseProvider extends ChangeNotifier {
   void setBodyPart(String? v) {
     if (_selectedBodyPart == v) return;
     _selectedBodyPart = (v != null && v.trim().isNotEmpty && v.toLowerCase() != 'all') ? v : null;
+    _applyFilters();
+    _safeNotifyListeners();
+  }
+
+  void setEquipment(String? eq) {
+    if (_selectedEquipment == eq) return;
+    _selectedEquipment = (eq != null && eq.trim().isNotEmpty && eq.toLowerCase() != 'all') ? eq : null;
     _applyFilters();
     _safeNotifyListeners();
   }
@@ -96,6 +110,11 @@ class ExerciseProvider extends ChangeNotifier {
     _filteredExercises = _allExercises.where((ex) {
       if (_selectedBodyPart != null &&
           ex.bodyPart.toLowerCase() != _selectedBodyPart!.toLowerCase()) {
+        return false;
+      }
+
+      if (_selectedEquipment != null &&
+          !ExerciseLabels.matchesEquipment(ex.equipment, _selectedEquipment!)) {
         return false;
       }
 

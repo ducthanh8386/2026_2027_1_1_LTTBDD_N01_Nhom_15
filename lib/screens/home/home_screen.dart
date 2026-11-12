@@ -90,10 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final nutrition = context.read<NutritionProvider>();
     final plan = context.read<PlanProvider>();
 
-    final tasks = <Future>[
-      progress.loadWeekly(),
-      nutrition.loadDiary(),
-    ];
+    final tasks = <Future>[progress.loadWeekly(), nutrition.loadDiary()];
     if (user?.id != null) {
       tasks.add(plan.loadPlans(user!.id!));
       tasks.add(progress.reload());
@@ -103,7 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   String _getGreeting(AppLocalizations l10n, String? name) {
-    final displayName = (name != null && name.trim().isNotEmpty) ? name.trim() : '';
+    final displayName = (name != null && name.trim().isNotEmpty)
+        ? name.trim()
+        : '';
     final hour = DateTime.now().hour;
 
     if (displayName.isEmpty) {
@@ -381,7 +380,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }) {
     // 1. If an active session is currently running
     if (workout.isSessionActive) {
-      final sessionName = workout.activeDayFull?.day.name ??
+      final sessionName =
+          workout.activeDayFull?.day.name ??
           workout.activeSession?.planDayName ??
           l10n.freeWorkout;
 
@@ -475,7 +475,9 @@ class _HomeScreenState extends State<HomeScreen> {
             color: theme.colorScheme.outlineVariant.withValues(alpha: 0.4),
           ),
         ),
-        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
+        color: theme.colorScheme.surfaceContainerHighest.withValues(
+          alpha: 0.35,
+        ),
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -524,13 +526,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: FilledButton.icon(
                       onPressed: () async {
                         if (user?.id == null) return;
-                        await workout.startWorkoutSession(
-                          userId: user.id!,
-                          planDayFull: suggestedDay,
-                          planFull: _suggestedPlanFull,
-                        );
-                        if (context.mounted) {
-                          Navigator.of(context).pushNamed(AppRoutes.workoutSession);
+                        try {
+                          await workout.startWorkoutSession(
+                            userId: user.id!,
+                            planDayFull: suggestedDay,
+                            planFull: _suggestedPlanFull,
+                          );
+                          if (context.mounted) {
+                            Navigator.of(context)
+                                .pushNamed(AppRoutes.workoutSession);
+                          }
+                        } catch (e) {
+                          if (context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Lỗi: $e')),
+                            );
+                          }
                         }
                       },
                       icon: const Icon(Icons.play_arrow_rounded),
@@ -539,7 +550,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(width: 8),
                   OutlinedButton(
-                    onPressed: () => _startFreeWorkoutWithPicker(context, user, workout),
+                    onPressed: () =>
+                        _startFreeWorkoutWithPicker(context, user, workout),
                     child: Text(l10n.freeWorkout),
                   ),
                 ],
@@ -601,7 +613,8 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Expanded(
                   child: FilledButton.icon(
-                    onPressed: () => _startFreeWorkoutWithPicker(context, user, workout),
+                    onPressed: () =>
+                        _startFreeWorkoutWithPicker(context, user, workout),
                     icon: const Icon(Icons.bolt_rounded),
                     label: Text(l10n.homeFreeWorkoutPrompt),
                   ),
@@ -646,10 +659,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
                   side: BorderSide(
-                    color: theme.colorScheme.outlineVariant.withValues(alpha: 0.35),
+                    color: theme.colorScheme.outlineVariant.withValues(
+                      alpha: 0.35,
+                    ),
                   ),
                 ),
-                color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+                color: theme.colorScheme.surfaceContainerHighest.withValues(
+                  alpha: 0.3,
+                ),
                 clipBehavior: Clip.antiAlias,
                 child: InkWell(
                   onTap: () {
@@ -657,7 +674,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   borderRadius: BorderRadius.circular(14),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 16),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 16,
+                    ),
                     child: Row(
                       children: [
                         Container(
@@ -698,10 +718,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
                   side: BorderSide(
-                    color: theme.colorScheme.outlineVariant.withValues(alpha: 0.35),
+                    color: theme.colorScheme.outlineVariant.withValues(
+                      alpha: 0.35,
+                    ),
                   ),
                 ),
-                color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+                color: theme.colorScheme.surfaceContainerHighest.withValues(
+                  alpha: 0.3,
+                ),
                 clipBehavior: Clip.antiAlias,
                 child: InkWell(
                   onTap: () {
@@ -709,7 +733,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   borderRadius: BorderRadius.circular(14),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 16),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 14,
+                      vertical: 16,
+                    ),
                     child: Row(
                       children: [
                         Container(

@@ -306,11 +306,11 @@ class FoodDiaryScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildCalorieColumn('Mục tiêu', '${target.round()}', Colors.grey.shade700),
+                _buildCalorieColumn(l10n.nutritionTarget, '${target.round()}', Colors.grey.shade700),
                 Text('-', style: TextStyle(color: Colors.grey.shade500, fontSize: 18)),
-                _buildCalorieColumn('Đã nạp', '${consumed.round()}', theme.colorScheme.primary),
+                _buildCalorieColumn(l10n.nutritionConsumed, '${consumed.round()}', theme.colorScheme.primary),
                 Text('=', style: TextStyle(color: Colors.grey.shade500, fontSize: 18)),
-                _buildCalorieColumn('Còn lại', '${remaining.round()}', Colors.green.shade700),
+                _buildCalorieColumn(l10n.nutritionRemaining, '${remaining.round()}', Colors.green.shade700),
               ],
             ),
             const SizedBox(height: 16),

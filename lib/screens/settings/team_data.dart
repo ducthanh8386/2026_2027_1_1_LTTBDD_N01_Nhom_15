@@ -33,7 +33,7 @@ class TeamData {
   static const List<TeamMember> members = [
     TeamMember(
       name: 'Nguyễn Đức Thanh',
-      studentId: '(điền)',
+      studentId: '24100252',
       role: 'Máy A / Trưởng nhóm (~70%)',
       contribution: 'Kiến trúc 4 tầng, SQLite CSDL, Auth, Workout Plan, Active Workout Session, Dinh dưỡng, Tích hợp tổng thể',
       githubUrl: 'https://github.com/ducthanh8386',
@@ -41,7 +41,7 @@ class TeamData {
     ),
     TeamMember(
       name: 'Lê Văn Sơn',
-      studentId: '(điền)',
+      studentId: '24100386',
       role: 'Máy B / Thành viên (~30%)',
       contribution: 'Xử lý & dịch thuật bộ dữ liệu bài tập song ngữ, Thư viện bài tập, Module Tiến độ cân nặng (fl_chart), Hồ sơ & Cài đặt, Thống kê khối lượng & Lịch sử buổi tập',
       githubUrl: 'https://github.com/zackcutee',

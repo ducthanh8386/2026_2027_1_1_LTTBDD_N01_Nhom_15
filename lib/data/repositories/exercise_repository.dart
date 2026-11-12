@@ -34,8 +34,29 @@ class ExerciseRepository {
     if (equipment != null &&
         equipment.trim().isNotEmpty &&
         equipment.toLowerCase() != 'all') {
-      whereClauses.add('equipment = ?');
-      whereArgs.add(equipment.trim());
+      final eq = equipment.trim().toLowerCase();
+      if (eq == 'machine') {
+        whereClauses.add("equipment LIKE '%machine%' AND equipment != 'smith machine'");
+      } else if (eq == 'smith machine') {
+        whereClauses.add("equipment LIKE '%smith%'");
+      } else if (eq == 'barbell') {
+        whereClauses.add("equipment LIKE '%barbell%' AND equipment NOT LIKE '%ez%'");
+      } else if (eq == 'ez barbell') {
+        whereClauses.add("equipment LIKE '%ez%'");
+      } else if (eq == 'cable') {
+        whereClauses.add("(equipment LIKE '%cable%' OR equipment = 'rope')");
+      } else if (eq == 'body weight' || eq == 'bodyweight') {
+        whereClauses.add("(equipment = 'body weight' OR equipment = 'assisted' OR equipment = 'weighted')");
+      } else if (eq == 'band') {
+        whereClauses.add("equipment LIKE '%band%'");
+      } else if (eq == 'stability ball') {
+        whereClauses.add("equipment LIKE '%ball%'");
+      } else if (eq == 'roller') {
+        whereClauses.add("equipment LIKE '%roller%'");
+      } else {
+        whereClauses.add('equipment = ?');
+        whereArgs.add(equipment.trim());
+      }
     }
 
     final String? where =
@@ -110,6 +131,8 @@ class ExerciseRepository {
     );
     return results.map((r) => r['equipment'] as String).toList();
   }
+
+  Future<List<String>> distinctEquipments() => distinctEquipment();
 
   static String stripDiacritics(String str) {
     var result = str.toLowerCase();

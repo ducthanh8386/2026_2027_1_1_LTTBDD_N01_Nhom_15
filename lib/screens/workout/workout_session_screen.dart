@@ -5,6 +5,7 @@ import '../../data/repositories/plan_repository.dart';
 import '../../l10n/app_localizations.dart';
 import '../../models/exercise.dart';
 import '../../providers/workout_provider.dart';
+import '../../widgets/exercise_image_thumbnail.dart';
 import '../../widgets/rest_timer_bar.dart';
 import '../plan/exercise_library_screen.dart';
 import 'workout_summary_screen.dart';
@@ -137,10 +138,10 @@ class _WorkoutSessionScreenState extends State<WorkoutSessionScreen> {
     }
 
     context.read<WorkoutProvider>().recordSet(
-          exerciseId: exerciseId,
-          reps: reps,
-          weightKg: weight,
-        );
+      exerciseId: exerciseId,
+      reps: reps,
+      weightKg: weight,
+    );
   }
 
   Future<void> _addExerciseToSession(BuildContext context) async {
@@ -185,11 +186,13 @@ class _WorkoutSessionScreenState extends State<WorkoutSessionScreen> {
         final totalExercises = exercises.isNotEmpty ? exercises.length : 1;
         final currentIndex = provider.currentExerciseIndex;
 
-        final currentPlanDetail = exercises.isNotEmpty && currentIndex < exercises.length
+        final currentPlanDetail =
+            exercises.isNotEmpty && currentIndex < exercises.length
             ? exercises[currentIndex]
             : null;
 
-        final currentExercise = currentPlanDetail?.exercise ??
+        final currentExercise =
+            currentPlanDetail?.exercise ??
             Exercise(
               id: currentPlanDetail?.planExercise.exerciseId ?? 1,
               sourceId: '',
@@ -274,233 +277,283 @@ class _WorkoutSessionScreenState extends State<WorkoutSessionScreen> {
                   )
                 : Column(
                     children: [
-                // Exercise Navigation Header
-                Container(
-                  color: theme.colorScheme.surfaceContainerLow,
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.arrow_back_ios_new, size: 18),
-                        onPressed: currentIndex > 0
-                            ? () => provider.setCurrentExerciseIndex(currentIndex - 1)
-                            : null,
-                      ),
-                      Expanded(
-                        child: Column(
+                      // Exercise Navigation Header
+                      Container(
+                        color: theme.colorScheme.surfaceContainerLow,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              '${l10n.exerciseOrder} ${currentIndex + 1}/$totalExercises',
-                              style: theme.textTheme.labelMedium?.copyWith(
-                                color: theme.colorScheme.primary,
-                                fontWeight: FontWeight.bold,
+                            IconButton(
+                              icon: const Icon(
+                                Icons.arrow_back_ios_new,
+                                size: 18,
+                              ),
+                              onPressed: currentIndex > 0
+                                  ? () => provider.setCurrentExerciseIndex(
+                                      currentIndex - 1,
+                                    )
+                                  : null,
+                            ),
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  ExerciseImageThumbnail(
+                                    imagePath: currentExercise.imageAsset,
+                                    width: 48,
+                                    height: 48,
+                                    borderRadius: 8,
+                                  ),
+                                  const SizedBox(width: 12),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          '${l10n.exerciseOrder} ${currentIndex + 1}/$totalExercises',
+                                          style: theme.textTheme.labelMedium
+                                              ?.copyWith(
+                                                color: theme.colorScheme.primary,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                        ),
+                                        const SizedBox(height: 2),
+                                        Text(
+                                          currentExercise.localizedName(
+                                            locale.languageCode,
+                                          ),
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: theme.textTheme.titleMedium
+                                              ?.copyWith(fontWeight: FontWeight.bold),
+                                        ),
+                                        if (currentPlanDetail != null) ...[
+                                          const SizedBox(height: 2),
+                                          Text(
+                                            '${l10n.target}: ${currentPlanDetail.planExercise.targetSets} sets × ${currentPlanDetail.planExercise.targetReps} reps',
+                                            style: theme.textTheme.bodySmall
+                                                ?.copyWith(
+                                                  color: theme.colorScheme.outline,
+                                                ),
+                                          ),
+                                        ],
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            const SizedBox(height: 2),
-                            Text(
-                              currentExercise.localizedName(locale.languageCode),
-                              textAlign: TextAlign.center,
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
+                            IconButton(
+                              icon: const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 18,
                               ),
+                              onPressed: currentIndex < totalExercises - 1
+                                  ? () => provider.setCurrentExerciseIndex(
+                                      currentIndex + 1,
+                                    )
+                                  : null,
                             ),
-                            if (currentPlanDetail != null) ...[
-                              const SizedBox(height: 2),
-                              Text(
-                                '${l10n.target}: ${currentPlanDetail.planExercise.targetSets} sets × ${currentPlanDetail.planExercise.targetReps} reps',
-                                style: theme.textTheme.bodySmall?.copyWith(
-                                  color: theme.colorScheme.outline,
-                                ),
-                              ),
-                            ],
                           ],
                         ),
                       ),
-                      IconButton(
-                        icon: const Icon(Icons.arrow_forward_ios, size: 18),
-                        onPressed: currentIndex < totalExercises - 1
-                            ? () => provider.setCurrentExerciseIndex(currentIndex + 1)
-                            : null,
-                      ),
-                    ],
-                  ),
-                ),
 
-                // Rest Timer Bar
-                const RestTimerBar(),
+                      // Rest Timer Bar
+                      const RestTimerBar(),
 
-                // Sets List & Inputs
-                Expanded(
-                  child: ListView(
-                    padding: const EdgeInsets.all(16.0),
-                    children: [
-                      // Recorded Sets Table
-                      if (recordedSets.isNotEmpty) ...[
-                        Text(
-                          l10n.completedSets,
-                          style: theme.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Card(
-                          child: ListView.separated(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: recordedSets.length,
-                            separatorBuilder: (_, _) => const Divider(height: 1),
-                            itemBuilder: (context, index) {
-                              final setLog = recordedSets[index];
-                              return ListTile(
-                                leading: CircleAvatar(
-                                  radius: 14,
-                                  backgroundColor: theme.colorScheme.primaryContainer,
-                                  child: Text(
-                                    '${setLog.setIndex}',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: theme.colorScheme.primary,
-                                    ),
-                                  ),
-                                ),
-                                title: Text(
-                                  '${setLog.reps} reps × ${setLog.weightKg} kg',
-                                  style: const TextStyle(fontWeight: FontWeight.w600),
-                                ),
-                                trailing: IconButton(
-                                  icon: const Icon(Icons.delete_outline, size: 20),
-                                  tooltip: l10n.deleteSet,
-                                  onPressed: () {
-                                    if (setLog.id != null) {
-                                      provider.removeSet(setLog.id!);
-                                    }
-                                  },
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                      ],
-
-                      // New Set Input Card
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                          side: BorderSide(
-                            color: theme.colorScheme.outlineVariant,
-                          ),
-                        ),
-                        child: Padding(
+                      // Sets List & Inputs
+                      Expanded(
+                        child: ListView(
                           padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                          children: [
+                            // Recorded Sets Table
+                            if (recordedSets.isNotEmpty) ...[
                               Text(
-                                '${l10n.addSet} #${recordedSets.length + 1}',
+                                l10n.completedSets,
                                 style: theme.textTheme.titleSmall?.copyWith(
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              const SizedBox(height: 12),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: TextField(
-                                      controller: _repsController,
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        labelText: l10n.reps,
-                                        border: const OutlineInputBorder(),
-                                        isDense: true,
+                              const SizedBox(height: 8),
+                              Card(
+                                child: ListView.separated(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemCount: recordedSets.length,
+                                  separatorBuilder: (_, _) =>
+                                      const Divider(height: 1),
+                                  itemBuilder: (context, index) {
+                                    final setLog = recordedSets[index];
+                                    return ListTile(
+                                      leading: CircleAvatar(
+                                        radius: 14,
+                                        backgroundColor:
+                                            theme.colorScheme.primaryContainer,
+                                        child: Text(
+                                          '${setLog.setIndex}',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: theme.colorScheme.primary,
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Expanded(
-                                    child: TextField(
-                                      controller: _weightController,
-                                      keyboardType:
-                                          const TextInputType.numberWithOptions(
-                                        decimal: true,
+                                      title: Text(
+                                        '${setLog.reps} reps × ${setLog.weightKg} kg',
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
-                                      decoration: InputDecoration(
-                                        labelText: l10n.weightKg,
-                                        border: const OutlineInputBorder(),
-                                        isDense: true,
+                                      trailing: IconButton(
+                                        icon: const Icon(
+                                          Icons.delete_outline,
+                                          size: 20,
+                                        ),
+                                        tooltip: l10n.deleteSet,
+                                        onPressed: () {
+                                          if (setLog.id != null) {
+                                            provider.removeSet(setLog.id!);
+                                          }
+                                        },
                                       ),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      minimumSize: const Size(48, 48),
-                                      fixedSize: const Size(48, 48),
-                                      padding: EdgeInsets.zero,
-                                      shape: const CircleBorder(),
-                                    ),
-                                    onPressed: () =>
-                                        _recordSet(context, currentExerciseId),
-                                    child: const Icon(Icons.check),
-                                  ),
-                                ],
+                                    );
+                                  },
+                                ),
                               ),
+                              const SizedBox(height: 16),
+                            ],
+
+                            // New Set Input Card
+                            Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                                side: BorderSide(
+                                  color: theme.colorScheme.outlineVariant,
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '${l10n.addSet} #${recordedSets.length + 1}',
+                                      style: theme.textTheme.titleSmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    const SizedBox(height: 12),
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: TextField(
+                                            controller: _repsController,
+                                            keyboardType: TextInputType.number,
+                                            decoration: InputDecoration(
+                                              labelText: l10n.reps,
+                                              border:
+                                                  const OutlineInputBorder(),
+                                              isDense: true,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 12),
+                                        Expanded(
+                                          child: TextField(
+                                            controller: _weightController,
+                                            keyboardType:
+                                                const TextInputType.numberWithOptions(
+                                                  decimal: true,
+                                                ),
+                                            decoration: InputDecoration(
+                                              labelText: l10n.weightKg,
+                                              border:
+                                                  const OutlineInputBorder(),
+                                              isDense: true,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(width: 12),
+                                        ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            minimumSize: const Size(48, 48),
+                                            fixedSize: const Size(48, 48),
+                                            padding: EdgeInsets.zero,
+                                            shape: const CircleBorder(),
+                                          ),
+                                          onPressed: () => _recordSet(
+                                            context,
+                                            currentExerciseId,
+                                          ),
+                                          child: const Icon(Icons.check),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Bottom Navigation controls
+                      SafeArea(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            children: [
+                              if (currentIndex > 0)
+                                Expanded(
+                                  child: OutlinedButton.icon(
+                                    icon: const Icon(Icons.skip_previous),
+                                    label: Text(l10n.previousExercise),
+                                    onPressed: () =>
+                                        provider.setCurrentExerciseIndex(
+                                          currentIndex - 1,
+                                        ),
+                                  ),
+                                ),
+                              if (currentIndex > 0 &&
+                                  currentIndex < totalExercises - 1)
+                                const SizedBox(width: 12),
+                              if (currentIndex < totalExercises - 1)
+                                Expanded(
+                                  child: ElevatedButton.icon(
+                                    icon: const Icon(Icons.skip_next),
+                                    label: Text(l10n.nextExercise),
+                                    onPressed: () =>
+                                        provider.setCurrentExerciseIndex(
+                                          currentIndex + 1,
+                                        ),
+                                  ),
+                                ),
+                              if (currentIndex == totalExercises - 1) ...[
+                                if (currentIndex > 0) const SizedBox(width: 12),
+                                Expanded(
+                                  child: ElevatedButton.icon(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          theme.colorScheme.primary,
+                                      foregroundColor:
+                                          theme.colorScheme.onPrimary,
+                                    ),
+                                    icon: const Icon(Icons.flag_rounded),
+                                    label: Text(l10n.finishWorkout),
+                                    onPressed: () => _finishWorkout(context),
+                                  ),
+                                ),
+                              ],
                             ],
                           ),
                         ),
                       ),
                     ],
                   ),
-                ),
-
-                // Bottom Navigation controls
-                SafeArea(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
-                      children: [
-                        if (currentIndex > 0)
-                          Expanded(
-                            child: OutlinedButton.icon(
-                              icon: const Icon(Icons.skip_previous),
-                              label: Text(l10n.previousExercise),
-                              onPressed: () => provider
-                                  .setCurrentExerciseIndex(currentIndex - 1),
-                            ),
-                          ),
-                        if (currentIndex > 0 && currentIndex < totalExercises - 1)
-                          const SizedBox(width: 12),
-                        if (currentIndex < totalExercises - 1)
-                          Expanded(
-                            child: ElevatedButton.icon(
-                              icon: const Icon(Icons.skip_next),
-                              label: Text(l10n.nextExercise),
-                              onPressed: () => provider
-                                  .setCurrentExerciseIndex(currentIndex + 1),
-                            ),
-                          ),
-                        if (currentIndex == totalExercises - 1) ...[
-                          if (currentIndex > 0) const SizedBox(width: 12),
-                          Expanded(
-                            child: ElevatedButton.icon(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: theme.colorScheme.primary,
-                                foregroundColor: theme.colorScheme.onPrimary,
-                              ),
-                              icon: const Icon(Icons.flag_rounded),
-                              label: Text(l10n.finishWorkout),
-                              onPressed: () => _finishWorkout(context),
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ),
         );
       },

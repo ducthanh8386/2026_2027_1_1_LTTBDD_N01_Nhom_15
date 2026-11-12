@@ -4,7 +4,6 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:fit_track/core/constants.dart';
 import 'package:fit_track/data/database_helper.dart';
 import 'package:fit_track/data/repositories/stats_repository.dart';
-import 'package:fit_track/models/workout_session.dart';
 import 'package:fit_track/providers/progress_provider.dart';
 import 'package:fit_track/services/stats_service.dart';
 

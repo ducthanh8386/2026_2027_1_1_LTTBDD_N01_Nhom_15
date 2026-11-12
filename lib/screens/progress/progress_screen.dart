@@ -131,9 +131,6 @@ class _ProgressScreenState extends State<ProgressScreen> {
   }
 
   Widget _buildVolumeTab(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
-
     return Consumer<ProgressProvider>(
       builder: (context, provider, _) {
         if (provider.isLoading) {
@@ -271,7 +268,6 @@ class _ProgressScreenState extends State<ProgressScreen> {
 
   Widget _buildVolumeKpiCards(BuildContext context, List<VolumePoint> points) {
     final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
 
     double totalVol = 0;
     double maxVol = 0;
@@ -355,7 +351,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
       return Card(
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        color: theme.colorScheme.surfaceVariant.withOpacity(0.3),
+        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
           child: Column(
@@ -561,7 +557,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
 
             // Exercise Dropdown Selector
             DropdownButtonFormField<int>(
-              value: _selectedExerciseId,
+              initialValue: _selectedExerciseId,
               isExpanded: true,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(
@@ -695,7 +691,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
               dotData: FlDotData(show: spots.length <= 15),
               belowBarData: BarAreaData(
                 show: true,
-                color: Colors.deepOrange.withOpacity(0.15),
+                color: Colors.deepOrange.withValues(alpha: 0.15),
               ),
             ),
           ],
@@ -744,7 +740,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final firstWeight = points.first.kg;
     final diff = currentWeight - firstWeight;
     final diffSign = diff > 0 ? '+' : '';
-    final diffText = '${diffSign}${diff.toStringAsFixed(1)} kg';
+    final diffText = '$diffSign${diff.toStringAsFixed(1)} kg';
 
     double minKg = points.first.kg;
     double maxKg = points.first.kg;
@@ -874,7 +870,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
       return Card(
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        color: theme.colorScheme.surfaceVariant.withOpacity(0.3),
+        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
           child: Column(
@@ -997,7 +993,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                       dotData: FlDotData(show: spots.length <= 15),
                       belowBarData: BarAreaData(
                         show: true,
-                        color: theme.colorScheme.primary.withOpacity(0.15),
+                        color: theme.colorScheme.primary.withValues(alpha: 0.15),
                       ),
                     ),
                   ],

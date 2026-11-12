@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -93,16 +95,8 @@ class _ExerciseDetailContent extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   height: 240,
-                  color: theme.colorScheme.surfaceVariant,
-                  child:
-                      exercise.gifAsset != null && exercise.gifAsset!.isNotEmpty
-                      ? Image.asset(
-                          exercise.gifAsset!,
-                          fit: BoxFit.contain,
-                          errorBuilder: (_, __, ___) =>
-                              _buildFallbackImage(exercise),
-                        )
-                      : _buildFallbackImage(exercise),
+                  color: theme.colorScheme.surfaceContainerHighest,
+                  child: _buildMediaWidget(exercise),
                 ),
               ),
             ),
@@ -154,8 +148,8 @@ class _ExerciseDetailContent extends StatelessWidget {
                 children: exercise.secondaryMuscles.map((muscle) {
                   return Chip(
                     label: Text(muscle),
-                    backgroundColor: theme.colorScheme.surfaceVariant
-                        .withOpacity(0.5),
+                    backgroundColor: theme.colorScheme.surfaceContainerHighest
+                        .withValues(alpha: 0.5),
                   );
                 }).toList(),
               ),
@@ -231,18 +225,101 @@ class _ExerciseDetailContent extends StatelessWidget {
     );
   }
 
-  Widget _buildFallbackImage(Exercise exercise) {
-    if (exercise.imageAsset != null && exercise.imageAsset!.isNotEmpty) {
-      return Image.asset(
-        exercise.imageAsset!,
-        fit: BoxFit.contain,
-        errorBuilder: (_, __, ___) => const Center(
-          child: Icon(Icons.fitness_center, size: 72, color: Colors.grey),
-        ),
+  Widget _buildMediaWidget(Exercise exercise) {
+    final media = (exercise.gifAsset != null && exercise.gifAsset!.isNotEmpty)
+        ? exercise.gifAsset!
+        : (exercise.imageAsset ?? '');
+
+    if (media.isEmpty) {
+      return const Center(
+        child: Icon(Icons.fitness_center_rounded, size: 72, color: Colors.grey),
       );
     }
-    return const Center(
-      child: Icon(Icons.fitness_center, size: 72, color: Colors.grey),
+
+    if (media.startsWith('http://') || media.startsWith('https://')) {
+      if (kIsWeb) {
+        // Flutter Web: Native Image.network renders HTML5/CanvasKit image reliably without CORS/cache block
+        return Image.network(
+          media,
+          fit: BoxFit.contain,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+          errorBuilder: (context, error, stackTrace) {
+            // Fallback to jsdelivr if raw github fails or vice versa
+            String? altUrl;
+            if (media.contains('raw.githubusercontent.com')) {
+              altUrl = media.replaceFirst(
+                'https://raw.githubusercontent.com/Johnson-Jia/exercises-dataset/master/media/',
+                'https://cdn.jsdelivr.net/gh/Johnson-Jia/exercises-dataset@master/media/',
+              );
+            } else if (media.contains('cdn.jsdelivr.net')) {
+              altUrl = media.replaceFirst(
+                'https://cdn.jsdelivr.net/gh/Johnson-Jia/exercises-dataset@master/media/',
+                'https://raw.githubusercontent.com/Johnson-Jia/exercises-dataset/master/media/',
+              );
+            }
+            if (altUrl != null && altUrl != media) {
+              return Image.network(
+                altUrl,
+                fit: BoxFit.contain,
+                errorBuilder: (_, _, _) => const Center(
+                  child: Icon(Icons.fitness_center_rounded, size: 72, color: Colors.grey),
+                ),
+              );
+            }
+            return const Center(
+              child: Icon(Icons.fitness_center_rounded, size: 72, color: Colors.grey),
+            );
+          },
+        );
+      }
+
+      return CachedNetworkImage(
+        imageUrl: media,
+        fit: BoxFit.contain,
+        placeholder: (context, url) => const Center(
+          child: CircularProgressIndicator(),
+        ),
+        errorWidget: (context, url, error) {
+          String? altUrl;
+          if (media.contains('raw.githubusercontent.com')) {
+            altUrl = media.replaceFirst(
+              'https://raw.githubusercontent.com/Johnson-Jia/exercises-dataset/master/media/',
+              'https://cdn.jsdelivr.net/gh/Johnson-Jia/exercises-dataset@master/media/',
+            );
+          } else if (media.contains('cdn.jsdelivr.net')) {
+            altUrl = media.replaceFirst(
+              'https://cdn.jsdelivr.net/gh/Johnson-Jia/exercises-dataset@master/media/',
+              'https://raw.githubusercontent.com/Johnson-Jia/exercises-dataset/master/media/',
+            );
+          }
+          if (altUrl != null && altUrl != media) {
+            return CachedNetworkImage(
+              imageUrl: altUrl,
+              fit: BoxFit.contain,
+              placeholder: (_, _) => const Center(child: CircularProgressIndicator()),
+              errorWidget: (_, _, _) => const Center(
+                child: Icon(Icons.fitness_center_rounded, size: 72, color: Colors.grey),
+              ),
+            );
+          }
+          return const Center(
+            child: Icon(Icons.fitness_center_rounded, size: 72, color: Colors.grey),
+          );
+        },
+      );
+    }
+
+    return Image.asset(
+      media,
+      fit: BoxFit.contain,
+      errorBuilder: (_, _, _) => const Center(
+        child: Icon(Icons.fitness_center_rounded, size: 72, color: Colors.grey),
+      ),
     );
   }
 }

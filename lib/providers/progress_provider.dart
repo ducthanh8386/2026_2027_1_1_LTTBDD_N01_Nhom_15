@@ -7,7 +7,7 @@ import '../services/stats_service.dart';
 /// ProgressProvider owned by Partner B (Module B2/B4).
 ///
 /// Manages state for weight tracking, progress charts, and weekly summaries.
-/// Injected via ChangeNotifierProxyProvider<AuthProvider, ProgressProvider> in main.dart.
+/// Injected via `ChangeNotifierProxyProvider<AuthProvider, ProgressProvider>` in main.dart.
 class ProgressProvider extends ChangeNotifier {
   final StatsService _service;
 

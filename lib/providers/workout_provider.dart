@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 
 import '../data/repositories/plan_repository.dart';
@@ -58,7 +59,7 @@ class WorkoutProvider extends ChangeNotifier {
       _restTotalSeconds > 0 ? _restSecondsRemaining / _restTotalSeconds : 0.0;
 
   WorkoutProvider({WorkoutService? workoutService})
-      : _workoutService = workoutService ?? WorkoutService();
+    : _workoutService = workoutService ?? WorkoutService();
 
   @override
   void dispose() {
@@ -225,7 +226,8 @@ class WorkoutProvider extends ChangeNotifier {
   }) {
     if (_activeSession == null) return;
 
-    final currentExercises = _activeDayFull?.exercises ?? <PlanExerciseDetail>[];
+    final currentExercises =
+        _activeDayFull?.exercises ?? <PlanExerciseDetail>[];
     final newIndex = currentExercises.length;
     final newDetail = PlanExerciseDetail(
       planExercise: PlanExercise(
@@ -239,8 +241,10 @@ class WorkoutProvider extends ChangeNotifier {
       exercise: exercise,
     );
 
-    final updatedList = List<PlanExerciseDetail>.from(currentExercises)..add(newDetail);
-    final currentDay = _activeDayFull?.day ??
+    final updatedList = List<PlanExerciseDetail>.from(currentExercises)
+      ..add(newDetail);
+    final currentDay =
+        _activeDayFull?.day ??
         PlanDay(
           id: null,
           planId: 0,
@@ -248,10 +252,7 @@ class WorkoutProvider extends ChangeNotifier {
           name: _activeSession?.planDayName ?? 'Buổi tập tự do',
         );
 
-    _activeDayFull = PlanDayFull(
-      day: currentDay,
-      exercises: updatedList,
-    );
+    _activeDayFull = PlanDayFull(day: currentDay, exercises: updatedList);
 
     _currentExerciseIndex = newIndex;
     notifyListeners();
@@ -333,7 +334,9 @@ class WorkoutProvider extends ChangeNotifier {
 
       // Reload history if user exists
       if (_activeSession?.userId != null) {
-        _history = await _workoutService.getSessionHistory(_activeSession!.userId);
+        _history = await _workoutService.getSessionHistory(
+          _activeSession!.userId,
+        );
       }
 
       _activeSession = null;

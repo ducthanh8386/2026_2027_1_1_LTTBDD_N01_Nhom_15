@@ -307,10 +307,10 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          _buildMacroItem('Calo', '$calcKcal kcal', Colors.orange),
-                          _buildMacroItem('Protein', '$calcProtein g', Colors.blue),
-                          _buildMacroItem('Carbs', '$calcCarbs g', Colors.green),
-                          _buildMacroItem('Fat', '$calcFat g', Colors.red),
+                          _buildMacroItem(l10n.nutritionCalories, '$calcKcal kcal', Colors.orange),
+                          _buildMacroItem(l10n.nutritionProtein, '$calcProtein g', Colors.blue),
+                          _buildMacroItem(l10n.nutritionCarbs, '$calcCarbs g', Colors.green),
+                          _buildMacroItem(l10n.nutritionFat, '$calcFat g', Colors.red),
                         ],
                       ),
                     ],

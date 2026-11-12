@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../core/validators.dart';
 import '../../l10n/app_localizations.dart';
-import '../../models/user.dart';
 import '../../providers/auth_provider.dart';
 import '../../services/profile_calc.dart';
 
@@ -186,7 +185,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
-                color: theme.colorScheme.primaryContainer.withOpacity(0.3),
+                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
@@ -380,7 +379,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 14),
 
               DropdownButtonFormField<ActivityLevel>(
-                value: _activityLevel,
+                initialValue: _activityLevel,
                 decoration: InputDecoration(
                   labelText:
                       l10n?.profileActivityLevel ?? 'Daily Activity Level',

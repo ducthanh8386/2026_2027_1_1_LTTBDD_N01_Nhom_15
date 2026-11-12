@@ -88,6 +88,7 @@ class SessionRepository {
 
   /// Retrieves full workout history for a user, including sets and planDayName.
   /// Ordered newest first (started_at DESC).
+  /// Optimized to prevent N+1 queries.
   Future<List<WorkoutSession>> findHistoryByUser(int userId) async {
     final db = await _dbHelper.database;
     final sessionRows = await db.rawQuery('''
@@ -98,25 +99,31 @@ class SessionRepository {
       ORDER BY s.started_at DESC
     ''', [userId]);
 
-    final List<WorkoutSession> history = [];
-    for (final sRow in sessionRows) {
-      final sId = sRow['id'] as int;
-      final setRows = await db.query(
-        AppConstants.tableSetLogs,
-        where: 'session_id = ?',
-        whereArgs: [sId],
-        orderBy: 'exercise_id ASC, set_index ASC',
-      );
-      final sets = setRows.map((r) => SetLog.fromMap(r)).toList();
-      history.add(
-        WorkoutSession.fromMap(
-          sRow,
-          sets: sets,
-          planDayName: sRow['plan_day_name'] as String?,
-        ),
-      );
+    if (sessionRows.isEmpty) return [];
+
+    final sessionIds = sessionRows.map((r) => r['id'] as int).toList();
+    final placeholders = List.filled(sessionIds.length, '?').join(',');
+    final setRows = await db.query(
+      AppConstants.tableSetLogs,
+      where: 'session_id IN ($placeholders)',
+      whereArgs: sessionIds,
+      orderBy: 'exercise_id ASC, set_index ASC',
+    );
+
+    final setsBySession = <int, List<SetLog>>{};
+    for (final row in setRows) {
+      final set = SetLog.fromMap(row);
+      setsBySession.putIfAbsent(set.sessionId, () => []).add(set);
     }
-    return history;
+
+    return sessionRows.map((sRow) {
+      final sId = sRow['id'] as int;
+      return WorkoutSession.fromMap(
+        sRow,
+        sets: setsBySession[sId] ?? const [],
+        planDayName: sRow['plan_day_name'] as String?,
+      );
+    }).toList();
   }
 
   /// Retrieves a single workout session by id with its sets and planDayName.

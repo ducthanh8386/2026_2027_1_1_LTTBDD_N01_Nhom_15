@@ -6,7 +6,7 @@ import '../core/constants.dart';
 import 'seed/exercise_seed.dart';
 
 class DatabaseHelper {
-  static const int _dbVersion = 1;
+  static const int _dbVersion = 2;
   static const String _dbName = 'fit_track.db';
 
   static final DatabaseHelper _instance = DatabaseHelper._internal();
@@ -42,7 +42,16 @@ class DatabaseHelper {
       version: _dbVersion,
       onConfigure: _onConfigure,
       onCreate: onCreate,
+      onUpgrade: _onUpgrade,
     );
+  }
+
+  static Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // Re-seed all exercises with full 1324 dataset
+      await db.delete(AppConstants.tableExercises);
+      await ExerciseSeeder.seedIfEmpty(db, force: true);
+    }
   }
 
   static Future<void> _onConfigure(Database db) async {

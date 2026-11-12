@@ -11,16 +11,34 @@ import '../../models/exercise.dart';
 /// Seeds the initial exercise dataset into SQLite database from assets/data/exercises_seed.json.
 /// Operation is idempotent and batch-inserted in a single transaction.
 class ExerciseSeeder {
-  static Future<void> seedIfEmpty(Database db, {String? jsonString}) async {
+  static Future<void> seedIfEmpty(
+    Database db, {
+    String? jsonString,
+    bool force = false,
+  }) async {
     final count = Sqflite.firstIntValue(
       await db.rawQuery('SELECT COUNT(*) FROM ${AppConstants.tableExercises}'),
     ) ?? 0;
 
-    if (count > 0) {
+    // If database already contains the full dataset (1300+ items) and force is false, skip
+    if (!force && count >= 1000) {
+      // Auto-update outdated jsdelivr URLs if present
+      await db.execute('''
+        UPDATE ${AppConstants.tableExercises}
+        SET image_asset = REPLACE(image_asset, 'https://cdn.jsdelivr.net/gh/Johnson-Jia/exercises-dataset@master/media/', 'https://raw.githubusercontent.com/Johnson-Jia/exercises-dataset/master/media/'),
+            gif_asset = REPLACE(gif_asset, 'https://cdn.jsdelivr.net/gh/Johnson-Jia/exercises-dataset@master/media/', 'https://raw.githubusercontent.com/Johnson-Jia/exercises-dataset/master/media/')
+        WHERE image_asset LIKE '%jsdelivr%';
+      ''');
+
       if (kDebugMode) {
         print('ExerciseSeeder: ${AppConstants.tableExercises} already contains $count records. Skipping.');
       }
       return;
+    }
+
+    if (count > 0 && (force || count < 1000)) {
+      // Clear outdated seed
+      await db.delete(AppConstants.tableExercises);
     }
 
     String data = jsonString ?? '';

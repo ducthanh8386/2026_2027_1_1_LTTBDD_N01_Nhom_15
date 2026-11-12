@@ -154,18 +154,26 @@ class _PlanListScreenState extends State<PlanListScreen> {
                           final auth = context.read<AuthProvider>();
                           final userId = auth.currentUser?.id;
                           if (userId != null) {
-                            await context
-                                .read<WorkoutProvider>()
-                                .startWorkoutSession(
-                                  userId: userId,
-                                  planDayFull: dayFull,
-                                  planFull: fullPlan,
+                            try {
+                              await context
+                                  .read<WorkoutProvider>()
+                                  .startWorkoutSession(
+                                    userId: userId,
+                                    planDayFull: dayFull,
+                                    planFull: fullPlan,
+                                  );
+                              if (context.mounted) {
+                                Navigator.pushNamed(
+                                  context,
+                                  AppRoutes.workoutSession,
                                 );
-                            if (context.mounted) {
-                              Navigator.pushNamed(
-                                context,
-                                AppRoutes.workoutSession,
-                              );
+                              }
+                            } catch (e) {
+                              if (context.mounted) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Lỗi: $e')),
+                                );
+                              }
                             }
                           }
                         },
